@@ -1,10 +1,10 @@
 'use client';
 
-import ServiceCard from "../../components/service_card.jsx";
-import useLanguageContext from "../_hooks/useLanguageContext.jsx";
-import { servicesData } from "../_mock_data/services.js";
+import ServiceCard from "@/app/_components/service_card.jsx";
+import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
+import { servicesData } from '@/app/_mock_data/services.js'
 import { useEffect, useState } from "react";
-import Translate from "../_utils/Translator.js";
+import Translate from "@/app/_utils/Translator.js";
 
 export default function TranslatedServices() {
   const { language } = useLanguageContext();

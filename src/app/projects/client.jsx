@@ -2,7 +2,7 @@
 
 import { projectsData } from '@/app/_mock_data/projects.js';
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
-import ProjectCard from '@/components/projects_card.jsx';
+import ProjectCard from '@/app/_components/projects_card.jsx';
 import { projectsStaticData } from '@/app/_lib/static_data.js';
 import { useEffect, useState } from 'react';
 

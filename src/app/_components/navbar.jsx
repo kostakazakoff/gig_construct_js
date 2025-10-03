@@ -5,9 +5,9 @@ import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from '@heroicons/react/24/out
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import useLanguageContext from '../app/_hooks/useLanguageContext.jsx'
-import { navTranslations } from '../app/_lib/translate.js'
-import useTheme from '../app/_hooks/useTheme.jsx'
+import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
+import { navTranslations } from '@/app/_lib/translate.js'
+import useTheme from '@/app/_hooks/useTheme.jsx'
 
 function classNames(...classes ) {
   return classes.filter(Boolean).join(' ')

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { aboutStaticData } from "../_lib/static_data.js"
 import useLanguageContext from "../_hooks/useLanguageContext.jsx"
 import { partners } from "../_mock_data/partners.js";
-import PartnerBadge from "@/components/partner_badge.jsx";
+import PartnerBadge from "@/app/_components/partner_badge.jsx";
 
 export default function AboutComponent() {
     const { language } = useLanguageContext()
