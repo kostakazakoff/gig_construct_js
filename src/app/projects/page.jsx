@@ -1,7 +1,7 @@
 import ProjectsComponent from "./client";
 
 export const metadata = {
-    title: 'Projects',
+    title: 'Projects - GIG Construct',
     description: 'Our completed projects showcasing our expertise in construction and renovation services.',
     tags: ['construction', 'renovation', 'projects', 'portfolio'],
 }
