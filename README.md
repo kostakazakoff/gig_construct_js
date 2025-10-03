@@ -35,33 +35,6 @@ A modern Next.js application built with JavaScript and Tailwind CSS for a constr
 3. **Open your browser:**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Project Structure
-
-```
-├── app/
-│   ├── _hooks/           # Custom React hooks
-│   │   ├── useLanguageContext.jsx
-│   │   └── usePersistedState.js
-│   ├── _lib/            # Utility libraries
-│   │   └── static_data.js
-│   ├── _mock_data/      # Mock data for development
-│   │   ├── partners.js
-│   │   └── services.js
-│   ├── _utils/          # Utility functions
-│   │   └── Translator.js
-│   ├── about/           # About page
-│   │   ├── about_client.jsx
-│   │   └── page.js
-│   ├── layout.js        # Root layout
-│   ├── page.js          # Home page
-│   └── globals.css      # Global styles
-├── components/          # Reusable components
-│   ├── navbar.jsx
-│   ├── service_card.jsx
-│   └── partner_badge.jsx
-└── public/             # Static assets
-```
-
 ## Available Scripts
 
 - `npm run dev` - Start development server
