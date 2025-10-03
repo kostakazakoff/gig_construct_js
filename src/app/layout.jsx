@@ -17,7 +17,10 @@ const geistMono = Raleway({
 });
 
 export const metadata = {
-  title: "GIG Construct",
+  title: {
+    default: "GIG Construct",
+    template: "%s | GIG Construct",
+  },
   icons: {
     icon: "./gig_logo_white.svg",
   },

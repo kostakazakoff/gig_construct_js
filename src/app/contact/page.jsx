@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Contact - GIG Construct',
+    title: 'Contact',
     description: 'Get in touch with GIG Construct for inquiries and quotes.',
     tags: ['contact', 'inquiries', 'construction', 'renovation'],
 }
