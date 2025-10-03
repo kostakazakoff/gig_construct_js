@@ -4,7 +4,6 @@ import Link from "next/link";
 export default function ProjectsCard({ project, staticData }) {
 
     return (
-        <>
             <div className="group my-8 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg">
                 <div className="sticky z-2 top-20 right-10 px-6 py-4 text-slate-900 font-semibold font-medium rounded-t-sm bg-slate-300 dark:bg-slate-800 dark:text-slate-200 flex justify-between max-md:flex-col max-md:gap-2 max-md:items-center group-hover:bg-gig-blue dark:group-hover:bg-blue-400 group-hover:text-white transition duration-300 ease-in-out shadow-md">
                     <p>
@@ -43,6 +42,5 @@ export default function ProjectsCard({ project, staticData }) {
                     </div>
                 </Link>
             </div>
-        </>
     );
 }
