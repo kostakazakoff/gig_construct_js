@@ -2,7 +2,7 @@ export const partners = [
     {
         id: 1,
         name: "NEXT Js",
-        logoUrl: "./next.svg",
+        logoUrl: "/next.svg",
         websiteUrl: "https://nextjs.org/"
     },
     {
@@ -14,13 +14,13 @@ export const partners = [
     {
         id: 4,
         name: "GIG",
-        logoUrl: "./gig_logo.svg",
+        logoUrl: "/gig_logo.svg",
         websiteUrl: "https://gigmusic.com/"
     },
     {
         id: 5,
         name: "Vercel",
-        logoUrl: "./vercel.svg",
+        logoUrl: "/vercel.svg",
         websiteUrl: "https://vercel.com/"
     }
 ];
