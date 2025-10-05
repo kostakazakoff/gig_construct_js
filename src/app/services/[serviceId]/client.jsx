@@ -6,7 +6,7 @@ import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
 import ServiceDetailsCard from '@/app/_components/service_details_card.jsx';
 import { servicesStaticData } from '@/app/_lib/static_data.js';
 import Translate from '@/app/_utils/Translator.js';
-import Modal from '@/app/_components/modal';
+import Modal from '@/app/_components/main/modal';
 import { useState } from 'react';
 
 export default function ServiceDetailsComponent() {
