@@ -111,7 +111,7 @@ export default function Navbar() {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-4">
             <button
               type="button"
-              className="relative rounded-full p-1 text-slate-400 hover:text-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
+              className="relative rounded-full p-1 text-slate-400 hover:text-blue-400"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
               <span className="absolute -inset-1.5" />
@@ -120,7 +120,7 @@ export default function Navbar() {
                 <MoonIcon aria-hidden="true" className="size-6" />}
             </button>
             <button
-              className="relative rounded-full p-1 text-slate-400 hover:text-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
+              className="relative rounded-full p-1 text-slate-400 hover:text-blue-400"
               onClick={() => changeLanguage(language)}
             >
               <span className="absolute -inset-1.5" />
