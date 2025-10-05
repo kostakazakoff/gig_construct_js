@@ -18,21 +18,15 @@ export default function Modal({ onOK, onClose, children }) {
         }
     }, [open]);
 
-    const submitAction = () => {
-        onOK();
-        dialogRef.current?.close();
-        handleClose();
-    }
-
     const handleClose = () => {
         dialogRef.current?.close();
-        
+
         // Remove modal parameter from URL
         const currentParams = new URLSearchParams(searchParams.toString());
         currentParams.delete('modal');
         const newUrl = `${window.location.pathname}${currentParams.toString() ? '?' + currentParams.toString() : ''}`;
         router.push(newUrl);
-        
+
         // Call the onClose callback if provided
         if (onClose) {
             onClose();
