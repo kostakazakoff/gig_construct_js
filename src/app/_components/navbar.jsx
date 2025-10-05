@@ -4,6 +4,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
 import { navTranslations } from '@/app/_lib/translate.js'
@@ -14,6 +15,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
   const servicesRef = useRef(null);
   const newsRef = useRef(null);
   const aboutRef = useRef(null);
@@ -39,26 +41,24 @@ export default function Navbar() {
   }, [theme]);
 
   const navigation = [
-    { name: translation.about, href: '/about', current: false, ref: aboutRef },
-    { name: translation.services, href: '/', current: false, ref: servicesRef },
-    { name: translation.projects, href: '/projects', current: false, ref: projectsRef },
-    { name: translation.news, href: '/news', current: false, ref: newsRef },
-    { name: translation.contact, href: '/contact', current: false, ref: contactRef },
+    { name: translation.about, href: '/about', current: pathname === '/about', ref: aboutRef },
+    { name: translation.services, href: '/', current: pathname === '/services', ref: servicesRef },
+    { name: translation.projects, href: '/projects', current: pathname === '/projects', ref: projectsRef },
+    { name: translation.news, href: '/news', current: pathname === '/news', ref: newsRef },
+    { name: translation.contact, href: '/contact', current: pathname === '/contact', ref: contactRef },
   ]
 
   const classActive = 'bg-slate-950/50 text-blue-400 rounded-md px-3 py-2';
   const classInactive = 'text-slate-300 hover:bg-white/5 hover:text-blue-400 rounded-md px-3 py-2';
 
-  const changeActiveNavItem = (page) => {
+  // Update active state based on current pathname
+  useEffect(() => {
     navigation.forEach(item => {
-      item.current = (item.name === page);
       if (item.ref.current) {
-        item.ref.current.className = item.current
-          ? classActive
-          : classInactive;
+        item.ref.current.className = item.current ? classActive : classInactive;
       }
     });
-  }
+  }, [pathname, language]);
 
   return (
     <Disclosure
@@ -98,7 +98,6 @@ export default function Navbar() {
                       'rounded-md px-3 py-2',
                     )}
                     ref={item.ref}
-                    onClick={() => changeActiveNavItem(item.name)}
                   >
                     {item.name}
                   </Link>
