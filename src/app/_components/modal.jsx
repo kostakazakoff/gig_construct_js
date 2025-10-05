@@ -19,6 +19,10 @@ export default function Modal({ onOK, onClose, children }) {
         }
     }, [open]);
 
+    if (!open) {
+        return null;
+    }
+
     const handleClose = () => {
         modalRef.current?.close();
 
@@ -47,10 +51,6 @@ export default function Modal({ onOK, onClose, children }) {
             handleClose();
         }
     };
-
-    if (!open) {
-        return null;
-    }
 
     return (
         <dialog
