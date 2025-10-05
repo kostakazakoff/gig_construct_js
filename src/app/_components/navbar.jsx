@@ -63,7 +63,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed top-0 right-0 left-0 bg-gig-blue dark:bg-slate-900/90 text-white text-sm lg:text-lg xl:text-xl 2xl:text-2xl uppercase font-semibold after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 z-50 dark:backdrop-blur-md lg:text-base border-b-1 border-slate-200"
+      className="fixed top-0 right-0 left-0 bg-gig-blue dark:bg-slate-900/90 text-white text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl uppercase font-semibold after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 z-50 dark:backdrop-blur-md lg:text-base border-b-1 border-slate-200"
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -87,7 +87,7 @@ export default function Navbar() {
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4 text-slate-300 uppercase">
+              <div className="flex space-x-4 max-md:space-x-2 text-slate-300 uppercase">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
