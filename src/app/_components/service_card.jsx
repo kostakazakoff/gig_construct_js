@@ -6,7 +6,7 @@ export default function ServiceCard({ service }) {
     <Link
       href={`/services/${service.id}`}
       passHref
-      className="group flex-column md:flex m-6 justify-between space-x-6 p-4 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm bg-gig-blue/10 dark:bg-gray-800 border-1 border-gray-300 dark:border-gray-700 hover:border-gig-blue dark:hover:border-blue-400">
+      className="group flex-column md:flex m-6 justify-between space-x-6 p-4 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm bg-gig-blue/10 dark:bg-gray-800 border-1 border-gig-blue dark:border-blue-400 hover:border-0">
         
       <div className="flex items-center relative overflow-hidden h-26 w-full md:w-48 rounded-sm bg-slate-300 shrink-0 shadow-md">
         <Image

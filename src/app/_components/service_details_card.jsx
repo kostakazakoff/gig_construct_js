@@ -15,7 +15,7 @@ export default function ServiceDetailsCard({ service, servicesStaticData }) {
       passHref
     >
       
-      <article className="group w-96 h-64 grid grid-rows-3 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm relative overflow-hidden dark:text-gray-200 bg-gig-blue/20 dark:bg-slate-800/90 border-1 border-gray-300 dark:border-gray-700 hover:border-gig-blue dark:hover:border-blue-400">
+      <article className="group w-96 h-64 grid grid-rows-3 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm relative overflow-hidden dark:text-gray-200 bg-gig-blue/20 dark:bg-slate-800/90 border-1 border-gig-blue hover:border-0">
         <div className="relative row-span-2 overflow-hidden object-cover align-middle w-full h-full text-gray-200">
           <div>
             <div className="absolute inset-0 bg-gig-blue/70 z-0" />
