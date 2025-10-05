@@ -22,7 +22,7 @@ export const metadata = {
     template: "%s | GIG Construct",
   },
   icons: {
-    icon: "./gig_logo_white.svg",
+    icon: "/gig_logo_white.svg",
   },
   description:
     "Строителнини услуги, ремонтни дейности, електро услуги, ВиК услуги, гипсокартон, боядисване, изолации, шпакловка, плочки, гранитогрес, извозване на строителни отпадъци.",

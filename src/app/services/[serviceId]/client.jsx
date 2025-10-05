@@ -10,7 +10,6 @@ import Translate from '@/app/_utils/Translator.js';
 export default function ServiceDetailsComponent() {
 
     const { language } = useLanguageContext();
-    console.log('ServiceDetailsCard language:', language);
 
     const translatedData = Translate({ data: servicesStaticData, language: language });
 
