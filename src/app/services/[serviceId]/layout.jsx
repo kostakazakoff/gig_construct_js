@@ -4,7 +4,9 @@ export default function ServicesLayout({ children }) {
     return (
         <>
             <PageTitle />
-            {children}
+            <section className="pt-16">
+                {children}
+            </section>
         </>
     )
 }
