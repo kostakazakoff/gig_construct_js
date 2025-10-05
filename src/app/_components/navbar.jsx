@@ -9,7 +9,7 @@ import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
 import { navTranslations } from '@/app/_lib/translate.js'
 import useTheme from '@/app/_hooks/useTheme.jsx'
 
-function classNames(...classes ) {
+function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -46,13 +46,16 @@ export default function Navbar() {
     { name: translation.contact, href: '/contact', current: false, ref: contactRef },
   ]
 
+  const classActive = 'bg-slate-950/50 text-blue-400 rounded-md px-3 py-2';
+  const classInactive = 'text-slate-300 hover:bg-white/5 hover:text-blue-400 rounded-md px-3 py-2';
+
   const changeActiveNavItem = (page) => {
     navigation.forEach(item => {
       item.current = (item.name === page);
       if (item.ref.current) {
         item.ref.current.className = item.current
-          ? 'bg-slate-950/50 text-blue-400 rounded-md px-3 py-2'
-          : 'text-slate-300 hover:bg-white/5 hover:text-blue-400 rounded-md px-3 py-2';
+          ? classActive
+          : classInactive;
       }
     });
   }
@@ -112,7 +115,7 @@ export default function Navbar() {
               <span className="absolute -inset-1.5" />
               <span className="sr-only">Change theme</span>
               {theme === 'dark' ? <SunIcon aria-hidden="true" className="size-6" /> :
-              <MoonIcon aria-hidden="true" className="size-6" />}
+                <MoonIcon aria-hidden="true" className="size-6" />}
             </button>
             <button
               className="relative rounded-full p-1 text-slate-400 hover:text-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
