@@ -6,11 +6,12 @@ import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
 import ServiceDetailsCard from '@/app/_components/service_details_card.jsx';
 import { servicesStaticData } from '@/app/_lib/static_data.js';
 import Translate from '@/app/_utils/Translator.js';
+import Modal from '@/app/_components/modal';
+import { useState } from 'react';
 
 export default function ServiceDetailsComponent() {
 
     const { language } = useLanguageContext();
-    console.log('ServiceDetailsCard language:', language);
 
     const translatedData = Translate({ data: servicesStaticData, language: language });
 
@@ -26,11 +27,23 @@ export default function ServiceDetailsComponent() {
     const translated = language === 'BG' ? service.BG : service.EN;
     const servicesStaticDataTranslated = language === 'BG' ? servicesStaticData.BG : servicesStaticData.EN;
 
+    const onOK = () => {
+        console.log('OK clicked');
+     }
+
+    const onClose = () => { 
+        console.log('Closed');
+    }
+
     return (
         <div className='relative my-4 px-4'>
+            <Modal onOK={onOK} onClose={onClose}>
+                <p>Modal Content</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </Modal>
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
                 {translated.map((detail, index) => (
-                    <ServiceDetailsCard key={index} service={detail} servicesStaticData={servicesStaticDataTranslated} />
+                    <ServiceDetailsCard key={index} serviceId={service.id} service={detail} servicesStaticData={servicesStaticDataTranslated}/>
                 ))}
             </section>
 

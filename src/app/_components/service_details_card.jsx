@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export default function ServiceDetailsCard({ service, servicesStaticData }) {
+export default function ServiceDetailsCard({ serviceId, service, servicesStaticData, modalQueryParams }) {
 
   if (!service) {
     notFound();
@@ -11,7 +11,7 @@ export default function ServiceDetailsCard({ service, servicesStaticData }) {
   return (
     <Link
       key={service.id}
-      href='#'
+      href={`/services/${serviceId}?modal=true`}
       passHref
     >
       
