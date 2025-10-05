@@ -77,7 +77,7 @@ export default function Navbar() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
+            <Link className="flex shrink-0 items-center" href="/">
               <Image
                 width={32}
                 height={32}
@@ -85,7 +85,7 @@ export default function Navbar() {
                 src="/gig_logo.png"
                 className="h-auto w-auto rounded-full"
               />
-            </div>
+            </Link>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4 text-slate-300 uppercase">
                 {navigation.map((item) => (
