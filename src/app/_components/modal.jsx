@@ -8,18 +8,19 @@ export default function Modal({ onOK, onClose, children }) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const open = searchParams.get('modal') === 'true';
-    const dialogRef = useRef(null);
+    const modalRef = useRef(null);
 
+    // Open or close the modal based on the 'open' state
     useEffect(() => {
         if (open) {
-            dialogRef.current?.showModal();
+            modalRef.current?.showModal();
         } else {
-            dialogRef.current?.close();
+            modalRef.current?.close();
         }
     }, [open]);
 
     const handleClose = () => {
-        dialogRef.current?.close();
+        modalRef.current?.close();
 
         // Remove modal parameter from URL
         const currentParams = new URLSearchParams(searchParams.toString());
@@ -53,7 +54,7 @@ export default function Modal({ onOK, onClose, children }) {
 
     return (
         <dialog
-            ref={dialogRef}
+            ref={modalRef}
             className="fixed inset-0 flex items-center justify-center z-50"
             onClick={handleBackdropClick}
         >

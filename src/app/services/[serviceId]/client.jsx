@@ -28,11 +28,11 @@ export default function ServiceDetailsComponent() {
     const servicesStaticDataTranslated = language === 'BG' ? servicesStaticData.BG : servicesStaticData.EN;
 
     const onOK = () => {
-        console.log('OK clicked');
+        console.log(`${service.id} OK clicked`);
      }
 
-    const onClose = () => { 
-        console.log('Closed');
+    const onClose = () => {
+        console.log(`${service.id} Closed`);
     }
 
     return (
