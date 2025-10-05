@@ -1,11 +1,12 @@
 'use client';
 
 import { services } from '@/app/_mock_data/service_details.js';
-import { notFound, useParams } from 'next/navigation';
+import { notFound, useParams, usePathname } from 'next/navigation';
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
 import ServiceDetailsCard from '@/app/_components/service_details_card.jsx';
 import { servicesStaticData } from '@/app/_lib/static_data.js';
 import Translate from '@/app/_utils/Translator.js';
+import { useEffect } from 'react';
 
 export default function ServiceDetailsComponent() {
 
@@ -24,6 +25,15 @@ export default function ServiceDetailsComponent() {
 
     const translated = language === 'BG' ? service.BG : service.EN;
     const servicesStaticDataTranslated = language === 'BG' ? servicesStaticData.BG : servicesStaticData.EN;
+
+    const path = usePathname();
+
+    useEffect(() => {
+        const servicesName = translated[0].pathname;
+        console.log('servicesName', servicesName);
+        const pathnameParts = path.split('/');
+        console.log('pathnameParts', pathnameParts);
+    }, [language]);
 
     return (
         <div className='relative my-4 px-4'>
