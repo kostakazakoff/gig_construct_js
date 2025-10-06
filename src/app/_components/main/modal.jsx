@@ -71,7 +71,7 @@ export default function Modal({ onOK, onClose, children }) {
             >
                 <div className="bg-gray-200/80 dark:bg-slate-800/80 dark:text-slate-300 overflow-hidden shadow-lg relative rounded-lg relative">
                     {/* <div className="p-4 border-b">
-                        <h2 className="text-lg font-semibold">Modal Title</h2>
+                        <h2 className="text-lg font-bold">Modal Title</h2>
                     </div> */}
                     <div className="p-2 flex justify-end">
                         <XButton onClick={handleClose} />

@@ -28,10 +28,10 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="size-128 object-cover"
           />
-          <div className="font-semibold uppercase text-center absolute -top-1/2 group-hover:top-1/2 left-1/2 -translate-1/2 px-4 text-wrap opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+          <div className="font-bold uppercase text-center absolute -top-1/2 group-hover:top-1/2 left-1/2 -translate-1/2 px-4 text-wrap opacity-0 transition-opacity duration-400 group-hover:opacity-100">
             {servicesStaticData.askOfferText}
           </div>
-          <h2 className="font-semibold uppercase text-center absolute top-1/2 left-1/2 -translate-1/2 px-2 text-wrap opacity-100 transition-opacity duration-400 group-hover:opacity-0">
+          <h2 className="font-bold uppercase text-center absolute top-1/2 left-1/2 -translate-1/2 px-2 text-wrap opacity-100 transition-opacity duration-400 group-hover:opacity-0">
             {service.title}
           </h2>
         </div>

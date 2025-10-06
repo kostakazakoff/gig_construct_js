@@ -5,7 +5,7 @@ export default function ProjectsCard({ project, staticData }) {
 
     return (
             <div className="group hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg">
-                <div className="px-6 py-4 text-slate-900 font-semibold font-medium rounded-t-sm bg-slate-300 dark:bg-slate-800 dark:text-slate-200 flex justify-between max-md:flex-col max-md:gap-2 max-md:items-center group-hover:bg-gig-blue dark:group-hover:bg-blue-400 group-hover:text-white transition duration-300 ease-in-out shadow-md">
+                <div className="px-6 py-4 text-slate-900 font-bold font-medium rounded-t-sm bg-slate-300 dark:bg-slate-800 dark:text-slate-200 flex justify-between max-md:flex-col max-md:gap-2 max-md:items-center group-hover:bg-gig-blue dark:group-hover:bg-blue-400 group-hover:text-white transition duration-300 ease-in-out shadow-md">
                     <p>
                         {project.date}
                     </p>
@@ -19,7 +19,7 @@ export default function ProjectsCard({ project, staticData }) {
                 >
                     <div className="min-w-0 w-80 md:w-140 xl:w-160 2xl:w-200 h-auto flex flex-col justify-between">
                         <div className="min-w-0 mb-auto">
-                            <p className="text-3xl lg:text-4xl font-semibold uppercase mb-6 text-slate-800 leading-none group-hover:text-gig-blue dark:group-hover:text-blue-400 dark:text-slate-300">
+                            <p className="text-3xl lg:text-4xl font-bold uppercase mb-6 text-slate-800 leading-none group-hover:text-gig-blue dark:group-hover:text-blue-400 dark:text-slate-300">
                                 {project.title}
                             </p>
                             <hr className="max-md:hidden" />

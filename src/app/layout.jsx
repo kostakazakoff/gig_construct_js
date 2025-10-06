@@ -6,14 +6,10 @@ import Footer from "@/app/_components/main/footer.jsx";
 import { LanguageProvider } from "./_hooks/useLanguageContext.jsx";
 import { ThemeProvider } from "./_hooks/useTheme.jsx";
 
-const geistSans = Raleway({
-  variable: "--font-geist-sans",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
-});
-
-const geistMono = Raleway({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -34,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${raleway.variable} antialiased font-sans`}
       >
         <ThemeProvider>
           <LanguageProvider>
