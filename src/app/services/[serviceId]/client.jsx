@@ -8,6 +8,7 @@ import { servicesStaticData } from '@/app/_lib/static_data.js';
 import Translate from '@/app/_utils/Translator.js';
 import Modal from '@/app/_components/mainComponents/modal';
 import { useState } from 'react';
+import AskOfferForm from '@/app/_components/servicesComponents/ask_offer_form';
 
 export default function ServiceDetailsComponent() {
 
@@ -38,8 +39,7 @@ export default function ServiceDetailsComponent() {
     return (
         <div className='relative my-4 px-4'>
             <Modal onOK={onOK} onClose={onClose}>
-                <p>Modal Content</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                <AskOfferForm serviceId={service.id} />
             </Modal>
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
                 {translated.map((detail, index) => (
