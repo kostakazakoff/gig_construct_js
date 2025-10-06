@@ -94,21 +94,27 @@ export const offerNoteStaticData = {
     BG: {
         nameLabel: "Име",
         emailLabel: "Имейл",
+        phoneLabel: "Телефон",
         messageLabel: "Съобщение",
         namePlaceholder: "Въведете вашето име",
+        phonePlaceholder: "Въведете вашия телефон",
         emailPlaceholder: "Въведете вашия имейл",
         messagePlaceholder: "Въведете вашето съобщение",
         successMessage: "Вашето съобщение беше изпратено успешно!",
         errorMessage: "Възникна грешка при изпращането на вашето съобщение. Моля, опитайте отново по-късно.",
+        title: "Поискай оферта",
     },
     EN: {
         nameLabel: "Name",
         emailLabel: "Email",
+        phoneLabel: "Phone",
         messageLabel: "Message",
         namePlaceholder: "Enter your name",
+        phonePlaceholder: "Enter your phone",
         emailPlaceholder: "Enter your email",
         messagePlaceholder: "Enter your message",
         successMessage: "Your message was sent successfully!",
         errorMessage: "An error occurred while sending your message. Please try again later.",
+        title: "Request a Free Offer",
     }
 }

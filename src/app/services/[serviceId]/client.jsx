@@ -5,9 +5,9 @@ import { notFound, useParams } from 'next/navigation';
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
 import ServiceDetailsCard from '@/app/_components/servicesComponents/service_details_card.jsx';
 import { servicesStaticData } from '@/app/_lib/static_data.js';
+import { offerNoteStaticData } from '@/app/_lib/static_data.js';
 import Translate from '@/app/_utils/Translator.js';
 import Modal from '@/app/_components/mainComponents/modal';
-import { useState } from 'react';
 import AskOfferForm from '@/app/_components/servicesComponents/ask_offer_form';
 
 export default function ServiceDetailsComponent() {
@@ -15,6 +15,7 @@ export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
 
     const translatedData = Translate({ data: servicesStaticData, language: language });
+    const offerNoteTranslated = Translate({ data: offerNoteStaticData, language: language });
 
     const params = useParams();
 
@@ -28,18 +29,18 @@ export default function ServiceDetailsComponent() {
     const translated = language === 'BG' ? service.BG : service.EN;
     const servicesStaticDataTranslated = language === 'BG' ? servicesStaticData.BG : servicesStaticData.EN;
 
-    const onOK = () => {
+    const modalOnSubmit = () => {
         console.log(`${service.id} OK clicked`);
      }
 
-    const onClose = () => {
+    const modalOnClose = () => {
         console.log(`${service.id} Closed`);
     }
 
     return (
         <div className='relative my-4 px-4'>
-            <Modal onOK={onOK} onClose={onClose}>
-                <AskOfferForm serviceId={service.id} />
+            <Modal onOK={modalOnSubmit} onClose={modalOnClose}>
+                <AskOfferForm serviceId={service.id} translated={offerNoteTranslated} />
             </Modal>
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
                 {translated.map((detail, index) => (
