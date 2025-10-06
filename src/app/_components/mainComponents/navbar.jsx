@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
-import { navTranslations } from '@/app/_lib/translate.js'
+import { navTranslations } from '@/app/_lib/static_data.js'
 import useTheme from '@/app/_hooks/useTheme.jsx'
 
 function classNames(...classes) {
