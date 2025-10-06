@@ -88,9 +88,9 @@ export const footerStaticData = {
         followUs: "Follow Us",
         rightsReserved: "All rights reserved.",
     }
-}
+};
 
-export const contactStaticData = {
+export const offerNoteStaticData = {
     BG: {
         nameLabel: "Име",
         emailLabel: "Имейл",

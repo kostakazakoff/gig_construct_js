@@ -7,7 +7,7 @@ export default function PartnerBadge(partner) {
         <Link
             href={partner.websiteUrl ? partner.websiteUrl : "#"}
             target={partner.websiteUrl ? "_blank" : "_self"}
-            className="relative text-center align-middle rounded-xl overflow-hidden shadow-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-xl uppercase">
+            className="relative text-center align-middle rounded-md border border-slate-700 overflow-hidden shadow-sm transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-xl uppercase">
 
             <Image
                 src={partner.logoUrl}
