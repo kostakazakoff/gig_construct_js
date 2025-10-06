@@ -76,3 +76,39 @@ export const navTranslations = {
         clients_partners: 'Clients and Partners',
     }
 };
+
+export const footerStaticData = {
+    BG: {
+        contactUs: "Свържете се с нас",
+        followUs: "Последвайте ни",
+        rightsReserved: "Всички права запазени.",
+    },
+    EN: {
+        contactUs: "Contact Us",
+        followUs: "Follow Us",
+        rightsReserved: "All rights reserved.",
+    }
+}
+
+export const contactStaticData = {
+    BG: {
+        nameLabel: "Име",
+        emailLabel: "Имейл",
+        messageLabel: "Съобщение",
+        namePlaceholder: "Въведете вашето име",
+        emailPlaceholder: "Въведете вашия имейл",
+        messagePlaceholder: "Въведете вашето съобщение",
+        successMessage: "Вашето съобщение беше изпратено успешно!",
+        errorMessage: "Възникна грешка при изпращането на вашето съобщение. Моля, опитайте отново по-късно.",
+    },
+    EN: {
+        nameLabel: "Name",
+        emailLabel: "Email",
+        messageLabel: "Message",
+        namePlaceholder: "Enter your name",
+        emailPlaceholder: "Enter your email",
+        messagePlaceholder: "Enter your message",
+        successMessage: "Your message was sent successfully!",
+        errorMessage: "An error occurred while sending your message. Please try again later.",
+    }
+}
