@@ -1,8 +1,8 @@
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import "@tailwindplus/elements";
-import Navbar from "@/app/_components/main/navbar.jsx";
-import Footer from "@/app/_components/main/footer.jsx";
+import Navbar from "@/app/_components/mainComponents/navbar.jsx";
+import Footer from "@/app/_components/mainComponents/footer.jsx";
 import { LanguageProvider } from "./_hooks/useLanguageContext.jsx";
 import { ThemeProvider } from "./_hooks/useTheme.jsx";
 

@@ -2,8 +2,8 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import SubmitButton from "../buttons/submit_button";
-import XButton from "../buttons/x_button";
+import SubmitButton from "../buttonsComponents/submit_button";
+import XButton from "../buttonsComponents/x_button";
 import { buttonsStaticData } from "@/app/_lib/static_data";
 import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
 import Translate from "@/app/_utils/Translator";
