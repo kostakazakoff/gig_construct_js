@@ -1,10 +1,12 @@
 'use client';
 
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import SubmitButton from "../buttons/submit_button";
 import XButton from "../buttons/x_button";
+import { buttonsStaticData } from "@/app/_lib/static_data";
+import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
+import Translate from "@/app/_utils/Translator";
 
 export default function Modal({ onOK, onClose, children }) {
 
@@ -12,6 +14,13 @@ export default function Modal({ onOK, onClose, children }) {
     const searchParams = useSearchParams();
     const open = searchParams.get('modal') === 'true';
     const modalRef = useRef(null);
+    const { language } = useLanguageContext();
+    const [translatedStaticData, setTranslatedStaticData] = useState(buttonsStaticData.BG);
+
+    useEffect(() => {
+        const translated = Translate({ data: buttonsStaticData, language });
+        setTranslatedStaticData(translated);
+    }, [language]);
 
     // Open or close the modal based on the 'open' state
     useEffect(() => {
@@ -81,7 +90,7 @@ export default function Modal({ onOK, onClose, children }) {
                     </div>
                     <div className="p-4 border-t flex justify-end gap-2">
                         {/* <button className="bg-gray-500 text-white px-4 py-2 rounded cursor-pointer hover:scale-105 hover:shadow-md transition-transform duration-200" onClick={handleClose}>Cancel</button> */}
-                        <SubmitButton onClick={handleOK}>Submit</SubmitButton>
+                        <SubmitButton onClick={handleOK}>{translatedStaticData.submit}</SubmitButton>
                     </div>
                 </div>
             </dialog>

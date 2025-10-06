@@ -42,3 +42,16 @@ export const aboutStaticData = {
         partnersTitle: "Our Partners and Clients",
     }
 }
+
+export const buttonsStaticData = {
+    BG: {
+        submit: "Изпрати",
+        cancel: "Откажи",
+        close: "Затвори",
+    },
+    EN: {
+        submit: "Submit",
+        cancel: "Cancel",
+        close: "Close",
+    }
+}

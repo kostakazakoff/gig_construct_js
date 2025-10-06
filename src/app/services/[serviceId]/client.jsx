@@ -3,7 +3,7 @@
 import { services } from '@/app/_mock_data/service_details.js';
 import { notFound, useParams } from 'next/navigation';
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
-import ServiceDetailsCard from '@/app/_components/service/service_details_card.jsx';
+import ServiceDetailsCard from '@/app/_components/servicesComponents/service_details_card.jsx';
 import { servicesStaticData } from '@/app/_lib/static_data.js';
 import Translate from '@/app/_utils/Translator.js';
 import Modal from '@/app/_components/main/modal';
