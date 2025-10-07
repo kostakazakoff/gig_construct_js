@@ -47,6 +47,7 @@ export default function ServiceDetailsComponent() {
             <Modal>
                 <AskOfferForm serviceId={service.id} translated={offerNoteTranslated} formOnSubmit={setFormData} />
             </Modal>
+
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
                 {translated.map((detail, index) => (
                     <ServiceDetailsCard
