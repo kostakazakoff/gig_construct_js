@@ -22,7 +22,7 @@ export default function ServiceCard({ service }) {
         <p className="text-base underline lg:text-lg font-bold uppercase mb-2 mt-4 md:mt-0 text-gig-blue leading-none dark:group-hover:text-blue-400 dark:text-slate-300">
           {service.name}
         </p>
-        <p className="mt-1 lg:text-lg italic">{service.description}</p>
+        <p className="mt-1 lg:text-lg">{service.description}</p>
       </div>
     </Link>
   );

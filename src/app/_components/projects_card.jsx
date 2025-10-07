@@ -34,7 +34,7 @@ export default function ProjectsCard({ project, staticData }) {
                                         className="size-80 flex-none bg-slate-300 dark:bg-gray-800 dark:outline-white/10 object-cover"
                                     />
                                 </div>
-                                <p className="mt-1 text-sm text-justify indent-8 md:text-base italic">
+                                <p className="mt-1 text-sm text-justify indent-8 md:text-base">
                                     {project.description}
                                 </p>
                             </div>

@@ -34,7 +34,6 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
       className="space-y-4"
       onSubmit={(e) => {
         e.preventDefault();
-        console.log('Form submitted:', inputValues);
         if (setFormData) {
           setFormData(inputValues);
         }

@@ -31,6 +31,9 @@ export default function ServiceDetailsComponent() {
     const servicesStaticDataTranslated = language === 'BG' ? servicesStaticData.BG : servicesStaticData.EN;
 
     //TODO: modal onSubmit logic
+    // Implement form submission logic here
+    // Send the form data to an API endpoint
+    // Show a success message or handle errors as needed
     const modalOnSubmit = () => {
         console.log('Form data submited:', formData);
      }
@@ -53,7 +56,7 @@ export default function ServiceDetailsComponent() {
             </section>
 
             <section className='w-96 xl:w-128 mt-12 p-4 bg-slate-300 dark:bg-slate-800/80 dark:backdrop-blur-md sticky bottom-16 left-1/2 text-center rounded-full shadow-lg z-1 lg:-translate-x-1/2'>
-                <p className="text-xs text-slate-800 dark:text-slate-300 italic">{translatedData.legend}</p>
+                <p className="text-xs text-slate-800 dark:text-slate-300">{translatedData.legend}</p>
             </section>
         </div>
     );
