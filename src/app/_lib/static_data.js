@@ -94,12 +94,12 @@ export const footerStaticData = {
 
 export const offerNoteStaticData = {
     BG: {
-        nameLabel: "Име",
-        emailLabel: "Имейл",
-        phoneLabel: "Телефон",
+        nameLabel: "Име, Фамилия",
+        emailLabel: "Електронна поща",
+        phoneLabel: "Телефон за връзка",
         messageLabel: "Съобщение",
-        namePlaceholder: "Въведете вашето име",
-        phonePlaceholder: "Въведете вашия телефон",
+        namePlaceholder: "Въведете вашето име и фамилия",
+        phonePlaceholder: "Въведете вашия телефон за връзка",
         emailPlaceholder: "Въведете вашия имейл",
         messagePlaceholder: "Въведете вашето съобщение",
         successMessage: "Вашето съобщение беше изпратено успешно!",
@@ -107,11 +107,11 @@ export const offerNoteStaticData = {
         title: "Поискай оферта",
     },
     EN: {
-        nameLabel: "Name",
+        nameLabel: "Name, Surname",
         emailLabel: "Email",
-        phoneLabel: "Phone",
+        phoneLabel: "Phone for contact",
         messageLabel: "Message",
-        namePlaceholder: "Enter your name",
+        namePlaceholder: "Enter your name and surname",
         phonePlaceholder: "Enter your phone",
         emailPlaceholder: "Enter your email",
         messagePlaceholder: "Enter your message",
