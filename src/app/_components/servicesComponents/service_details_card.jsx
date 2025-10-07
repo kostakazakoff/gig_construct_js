@@ -29,14 +29,14 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         {service.title}
                     </h2>
                 </div>
-                <div className="grid grid-cols-3 grid-rows-2 relative z-1">
-                    <p className="text-sm text-center border-t-2 p-2 col-span-3 uppercase">
+                <div className="grid grid-cols-5 grid-rows-2 relative z-1">
+                    <p className="text-sm text-center border-t-2 p-2 col-span-5 uppercase">
                         {servicesStaticData.estimatedPrice}
                     </p>
-                    <p className="text-center border-r-1 border-t-1 p-2 col-span-2">
+                    <p className="text-center border-r-1 border-t-1 p-2 col-span-3">
                         {service.price} {servicesStaticData.currency}
                     </p>
-                    <p className="text-center border-t-1 p-2 col-span-1">{service.unit}</p>
+                    <p className="text-center border-t-1 p-2 col-span-2">{service.unit}</p>
                 </div>
             </article>
         </Link>
