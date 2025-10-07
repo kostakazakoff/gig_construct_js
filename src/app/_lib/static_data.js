@@ -106,6 +106,7 @@ export const offerNoteStaticData = {
         errorMessage: "Възникна грешка при изпращането на вашето съобщение. Моля, опитайте отново по-късно.",
         title: "Поискай оферта",
     },
+
     EN: {
         nameLabel: "Name, Surname",
         emailLabel: "Email",
