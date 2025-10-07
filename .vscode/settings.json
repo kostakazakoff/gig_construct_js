@@ -4,6 +4,10 @@
     "editor.detectIndentation": false,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "git.terminalAuthentication": false,
+    "terminal.integrated.env.windows": {
+        "GIT_SSH_COMMAND": "ssh -i ~/.ssh/id_ed25519"
+    },
     "[javascript]": {
         "editor.tabSize": 4,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
