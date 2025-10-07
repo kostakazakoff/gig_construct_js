@@ -87,7 +87,6 @@ export default function AskOfferForm({
                 </div>
                 <div>
                     <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-                        <span className="text-red-500 text-2xl">*</span>
                         {translated.messageLabel}
                     </label>
                     <textarea
