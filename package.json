@@ -1,27 +1,30 @@
 {
-  "name": "gig-construct",
-  "version": "1.0.0",
-  "description": "Construction services website built with Next.js and JavaScript",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@headlessui/react": "^2.2.9",
-    "@heroicons/react": "^2.2.0",
-    "@tailwindplus/elements": "^1.0.16",
-    "next": "15.5.4",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.4",
-    "tailwindcss": "^4"
-  }
+    "name": "gig-construct",
+    "version": "1.0.0",
+    "description": "Construction services website built with Next.js and JavaScript",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start",
+        "lint": "eslint",
+        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+        "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
+    },
+    "dependencies": {
+        "@headlessui/react": "^2.2.9",
+        "@heroicons/react": "^2.2.0",
+        "@tailwindplus/elements": "^1.0.16",
+        "next": "15.5.4",
+        "react": "19.1.0",
+        "react-dom": "19.1.0"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@tailwindcss/postcss": "^4",
+        "eslint": "^9",
+        "eslint-config-next": "15.5.4",
+        "prettier": "^3.6.2",
+        "tailwindcss": "^4"
+    }
 }
