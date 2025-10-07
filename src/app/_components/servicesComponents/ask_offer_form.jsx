@@ -8,8 +8,9 @@ export default function AskOfferForm({
   serviceId,
   translated,
   formOnSubmit,
-  onClose,
+  closeWrapper, // closing function passed from Modal wrapper
 }) {
+
   const [inputValues, setInputValues] = useState({
     id: serviceId,
     name: "",
@@ -30,8 +31,8 @@ export default function AskOfferForm({
     if (formOnSubmit) {
       formOnSubmit(inputValues);
     }
-    if (onClose) {
-      onClose();
+    if (closeWrapper) {
+      closeWrapper();
     }
   };
 

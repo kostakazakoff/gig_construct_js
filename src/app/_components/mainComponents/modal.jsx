@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import React from "react";
 import XButton from "../buttonsComponents/x_button";
 
-export default function Modal({ onClose, children }) {
+export default function Modal({ children }) {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -33,11 +33,6 @@ export default function Modal({ onClose, children }) {
         currentParams.delete('modal');
         const newUrl = `${window.location.pathname}${currentParams.toString() ? '?' + currentParams.toString() : ''}`;
         router.push(newUrl);
-
-        // Call the onClose callback if provided
-        if (onClose) {
-            onClose();
-        }
     };
 
     // Handle clicking outside the modal
@@ -69,8 +64,9 @@ export default function Modal({ onClose, children }) {
                         <XButton onClick={handleClose} />
                     </div>
                     <div className="p-4">
+                        {/* Pass the close function to children if they are valid React elements */}
                         {React.isValidElement(children) 
-                            ? React.cloneElement(children, { onClose: handleClose })
+                            ? React.cloneElement(children, { closeWrapper: handleClose })
                             : children
                         }
                     </div>

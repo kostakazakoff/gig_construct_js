@@ -35,10 +35,6 @@ export default function ServiceDetailsComponent() {
     // Send the form data to an API endpoint
     // Show a success message or handle errors as needed
 
-    const modalOnClose = () => {
-        console.log(`${service.id} Closed`);
-    }
-
     const [formData, setFormData] = useState(null);
 
     useEffect(() => {
@@ -49,7 +45,7 @@ export default function ServiceDetailsComponent() {
 
     return (
         <div className='relative my-4 px-4'>
-            <Modal onClose={modalOnClose}>
+            <Modal>
                 <AskOfferForm serviceId={service.id} translated={offerNoteTranslated} formOnSubmit={setFormData} />
             </Modal>
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
