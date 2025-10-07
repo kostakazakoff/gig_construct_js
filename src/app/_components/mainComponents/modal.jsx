@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import React from "react";
 import XButton from "../buttonsComponents/x_button";
 
-export default function Modal({ onOK, onClose, children }) {
+export default function Modal({ onClose, children }) {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -38,13 +38,6 @@ export default function Modal({ onOK, onClose, children }) {
         if (onClose) {
             onClose();
         }
-    };
-
-    const handleOK = () => {
-        if (onOK) {
-            onOK();
-        }
-        handleClose();
     };
 
     // Handle clicking outside the modal

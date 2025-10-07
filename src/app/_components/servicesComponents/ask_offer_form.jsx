@@ -4,7 +4,12 @@ import { EnvelopeOpenIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import SubmitButton from "@/app/_components/buttonsComponents/submit_button";
 
-export default function AskOfferForm({ serviceId, translated, setFormData, onSubmit, onClose }) {
+export default function AskOfferForm({
+  serviceId,
+  translated,
+  formOnSubmit,
+  onClose,
+}) {
   const [inputValues, setInputValues] = useState({
     id: serviceId,
     name: "",
@@ -20,6 +25,16 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formOnSubmit) {
+      formOnSubmit(inputValues);
+    }
+    if (onClose) {
+      onClose();
+    }
+  };
+
   return (
     <div className="w-sm sm:w-96 lg:w-128 xl:w-160 p-4 text-slate-700 dark:text-slate-300">
       <div className="flex items-center mb-4 space-x-6 border-b border-slate-900 dark:border-slate-200 py-4">
@@ -31,26 +46,16 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
       </div>
 
       <form
-      className="space-y-4"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (setFormData) {
-          setFormData(inputValues);
-        }
-        if (onSubmit) {
-          onSubmit(inputValues);
-        }
-        if (onClose) {
-          onClose();
-        }
-      }}
+        className="space-y-4"
+        onSubmit={handleSubmit}
       >
         <div>
           <label
             htmlFor="name"
             className="block text-sm font-medium dark:text-slate-300"
           >
-            <span className="text-red-500 text-2xl">*</span>{translated.nameLabel}
+            <span className="text-red-500 text-2xl">*</span>
+            {translated.nameLabel}
           </label>
           <input
             type="text"
@@ -82,7 +87,8 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
             htmlFor="phone"
             className="block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
-            <span className="text-red-500 text-2xl">*</span>{translated.phoneLabel}
+            <span className="text-red-500 text-2xl">*</span>
+            {translated.phoneLabel}
           </label>
           <input
             type="phone"
@@ -98,7 +104,8 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
             htmlFor="message"
             className="block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
-            <span className="text-red-500 text-2xl">*</span>{translated.messageLabel}
+            <span className="text-red-500 text-2xl">*</span>
+            {translated.messageLabel}
           </label>
           <textarea
             id="message"
@@ -109,11 +116,11 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
             className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
           ></textarea>
         </div>
-        
+
         {/* Submit бутон във формата */}
         <div className="pt-4 border-t flex justify-end">
           <SubmitButton type="submit">
-            {translated.submitButton || 'Submit'}
+            {translated.submitButton || "Submit"}
           </SubmitButton>
         </div>
       </form>
