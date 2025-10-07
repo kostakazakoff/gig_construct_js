@@ -1,7 +1,7 @@
 "use client";
 
 import { EnvelopeOpenIcon } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SubmitButton from "@/app/_components/buttonsComponents/submit_button";
 
 export default function AskOfferForm({ serviceId, translated, setFormData, onSubmit, onClose }) {
@@ -41,7 +41,6 @@ export default function AskOfferForm({ serviceId, translated, setFormData, onSub
         if (onSubmit) {
           onSubmit(inputValues);
         }
-        // Затваряме модала след успешен submit
         if (onClose) {
           onClose();
         }
