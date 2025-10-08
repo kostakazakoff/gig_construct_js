@@ -9,5 +9,5 @@ export default function ModalPropsProvider({ closeWrapper, children }) {
         return child;
     });
 
-    return <>{childrenWithProps}</>;
+    return childrenWithProps;
 }
