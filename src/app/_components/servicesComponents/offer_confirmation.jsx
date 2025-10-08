@@ -32,14 +32,14 @@ export default function OfferConfirmation({ service, translated, formSubmitted, 
                     <h2 className="text-lg font-bold uppercase text-center">{translated?.thankYou}</h2>
                 </div>
 
-                <div className="space-y-4">
-                    <div className="text-center py-6">
+                <div className="space-y-6">
+                    <div className="flex flex-col items-center text-center gap-8 py-6">
                         <p className="text-md mb-4">
                             {translated?.weWillContactYou}
                         </p>
-                        <p className="text-md font-bold text-red-800 dark:text-red-500">
-                            {translated?.important}
-                        </p>
+                        <div className="text-md">
+                            <span className="font-bold text-red-800 dark:text-red-500">{translated?.important}</span>{translated?.importantNote}
+                        </div>
                     </div>
 
                     {/* Close бутон */}
