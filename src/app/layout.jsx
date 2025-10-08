@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
                         <header>
                             <Navbar />
                         </header>
-                        <main className="min-h-screen bg-slate-200 dark:bg-slate-900 text-slate-700 dark:text-slate-200 text-sm sm:text-base flex items-start justify-center py-22">
+                        <main className="min-h-screen bg-slate-200 dark:bg-slate-900 text-slate-700 dark:text-slate-200 text-sm sm:text-base flex items-start justify-center py-20 lg:py-24">
                             {children}
                         </main>
                         <footer>

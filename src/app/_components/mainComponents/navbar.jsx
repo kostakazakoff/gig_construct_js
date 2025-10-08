@@ -74,7 +74,7 @@ export default function Navbar() {
             className="fixed top-0 right-0 left-0 bg-gig-blue dark:bg-slate-900/90 text-slate-300 text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl uppercase font-bold after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 z-50 dark:backdrop-blur-md lg:text-base border-b-1 border-slate-200"
         >
             <div className="mx-auto max-w-7xl px-2 sm:px-3 lg:px-8">
-                <div className="relative flex h-16 items-center justify-between">
+                <div className="relative flex h-16 lg:h-20 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         {/* Mobile menu button*/}
                         <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-slate-400 hover:bg-white/5 hover:text-blue-400 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
