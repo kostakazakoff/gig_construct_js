@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import React from "react";
 import XButton from "../../buttonsComponents/x_button";
 import ModalShell from "./modal_props_provider";
+import ModalPropsProvider from "./modal_props_provider";
 
 export default function Modal({ active, setActive, children }) {
 
@@ -68,10 +69,10 @@ export default function Modal({ active, setActive, children }) {
                         <XButton onClick={handleClose} />
                     </div>
                     <div className="p-4">
-                        {/* Use ModalShell to elegantly pass props to children */}
-                        <ModalShell closeWrapper={handleClose}>
+                        {/* Use ModalPropsProvider to elegantly pass props to a multiple children */}
+                        <ModalPropsProvider closeWrapper={handleClose}>
                             {children}
-                        </ModalShell>
+                        </ModalPropsProvider>
                     </div>
                 </div>
             </dialog>

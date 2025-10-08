@@ -11,7 +11,6 @@ import Modal from "@/app/_components/mainComponents/modal/modal";
 import AskOfferForm from "@/app/_components/servicesComponents/ask_offer_form";
 import OfferConfirmation from "@/app/_components/servicesComponents/offer_confirmation";
 import { useEffect, useState } from "react";
-import ModalPropsProvider from "@/app/_components/mainComponents/modal/modal_props_provider";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
@@ -47,19 +46,17 @@ export default function ServiceDetailsComponent() {
     return (
         <div className="relative my-4 px-4">
             <Modal active={modalIsActive} setActive={setModalIsActive}>
-                <ModalPropsProvider>
-                    <AskOfferForm
-                        serviceId={service.id}
-                        translated={offerNoteTranslated}
-                        setFormSubmitted={setFormSubmitted}
-                    />
-                    <OfferConfirmation
-                        service={service}
-                        formSubmitted={formSubmitted}
-                        setFormSubmitted={setFormSubmitted}
-                        closeWrapper={() => setFormSubmitted(false)}
-                    />
-                </ModalPropsProvider>
+                <AskOfferForm
+                    serviceId={service.id}
+                    translated={offerNoteTranslated}
+                    setFormSubmitted={setFormSubmitted}
+                />
+                <OfferConfirmation
+                    service={service}
+                    formSubmitted={formSubmitted}
+                    setFormSubmitted={setFormSubmitted}
+                    closeWrapper={() => setFormSubmitted(false)}
+                />
             </Modal>
 
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
