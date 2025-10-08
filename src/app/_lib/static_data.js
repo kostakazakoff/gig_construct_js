@@ -126,13 +126,13 @@ export const offerConfirmationStaticData = {
     BG: {
         thankYou: "Благодарим Ви за направеното запитване!",
         weWillContactYou: "Поръчката е приета от наш сътрудник, който ще се свърже с Вас, за повече информация при изготвяне на офертата.",
-        important: " При необходимост от назначаване на оглед на място, се начисляват такса Оглед и Консултация.",
+        important: "Важно: При необходимост от назначаване на оглед на място, се начислява такса Оглед и Консултация.",
         close: "Затвори",
     },
     EN: {
         thankYou: "Thank you for your inquiry!",
         weWillContactYou: "Your request has been received by our representative, who will contact you for more information regarding the preparation of the offer.",
-        important: " If a site inspection is required, a fee for Inspection and Consultation will be charged.",
+        important: "Important: If a site inspection is required, a fee for Inspection and Consultation will be charged.",
         close: "Close",
     },
 };
