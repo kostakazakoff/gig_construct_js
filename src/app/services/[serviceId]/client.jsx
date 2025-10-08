@@ -9,18 +9,18 @@ import { offerNoteStaticData } from "@/app/_lib/static_data.js";
 import Translate from "@/app/_utils/Translator.js";
 import Modal from "@/app/_components/mainComponents/modal";
 import AskOfferForm from "@/app/_components/servicesComponents/ask_offer_form";
+import OfferConfirmation from "@/app/_components/servicesComponents/offer_confirmation";
 import { useEffect, useState } from "react";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
-
-    const translatedData = Translate({ data: servicesStaticData, language: language });
-    const offerNoteTranslated = Translate({ data: offerNoteStaticData, language: language });
-
     const params = useParams();
 
     const id = Number(params.serviceId);
     const service = services.filter((s) => s.id === id)[0];
+
+    const translatedData = Translate({ data: servicesStaticData, language: language });
+    const offerNoteTranslated = Translate({ data: offerNoteStaticData, language: language });
 
     if (!service) {
         notFound();
@@ -29,23 +29,29 @@ export default function ServiceDetailsComponent() {
     const translated = language === "BG" ? service.BG : service.EN;
     const servicesStaticDataTranslated = language === "BG" ? servicesStaticData.BG : servicesStaticData.EN;
 
-    //TODO: modal onSubmit logic
-    // Implement form submission logic here
-    // Send the form data to an API endpoint
-    // Show a success message or handle errors as needed
-
-    const [formData, setFormData] = useState(null);
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
     useEffect(() => {
-        if (formData) {
-            console.log("Form data updated:", formData);
+        if (formSubmitted) {
+            // Logic to handle after form submission, e.g., close modal or show confirmation
+            console.log("Parent: Form has been submitted.");
         }
-    }, [formData]);
+    }, [formSubmitted]);
 
     return (
         <div className="relative my-4 px-4">
             <Modal>
-                <AskOfferForm serviceId={service.id} translated={offerNoteTranslated} formOnSubmit={setFormData} />
+                <AskOfferForm
+                    serviceId={service.id}
+                    translated={offerNoteTranslated}
+                    setFormSubmitted={setFormSubmitted}
+                />
+                <OfferConfirmation
+                    service={service}
+                    formSubmitted={formSubmitted}
+                    setFormSubmitted={setFormSubmitted}
+                    closeWrapper={() => setFormSubmitted(false)}
+                />
             </Modal>
 
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">

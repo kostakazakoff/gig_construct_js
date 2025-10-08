@@ -1,12 +1,12 @@
 export const servicesStaticData = {
     BG: {
-        legend: "Всички цени са с включен ДДС. Цените са ориентировъчни и могат да варират в зависимост от спецификата на обекта и изискванията на клиента. За точна оферта, моля свържете се с нас.",
+        legend: "Всички цени са с включен ДДС. Цените са ориентировъчни и могат да варират в зависимост от спецификата на обекта и изискванията на клиента. За повече информация, моля свържете се с нас.",
         currency: "лв",
         askOfferText: "Поискай оферта",
         estimatedPrice: "Ориентировъчна цена за труд",
     },
     EN: {
-        legend: "All prices include VAT. Prices are indicative and may vary depending on the specifics of the site and customer requirements. For an accurate quote, please contact us.",
+        legend: "All prices include VAT. Prices are indicative and may vary depending on the specifics of the site and customer requirements. For more information, please contact us.",
         currency: "BGN",
         askOfferText: "Ask for an offer",
         estimatedPrice: "Estimated labor costs",
@@ -110,11 +110,11 @@ export const offerNoteStaticData = {
     EN: {
         nameLabel: "Name, Surname",
         emailLabel: "Email",
-        phoneLabel: "Phone for contact",
+        phoneLabel: "Phone",
         messageLabel: "Message",
         namePlaceholder: "Enter your name and surname",
-        phonePlaceholder: "Enter your phone",
-        emailPlaceholder: "Enter your email",
+        phonePlaceholder: "Enter your phone number",
+        emailPlaceholder: "Enter your email address",
         messagePlaceholder: "Enter your message",
         successMessage: "Your message was sent successfully!",
         errorMessage: "An error occurred while sending your message. Please try again later.",
