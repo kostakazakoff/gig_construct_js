@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import React from "react";
 import XButton from "../buttonsComponents/x_button";
 
-export default function Modal({ children }) {
+export default function Modal({ active, setActive, children }) {
 
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -16,8 +16,10 @@ export default function Modal({ children }) {
     useEffect(() => {
         if (open) {
             modalRef.current?.showModal();
+            setActive(true);
         } else {
             modalRef.current?.close();
+            setActive(false);
         }
     }, [open]);
 
@@ -45,11 +47,11 @@ export default function Modal({ children }) {
     return (
         <>
             {/* Full-screen backdrop with blur */}
-            <div 
+            <div
                 className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
                 onClick={handleClose}
             ></div>
-            
+
             {/* Modal dialog */}
             <dialog
                 ref={modalRef}
@@ -65,7 +67,7 @@ export default function Modal({ children }) {
                     </div>
                     <div className="p-4">
                         {/* Pass the close function to children if they are valid React elements */}
-                        {React.isValidElement(children) 
+                        {React.isValidElement(children)
                             ? React.cloneElement(children, { closeWrapper: handleClose })
                             : children
                         }
