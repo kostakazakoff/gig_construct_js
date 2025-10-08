@@ -9,8 +9,8 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
 
     return (
         <Link key={service.id} href={`/services/${serviceId}?modal=true`} passHref>
-            <article className="group w-96 h-64 grid grid-rows-3 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm relative overflow-hidden dark:text-slate-200 bg-gig-blue/20 dark:bg-slate-800/90 border-1 border-gig-blue hover:border-0">
-                <div className="relative row-span-2 overflow-hidden object-cover align-middle w-full h-full text-slate-200">
+            <article className="group w-96 h-64 grid grid-rows-5 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm relative overflow-hidden dark:text-slate-200 bg-gig-blue/20 dark:bg-slate-800/90 border-1 border-gig-blue hover:border-0">
+                <div className="relative row-span-3 overflow-hidden object-cover align-middle w-full h-full text-slate-200">
                     <div>
                         <div className="absolute inset-0 bg-gig-blue/70 z-0" />
                     </div>
@@ -29,14 +29,26 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         {service.title}
                     </h2>
                 </div>
-                <div className="grid grid-cols-5 grid-rows-2 relative z-1">
-                    <p className="text-sm text-center border-t-2 p-2 col-span-5 uppercase">
-                        {servicesStaticData.estimatedPrice}
+                <div className="row-span-2 grid grid-cols-4 grid-rows-3 relative z-1">
+                    <p className="text-center border-t-2 p-2 col-span-4 uppercase dark:bg-purple-900">
+                        1
                     </p>
-                    <p className="text-center border-r-1 border-t-1 p-2 col-span-3">
-                        {service.price} {servicesStaticData.currency}
+                    <p className="text-center border-1 border-t-1 p-2 dark:bg-purple-900">
+                        2
                     </p>
-                    <p className="text-center border-t-1 p-2 col-span-2">{service.unit}</p>
+                    <p className="text-center border-1 p-2 col-span-2 dark:bg-purple-900">
+                        3
+                    </p>
+                    <p className="text-center border-1 p-2 row-span-2 dark:bg-purple-900">
+                        4
+                    </p>
+                    <p className="text-center border-1 p-2 dark:bg-purple-900">
+                        5
+                    </p>
+                    <p className="text-center border-1 p-2 col-span-2 dark:bg-purple-900">
+                        6
+                    </p>
+
                 </div>
             </article>
         </Link>
