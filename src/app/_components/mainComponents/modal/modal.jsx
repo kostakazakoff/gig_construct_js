@@ -4,7 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import React from "react";
 import XButton from "../../buttonsComponents/x_button";
-import ModalShell from "./modal_props_provider";
 import ModalPropsProvider from "./modal_props_provider";
 
 export default function Modal({ active, setActive, children }) {

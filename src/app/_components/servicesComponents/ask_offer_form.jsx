@@ -17,6 +17,7 @@ export default function AskOfferForm({
     useEffect(() => {
         if (formData) {
             formRef.current.style.opacity = 0;
+            formRef.current.style.display = 'none';
             // TODO: Logic to send the data to your server or API
         } else {
             formRef.current.style.opacity = 1;
@@ -50,7 +51,7 @@ export default function AskOfferForm({
     };
 
     return (
-        <div ref={formRef} className="opacity-100 transition-opacity duration-300 ease-in-out">
+        <div ref={formRef} className="opacity-100 transition-opacity duration-300 ease-in-out display-block">
             <div className="w-sm sm:w-96 lg:w-128 xl:w-160 p-4 text-slate-700 dark:text-slate-300">
                 <div className="flex items-center mb-4 space-x-6 border-b border-slate-900 dark:border-slate-200 py-4">
                     <EnvelopeOpenIcon className="h-8 w-8" />
@@ -115,7 +116,7 @@ export default function AskOfferForm({
                     </div>
 
                     {/* Submit бутон във формата */}
-                    <div className="pt-4 border-t flex justify-end">
+                    <div className="pt-4 border-t pt-2 flex justify-end">
                         <SubmitButton type="submit">{translated.submitButton || "Submit"}</SubmitButton>
                     </div>
                 </form>
