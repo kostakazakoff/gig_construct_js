@@ -5,6 +5,7 @@ import { notFound, useParams } from "next/navigation";
 import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
 import ServiceDetailsCard from "@/app/_components/servicesComponents/service_details_card.jsx";
 import { servicesStaticData } from "@/app/_lib/static_data.js";
+import { offerConfirmationStaticData } from "@/app/_lib/static_data";
 import { offerNoteStaticData } from "@/app/_lib/static_data.js";
 import Translate from "@/app/_utils/Translator.js";
 import Modal from "@/app/_components/mainComponents/modal/modal";
@@ -21,6 +22,7 @@ export default function ServiceDetailsComponent() {
 
     const translatedData = Translate({ data: servicesStaticData, language: language });
     const offerNoteTranslated = Translate({ data: offerNoteStaticData, language: language });
+    const translatedOfferConfirmation = Translate({ data: offerConfirmationStaticData, language: language });
 
     if (!service) {
         notFound();
@@ -53,6 +55,7 @@ export default function ServiceDetailsComponent() {
                 />
                 <OfferConfirmation
                     service={service}
+                    translated={translatedOfferConfirmation}
                     formSubmitted={formSubmitted}
                     setFormSubmitted={setFormSubmitted}
                     closeWrapper={() => setFormSubmitted(false)}

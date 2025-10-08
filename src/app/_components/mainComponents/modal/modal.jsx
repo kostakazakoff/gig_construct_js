@@ -61,18 +61,18 @@ export default function Modal({ active, setActive, children }) {
                 onClick={handleBackdropClick}
             >
                 <div className="bg-gray-100/80 dark:bg-slate-800/80 dark:text-slate-300 overflow-hidden shadow-lg relative rounded-lg relative">
-                    {/* <div className="p-4 border-b">
-                        <h2 className="text-lg font-bold">Modal Title</h2>
-                    </div> */}
+
                     <div className="p-2 flex justify-end">
                         <XButton onClick={handleClose} />
                     </div>
+
                     <div className="p-4">
                         {/* Use ModalPropsProvider to elegantly pass props to a multiple children */}
                         <ModalPropsProvider closeWrapper={handleClose}>
                             {children}
                         </ModalPropsProvider>
                     </div>
+
                 </div>
             </dialog>
         </>
