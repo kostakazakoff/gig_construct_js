@@ -32,13 +32,16 @@ export default function ServiceDetailsComponent() {
     const servicesStaticDataTranslated = language === "BG" ? servicesStaticData.BG : servicesStaticData.EN;
 
     const [formSubmitted, setFormSubmitted] = useState(false);
+
     useEffect(() => {
         if (formSubmitted) {
+            console.log("Form submitted for service ID:", service.id);
             // Logic to handle after form submission, e.g., close modal or show confirmation
         }
     }, [formSubmitted]);
 
     const [modalIsActive, setModalIsActive] = useState(false);
+
     useEffect(() => {
         if (modalIsActive) {
             setFormSubmitted(false);
@@ -58,7 +61,7 @@ export default function ServiceDetailsComponent() {
                     translated={translatedOfferConfirmation}
                     formSubmitted={formSubmitted}
                     setFormSubmitted={setFormSubmitted}
-                    closeWrapper={() => setFormSubmitted(false)}
+                // closeWrapper={() => setFormSubmitted(false)}
                 />
             </Modal>
 
