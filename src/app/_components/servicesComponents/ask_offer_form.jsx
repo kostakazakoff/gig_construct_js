@@ -62,8 +62,8 @@ export default function AskOfferForm({
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium dark:text-slate-300">
-                            <span className="text-red-500 text-2xl">*</span>
                             {translated.nameLabel}
+                            <span className="text-red-500 text-2xl">*</span>
                         </label>
                         <input
                             type="text"
@@ -76,8 +76,8 @@ export default function AskOfferForm({
                     </div>
                     <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-                            <span className="text-red-500 text-2xl">*</span>
                             {translated.phoneLabel}
+                            <span className="text-red-500 text-2xl">*</span>
                         </label>
                         <input
                             type="phone"
