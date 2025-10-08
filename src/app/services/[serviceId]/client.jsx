@@ -11,6 +11,7 @@ import Modal from "@/app/_components/mainComponents/modal";
 import AskOfferForm from "@/app/_components/servicesComponents/ask_offer_form";
 import OfferConfirmation from "@/app/_components/servicesComponents/offer_confirmation";
 import { useEffect, useState } from "react";
+import ModalShell from "@/app/_components/modal_shell";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
@@ -33,7 +34,6 @@ export default function ServiceDetailsComponent() {
     useEffect(() => {
         if (formSubmitted) {
             // Logic to handle after form submission, e.g., close modal or show confirmation
-            console.log("Parent: Form has been submitted.");
         }
     }, [formSubmitted]);
 
@@ -47,17 +47,19 @@ export default function ServiceDetailsComponent() {
     return (
         <div className="relative my-4 px-4">
             <Modal active={modalIsActive} setActive={setModalIsActive}>
-                <AskOfferForm
-                    serviceId={service.id}
-                    translated={offerNoteTranslated}
-                    setFormSubmitted={setFormSubmitted}
-                />
-                <OfferConfirmation
-                    service={service}
-                    formSubmitted={formSubmitted}
-                    setFormSubmitted={setFormSubmitted}
-                    closeWrapper={() => setFormSubmitted(false)}
-                />
+                <ModalShell>
+                    <AskOfferForm
+                        serviceId={service.id}
+                        translated={offerNoteTranslated}
+                        setFormSubmitted={setFormSubmitted}
+                    />
+                    <OfferConfirmation
+                        service={service}
+                        formSubmitted={formSubmitted}
+                        setFormSubmitted={setFormSubmitted}
+                        closeWrapper={() => setFormSubmitted(false)}
+                    />
+                </ModalShell>
             </Modal>
 
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">

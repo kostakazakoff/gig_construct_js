@@ -18,11 +18,8 @@ export default function AskOfferForm({
         if (formData) {
             formRef.current.style.opacity = 0;
             // TODO: Logic to send the data to your server or API
-            console.log("Form data:", formData);
-            // setFormData(null); // Reset form data after handling
         } else {
             formRef.current.style.opacity = 1;
-            console.log("Form data:", formData);
         }
     }, [formData]);
 

@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import React from "react";
 import XButton from "../buttonsComponents/x_button";
+import ModalShell from "../modal_shell";
 
 export default function Modal({ active, setActive, children }) {
 
@@ -28,13 +29,15 @@ export default function Modal({ active, setActive, children }) {
     }
 
     const handleClose = () => {
+        console.log("Closing modal");
         modalRef.current?.close();
-
         // Remove modal parameter from URL
         const currentParams = new URLSearchParams(searchParams.toString());
         currentParams.delete('modal');
         const newUrl = `${window.location.pathname}${currentParams.toString() ? '?' + currentParams.toString() : ''}`;
         router.push(newUrl);
+
+        setActive(false);
     };
 
     // Handle clicking outside the modal
@@ -66,11 +69,10 @@ export default function Modal({ active, setActive, children }) {
                         <XButton onClick={handleClose} />
                     </div>
                     <div className="p-4">
-                        {/* Pass the close function to children if they are valid React elements */}
-                        {React.isValidElement(children)
-                            ? React.cloneElement(children, { closeWrapper: handleClose })
-                            : children
-                        }
+                        {/* Use ModalShell to elegantly pass props to children */}
+                        <ModalShell closeWrapper={handleClose}>
+                            {children}
+                        </ModalShell>
                     </div>
                 </div>
             </dialog>
