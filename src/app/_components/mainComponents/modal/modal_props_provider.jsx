@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ModalShell({ closeWrapper, children }) {
+export default function ModalPropsProvider({ closeWrapper, children }) {
     // Pass props to all valid React children
     const childrenWithProps = React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {

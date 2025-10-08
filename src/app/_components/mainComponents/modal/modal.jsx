@@ -3,8 +3,8 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import React from "react";
-import XButton from "../buttonsComponents/x_button";
-import ModalShell from "./modal/modal_props_provider";
+import XButton from "../../buttonsComponents/x_button";
+import ModalShell from "./modal_props_provider";
 
 export default function Modal({ active, setActive, children }) {
 
@@ -29,7 +29,6 @@ export default function Modal({ active, setActive, children }) {
     }
 
     const handleClose = () => {
-        console.log("Closing modal");
         modalRef.current?.close();
         // Remove modal parameter from URL
         const currentParams = new URLSearchParams(searchParams.toString());
