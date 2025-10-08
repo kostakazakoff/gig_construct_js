@@ -34,11 +34,13 @@ export default function OfferConfirmation({ service, translated, formSubmitted, 
 
                 <div className="space-y-6">
                     <div className="flex flex-col items-center text-center gap-8 py-6">
-                        <p className="text-md mb-4">
-                            {translated?.weWillContactYou}
-                        </p>
+                        <div className="text-md mb-4">
+                            <p>{translated?.orderRecieved}</p>
+                            <p>{translated?.weWillContactYou}</p>
+                        </div>
                         <div className="text-md">
-                            <span className="font-bold text-red-800 dark:text-red-500">{translated?.important}</span>{translated?.importantNote}
+                            <p className="font-bold text-red-800 dark:text-red-500">{translated?.important}</p>
+                            <p>{translated?.importantNote}</p>
                         </div>
                     </div>
 
