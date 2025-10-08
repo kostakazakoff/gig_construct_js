@@ -65,7 +65,7 @@ export default function ServiceDetailsComponent() {
                 />
             </Modal>
 
-            <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
+            <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
                 {translated.map((detail, index) => (
                     <ServiceDetailsCard
                         key={index}

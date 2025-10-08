@@ -22,7 +22,7 @@ export default function TranslatedServices() {
 
     return (
         <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8">
-            <ul role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-4">
+            <ul role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-6">
                 {Object.values(services).map((service) => (
                     <ServiceCard key={service.id} service={service} />
                 ))}
