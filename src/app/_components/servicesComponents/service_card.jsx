@@ -21,7 +21,7 @@ export default function ServiceCard({ service }) {
                         {service.name}
                     </h2>
                 </div>
-                <div className="absolute w-96 h-24 bottom-0 bg-gig-blue dark:backdrop-blur-md text-justify text-slate-200 hyphens-auto flex flex-col justify-center px-4 text-base/6 indent-4 opacity-0 transition-opacity duration-400 group-hover:opacity-100 group-hover:border-t-1 border-slate-400">
+                <div className="absolute w-96 h-24 bottom-0 bg-gig-blue dark:backdrop-blur-md text-justify text-slate-200 hyphens-auto flex flex-col justify-center px-4 text-base/6 indent-8 opacity-0 transition-opacity duration-400 group-hover:opacity-100 group-hover:border-t-1 border-slate-400">
                     <p>Ценообразуването на услугата се изчислява на контактна точка и линеен метър</p>
                 </div>
             </article>
