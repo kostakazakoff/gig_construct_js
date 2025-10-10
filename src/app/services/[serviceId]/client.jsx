@@ -58,12 +58,12 @@ export default function ServiceDetailsComponent() {
             <Modal active={modalIsActive} setActive={setModalIsActive}>
                 <AskOfferForm
                     serviceId={service.id}
-                    translatedService={offerNoteTranslated}
+                    translated={offerNoteTranslated}
                     setFormSubmitted={setFormSubmitted}
                 />
                 <OfferConfirmation
                     service={service}
-                    translatedService={translatedOfferConfirmation}
+                    translated={translatedOfferConfirmation}
                     formSubmitted={formSubmitted}
                     setFormSubmitted={setFormSubmitted}
                 // closeWrapper={() => setFormSubmitted(false)}
