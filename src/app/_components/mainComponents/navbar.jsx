@@ -17,6 +17,7 @@ import { useEffect, useRef, useState } from "react";
 import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
 import { navTranslations } from "@/app/_lib/static_data.js";
 import useTheme from "@/app/_hooks/useTheme.jsx";
+import Translate from "@/app/_utils/Translator";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -31,14 +32,14 @@ export default function Navbar() {
     const contactRef = useRef(null);
 
     const { language, setLanguage } = useLanguageContext();
-    const [translation, setTranslation] = useState(navTranslations.BG);
+    const [translation, setTranslation] = useState(Translate({ data: navTranslations, language: language }));
 
     const changeLanguage = (lang) => {
         setLanguage(lang === "BG" ? "EN" : "BG");
     };
 
     useEffect(() => {
-        setTranslation(language === "BG" ? navTranslations.BG : navTranslations.EN);
+        setTranslation(Translate({ data: navTranslations, language: language }));
     }, [language]);
 
     const { theme, setTheme } = useTheme();

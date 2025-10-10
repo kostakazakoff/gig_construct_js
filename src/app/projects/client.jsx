@@ -4,22 +4,19 @@ import { projectsData } from '@/app/_mock_data/projects.js';
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx';
 import ProjectCard from '@/app/_components/projects_card.jsx';
 import { projectsStaticData } from '@/app/_lib/static_data.js';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
+import Translate from '../_utils/Translator';
 
 export default function ProjectsComponent() {
 
     const { language } = useLanguageContext();
-    const [translated, setTranslated] = useState(projectsData.BG);
-    const [translatedStaticData, setTranslatedStaticData] = useState(projectsStaticData.BG);
+    const defaultLanguage = 'BG';
+    const [translated, setTranslated] = useState(Translate({ data: projectsData, language: defaultLanguage }));
+    const [translatedStaticData, setTranslatedStaticData] = useState(Translate({ data: projectsStaticData, language: defaultLanguage }));
 
     useEffect(() => {
-        if (language === 'EN') {
-            setTranslated(projectsData.EN);
-            setTranslatedStaticData(projectsStaticData.EN);
-        } else {
-            setTranslated(projectsData.BG);
-            setTranslatedStaticData(projectsStaticData.BG);
-        }
+        setTranslated(Translate(Translate({ data: projectsData, language: language })));
+        setTranslatedStaticData(Translate({ data: projectsStaticData, language: language }));
     }, [language]);
 
     return (

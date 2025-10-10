@@ -9,7 +9,12 @@ import Translate from "../_utils/Translator.js";
 
 export default function AboutComponent() {
     const { language } = useLanguageContext();
-    const aboutText = Translate({ data: aboutStaticData, language: language });
+    const defaultLanguage = 'BG';
+    const [aboutText, setAboutText] = useState(Translate({ data: aboutStaticData, language: defaultLanguage }));
+
+    useEffect(() => {
+        setAboutText(Translate({ data: aboutStaticData, language: language }));
+    }, [language]);
 
     return (
         <section className="flex flex-col items-center justify-start align-strech mt-8 px-4 w-full">

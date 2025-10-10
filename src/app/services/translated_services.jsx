@@ -8,7 +8,7 @@ import Translate from "@/app/_utils/Translator.js";
 
 export default function TranslatedServices() {
     const { language } = useLanguageContext();
-    const [translation, setTranslation] = useState(servicesData.BG);
+    const [translation, setTranslation] = useState(Translate({ data: servicesData, language }));
 
     useEffect(() => {
         const translated = Translate({ data: servicesData, language });

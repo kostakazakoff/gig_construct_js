@@ -20,17 +20,22 @@ export default function ServiceDetailsComponent() {
     const id = Number(params.serviceId);
     const service = services.filter((s) => s.id === id)[0];
 
-    const translatedData = Translate({ data: servicesStaticData, language: language });
-    const offerNoteTranslated = Translate({ data: offerNoteStaticData, language: language });
-    const translatedOfferConfirmation = Translate({ data: offerConfirmationStaticData, language: language });
+    const [translatedData, setTranslatedData] = useState(Translate({ data: servicesStaticData, language: language }));
+    const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: offerNoteStaticData, language: language }));
+    const [translatedOfferConfirmation, setTranslatedOfferConfirmation] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
+    const [translatedService, setTranslatedService] = useState(Translate({ data: service, language: language }));
+
+    useEffect(() => {
+        setTranslatedData(Translate({ data: servicesStaticData, language: language }));
+        setOfferNoteTranslated(Translate({ data: offerNoteStaticData, language: language }));
+        setTranslatedOfferConfirmation(Translate({ data: offerConfirmationStaticData, language: language }));
+        setTranslatedService(Translate({ data: service, language: language }));
+    }, [language]);
 
     if (!service) {
         notFound();
     }
-
-    const translated = language === "BG" ? service.BG : service.EN;
-    const servicesStaticDataTranslated = language === "BG" ? servicesStaticData.BG : servicesStaticData.EN;
-
+    // State to track if the form has been submitted
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     useEffect(() => {
@@ -53,12 +58,12 @@ export default function ServiceDetailsComponent() {
             <Modal active={modalIsActive} setActive={setModalIsActive}>
                 <AskOfferForm
                     serviceId={service.id}
-                    translated={offerNoteTranslated}
+                    translatedService={offerNoteTranslated}
                     setFormSubmitted={setFormSubmitted}
                 />
                 <OfferConfirmation
                     service={service}
-                    translated={translatedOfferConfirmation}
+                    translatedService={translatedOfferConfirmation}
                     formSubmitted={formSubmitted}
                     setFormSubmitted={setFormSubmitted}
                 // closeWrapper={() => setFormSubmitted(false)}
@@ -66,12 +71,12 @@ export default function ServiceDetailsComponent() {
             </Modal>
 
             <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
-                {translated.map((detail, index) => (
+                {translatedService.map((detail, index) => (
                     <ServiceDetailsCard
                         key={index}
                         serviceId={service.id}
                         service={detail}
-                        servicesStaticData={servicesStaticDataTranslated}
+                        servicesStaticData={translatedData}
                     />
                 ))}
             </section>
