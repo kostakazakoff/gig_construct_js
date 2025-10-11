@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
 
 export default function TranslatedServices() {
+
     const { language } = useLanguageContext();
     const [translation, setTranslation] = useState(Translate({ data: servicesData, language }));
 
