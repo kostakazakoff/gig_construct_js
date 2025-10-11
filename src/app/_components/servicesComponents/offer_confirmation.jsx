@@ -47,7 +47,7 @@ export default function OfferConfirmation({ service, translated, formSubmitted, 
                     {/* Close бутон */}
                     <div className="pt-4 border-t flex justify-end">
                         <SubmitButton type="button" onClick={closeModal}>
-                            Затвори
+                            Затвори {/* TODO: /Close */}
                         </SubmitButton>
                     </div>
                 </div>
