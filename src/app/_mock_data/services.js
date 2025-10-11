@@ -92,7 +92,7 @@ export const servicesData = {
             description:
                 "Preparation, priming and painting of various surfaces, parts according to specified requirements and standard norms.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         2: {
             id: 2,
@@ -100,7 +100,7 @@ export const servicesData = {
             description:
                 "Design,   Installation and Dismantling of Water Supply installation of different types of buildings or premises.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         3: {
             id: 3,
@@ -108,7 +108,7 @@ export const servicesData = {
             description:
                 "Installation, Dismantling and Replacement of Drywall, Building walls, Cladding, Suspended ceilings.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         4: {
             id: 4,
@@ -116,35 +116,35 @@ export const servicesData = {
             description:
                 "Design, Installation and Dismantling of High Voltage or Low Voltage electrical installation, of different types of buildings or premises.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         5: {
             id: 5,
             name: "Screeds",
             description: "Machine and manual laying of different types of screeds, wall straightening.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         6: {
             id: 6,
             name: "Masonry",
             description: "Masonry with brick, concrete blocks, Ytong aerated concrete.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         7: {
             id: 7,
             name: "Flooring",
             description: "Laying of Floor or Concrete flooring.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         8: {
             id: 8,
             name: "Suspended ceilings",
             description: "Installation of suspended ceilings made of different types of materials.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         9: {
             id: 9,
@@ -152,28 +152,28 @@ export const servicesData = {
             description:
                 "Laying of Tiles faience and terracotta tiles - Porcelain stoneware, Natural or artificial stone.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         10: {
             id: 10,
             name: "Insulation",
             description: "Laying of Thermal and Hydro insulation.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         11: {
             id: 11,
             name: "Putty",
             description: "Gypsum, Cement, putty reinforcement with mesh, putty or glass fiber veil.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
         12: {
             id: 11,
             name: "Cleaning",
             description: "Cleaning and removal of construction waste.",
             src: "/images/services/paint.jpg",
-            note: "The pricing of the service is calculated per contact point and linear meter.",
+            note: "The pricing of the service is calculated based on:",
         },
     },
 };
