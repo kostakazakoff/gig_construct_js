@@ -29,24 +29,21 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         {service.title}
                     </h2>
                 </div>
-                <div className="row-span-2 grid grid-cols-4 grid-rows-3 relative z-1">
-                    <p className="text-center border-t-2 p-2 col-span-4 uppercase dark:bg-purple-900">
+                <div className="row-span-2 grid grid-cols-4 grid-rows-2 relative z-1 bg-slate-100/80 dark:bg-slate-800/80 dark:text-slate-300">
+                    <p className="text-center border-t border-r p-2">
                         1
                     </p>
-                    <p className="text-center border-1 border-t-1 p-2 dark:bg-purple-900">
+                    <p className="text-center border-t border-r p-2 col-span-2">
                         2
                     </p>
-                    <p className="text-center border-1 p-2 col-span-2 dark:bg-purple-900">
+                    <p className="text-center border-t p-2 row-span-2">
                         3
                     </p>
-                    <p className="text-center border-1 p-2 row-span-2 dark:bg-purple-900">
+                    <p className="text-center border-t border-r p-2">
                         4
                     </p>
-                    <p className="text-center border-1 p-2 dark:bg-purple-900">
+                    <p className="text-center border-t border-r p-2 col-span-2">
                         5
-                    </p>
-                    <p className="text-center border-1 p-2 col-span-2 dark:bg-purple-900">
-                        6
                     </p>
 
                 </div>
