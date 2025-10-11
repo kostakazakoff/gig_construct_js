@@ -23,14 +23,17 @@ export default function Footer() {
                     &copy; {new Date().getFullYear()} GIG Construct. {translatedStaticData.rightsReserved}
                 </div>
                 <div>
-                    <a href="https://facebook.com" className="flex content-center items-center gap-2">
+                    <a
+                        href="https://www.facebook.com/gigstroj"
+                        target="_blank"
+                        className="flex content-center items-center gap-2"
+                    >
                         <Image
                             src="/facebookIcon.svg"
                             alt="Facebook"
                             width={20}
                             height={20}
                             className="inline-block bg-slate-200 rounded-full"
-                            target="_blank"
                         />
                         <p className="text-sm">{translatedStaticData.followUs}</p>
                     </a>
