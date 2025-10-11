@@ -1,3 +1,5 @@
+import CompLoader from "../_components/mainComponents/compLoader";
+
 export const metadata = {
     title: 'News',
     description: 'Latest news and updates from GIG Construct.',
@@ -5,9 +7,9 @@ export const metadata = {
 }
 
 export default function NewsPage() {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold">Новини</h1>
-    </div>
-  );
+    return (
+        <div>
+            <CompLoader />
+        </div>
+    );
 }

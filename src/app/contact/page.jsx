@@ -1,3 +1,5 @@
+import CompLoader from '../_components/mainComponents/compLoader';
+
 export const metadata = {
     title: 'Contact',
     description: 'Get in touch with GIG Construct for inquiries and quotes.',
@@ -5,9 +7,9 @@ export const metadata = {
 }
 
 export default function ContactPage() {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold">Контакт</h1>
-    </div>
-  );
+    return (
+        <div className='flex justify-center items-center'>
+            <CompLoader />
+        </div>
+    );
 }
