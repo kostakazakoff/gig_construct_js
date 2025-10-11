@@ -29,7 +29,6 @@ export default function Modal({ active, setActive, children }) {
     }
 
     const handleClose = () => {
-        console.log("Closing modal");
         modalRef.current?.close();
         // Remove modal parameter from URL
         const currentParams = new URLSearchParams(searchParams.toString());
