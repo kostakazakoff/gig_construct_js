@@ -24,8 +24,11 @@ export default function ServiceCard({ service, language }) {
                         {service.description}
                     </h2>
                 </div>
-                <div className="absolute w-96 h-30 bottom-0 bg-gig-blue dark:backdrop-blur-md text-slate-200 flex flex-col justify-center px-8 text-base/6 opacity-0 transition-opacity duration-400 group-hover:opacity-100 group-hover:border-t-1 border-slate-400 group-hover:shadow-lg/30">
-                    <p>{service.note}</p>
+                <div className="absolute w-96 h-30 grid grid-rows-2 grid-cols-3 bottom-0 bg-slate-800/80 dark:backdrop-blur-md text-slate-200 text-base/6 opacity-0 transition-opacity duration-400 group-hover:opacity-100 group-hover:border-t-1 border-slate-400 group-hover:shadow-lg/30">
+                    <div className="col-span-3 border-t border-b flex justify-center items-center text-center">{service.note}</div>
+                    <div className="border-r flex justify-center items-center text-center">Линеен метър</div>
+                    <div className="border-r flex justify-center items-center text-center">Контактна точка</div>
+                    <div className="flex justify-center items-center text-center"></div>
                 </div>
             </article>
         </Link>

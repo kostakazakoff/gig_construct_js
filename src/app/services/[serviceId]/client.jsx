@@ -41,7 +41,7 @@ export default function ServiceDetailsComponent() {
     useEffect(() => {
         if (formSubmitted) {
             console.log("Form submitted for service ID:", service.id);
-            // Logic to handle after form submission, e.g., close modal or show confirmation
+            // Logic to handle after form submission, send data to server, etc.
         }
     }, [formSubmitted]);
 
