@@ -66,7 +66,6 @@ export default function ServiceDetailsComponent() {
                     translated={translatedOfferConfirmation}
                     formSubmitted={formSubmitted}
                     setFormSubmitted={setFormSubmitted}
-                // closeWrapper={() => setFormSubmitted(false)}
                 />
             </Modal>
 
