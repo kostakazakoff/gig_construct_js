@@ -35,7 +35,7 @@ export default function Footer() {
                             height={20}
                             className="inline-block bg-slate-200 rounded-full"
                         />
-                        <p className="text-sm">{translatedStaticData.followUs}</p>
+                        <p>{translatedStaticData.followUs}</p>
                     </a>
                 </div>
             </div>
