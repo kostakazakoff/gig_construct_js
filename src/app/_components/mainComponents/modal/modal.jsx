@@ -50,7 +50,7 @@ export default function Modal({ active, setActive, children }) {
         <>
             {/* Full-screen backdrop with blur */}
             <div
-                className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
+                className="fixed inset-0 bg-black/80 backdrop-blur-xs z-40"
                 onClick={handleClose}
             ></div>
 
