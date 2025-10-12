@@ -80,7 +80,7 @@ export default function ServiceDetailsComponent() {
                 ))}
             </section>
 
-            <section className="w-96 xl:w-128 mt-12 p-4 bg-slate-300 dark:bg-slate-800/80 dark:backdrop-blur-md sticky bottom-16 left-1/2 text-center rounded-full shadow-lg z-1 lg:-translate-x-1/2">
+            <section className="w-96 xl:w-128 mt-12 py-4 px-8 bg-slate-300 dark:bg-slate-800/80 dark:backdrop-blur-md sticky bottom-16 left-1/2 text-center rounded-sm shadow-lg z-1 lg:-translate-x-1/2">
                 <p className="text-xs text-slate-700 dark:text-slate-300">{translatedData.legend}</p>
             </section>
         </div>
