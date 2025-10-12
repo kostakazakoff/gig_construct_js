@@ -9,7 +9,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
 
     return (
         <Link key={service.id} href={`/services/${serviceId}?modal=true`} passHref>
-            <article className="group w-96 h-64 grid grid-rows-5 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md hover:shadow-xl rounded-sm relative overflow-hidden bg-gig-blue/20 dark:bg-slate-800/90 text-slate-200">
+            <article className="group w-96 h-64 grid grid-rows-5 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-sm relative overflow-hidden bg-gig-blue/20 dark:bg-slate-800/90 text-slate-200">
                 <div className="relative row-span-3 overflow-hidden object-cover align-middle w-full h-full">
                     <div>
                         <div className="absolute inset-0 bg-gig-blue/80" />
