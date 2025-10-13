@@ -6,8 +6,8 @@ export default function ServiceCard({ service, pricingText, language }) {
 
     return (
         <Link key={service.id} href={`/services/${service.id}`} passHref>
-            <article className="group grid grid-rows-3 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200" lang={language.toLowerCase()}>
-                <div className="relative row-span-2 overflow-hidden align-middle text-slate-200">
+            <article className="group grid grid-rows-4 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200" lang={language.toLowerCase()}>
+                <div className="relative row-span-3 overflow-hidden align-middle text-slate-200">
                     <div>
                         <div className="absolute inset-0 bg-gig-blue/80" />
                     </div>
@@ -26,11 +26,15 @@ export default function ServiceCard({ service, pricingText, language }) {
                         {service.description}
                     </h2>
                 </div>
-                <div className="grid grid-rows-2 grid-cols-3 bottom-0 text-base/6 bg-gig-blue/60">
-                    <div className="col-span-3 border-t border-b flex justify-center items-center text-center p-2">{pricingText.pricingBasedOn}</div>
-                    <div className="border-r flex justify-center items-center text-center p-2">{units[0]}</div>
-                    <div className="border-r flex justify-center items-center text-center p-2">{units[1]}</div>
-                    <div className="flex justify-center items-center text-center p-2">{units[2]}</div>
+                <div className="border-t flex flex-col justify-center items-center text-base/6 bg-gig-blue/60 p-2">
+                    <div className="flex justify-center items-center text-center">{pricingText.pricingBasedOn}</div>
+                    <div className="flex flex-wrap justify-center items-center">
+                        {units.map((unit, index) => (
+                            <div key={index} className="m-1 px-2 py-1 bg-slate-200/20 rounded text-sm">
+                                {unit}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </article>
         </Link>
