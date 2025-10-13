@@ -9,12 +9,17 @@ const ThemeContext = createContext({
 })
 
 export function ThemeProvider({ children }) {
-    const [theme, setTheme] = usePersistedState('theme', 'light')
+    const [theme, setTheme] = usePersistedState(
+        'theme',
+        'light', {
+        useCookies: true,
+        cookieExpireDays: 365
+    })
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
             {children}
         </ThemeContext.Provider>
-    )   
+    )
 }
 
 const useTheme = () => useContext(ThemeContext);
