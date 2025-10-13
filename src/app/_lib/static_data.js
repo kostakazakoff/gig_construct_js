@@ -152,6 +152,11 @@ export const servicesPricingText = {
         perUnit: "брой",
         perSquareMeter: "кв.м.",
         perLinearMeter: "л.м.",
+        perKg: "кг",
+        perLiter: "литър",
+        perCubicMeter: "куб.м.",
+        perTrip: "курс",
+        perVisit: "посещение",
         contactPoint: "Контактна точка",
     },
     EN: {
@@ -162,6 +167,11 @@ export const servicesPricingText = {
         perUnit: "unit",
         perSquareMeter: "sq.m.",
         perLinearMeter: "l.m.",
+        perKg: "kg",
+        perLiter: "liter",
+        perCubicMeter: "cu.m.",
+        perTrip: "trip",
+        perVisit: "visit",
         contactPoint: "Contact Point",
     },
 };
