@@ -128,7 +128,8 @@ export const offerConfirmationStaticData = {
         orderRecieved: "Поръчката ви е приета успешно!",
         weWillContactYou: "Сътрудник от нашия екип ще се свърже с вас!",
         important: "Важно: ",
-        importantNote: "При необходимост от назначаване на оглед се начислява допълнително такса, за оглед и консултация!",
+        importantNote:
+            "При необходимост от назначаване на оглед се начислява допълнително такса, за оглед и консултация!",
         close: "Затвори",
     },
     EN: {
@@ -136,7 +137,31 @@ export const offerConfirmationStaticData = {
         orderRecieved: "Your order has been successfully received!",
         weWillContactYou: "A member of our team will contact you!",
         important: "Important: ",
-        importantNote: "If an inspection appointment is necessary, an additional fee will be charged for the inspection and consultation!",
+        importantNote:
+            "If an inspection appointment is necessary, an additional fee will be charged for the inspection and consultation!",
         close: "Close",
+    },
+};
+
+export const servicesPricingText = {
+    BG: {
+        pricingBasedOn: "Ценообразуването е на база:",
+        perHour: "час",
+        perDay: "ден",
+        perProject: "проект",
+        perUnit: "брой",
+        perSquareMeter: "кв.м.",
+        perLinearMeter: "л.м.",
+        contactPoint: "Контактна точка",
+    },
+    EN: {
+        pricingBasedOn: "Pricing is based on:",
+        perHour: "hour",
+        perDay: "day",
+        perProject: "project",
+        perUnit: "unit",
+        perSquareMeter: "sq.m.",
+        perLinearMeter: "l.m.",
+        contactPoint: "Contact Point",
     },
 };

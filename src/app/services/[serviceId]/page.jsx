@@ -1,4 +1,4 @@
-import ServiceDetailsComponent from "./client";
+import ServiceDetailsComponent from "./clientComponent";
 
 export const metadata = {
     title: 'Service Details',

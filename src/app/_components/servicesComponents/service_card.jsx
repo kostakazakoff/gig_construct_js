@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ServiceCard({ service, language }) {
+export default function ServiceCard({ service, pricingText, language }) {
+    const units = service.units.map(key => pricingText[key]);
+
     return (
         <Link key={service.id} href={`/services/${service.id}`} passHref>
             <article className="group grid grid-rows-3 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200" lang={language.toLowerCase()}>
@@ -25,10 +27,10 @@ export default function ServiceCard({ service, language }) {
                     </h2>
                 </div>
                 <div className="grid grid-rows-2 grid-cols-3 bottom-0 text-base/6 bg-gig-blue/60">
-                    <div className="col-span-3 border-t border-b flex justify-center items-center text-center p-2">{service.note}</div>
-                    <div className="border-r flex justify-center items-center text-center p-2">Линеен метър</div>
-                    <div className="border-r flex justify-center items-center text-center p-2">Контактна точка</div>
-                    <div className="flex justify-center items-center text-center p-2"></div>
+                    <div className="col-span-3 border-t border-b flex justify-center items-center text-center p-2">{pricingText.pricingBasedOn}</div>
+                    <div className="border-r flex justify-center items-center text-center p-2">{units[0]}</div>
+                    <div className="border-r flex justify-center items-center text-center p-2">{units[1]}</div>
+                    <div className="flex justify-center items-center text-center p-2">{units[2]}</div>
                 </div>
             </article>
         </Link>

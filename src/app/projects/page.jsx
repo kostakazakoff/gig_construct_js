@@ -1,4 +1,4 @@
-import ProjectsComponent from "./client";
+import ProjectsComponent from "./clientComponent";
 
 export const metadata = {
     title: 'Projects',
@@ -7,9 +7,9 @@ export const metadata = {
 }
 
 export default function ProjectsPage() {
-  return (
-    <div>
-      <ProjectsComponent  />
-    </div>
-  );
+    return (
+        <div>
+            <ProjectsComponent />
+        </div>
+    );
 }
