@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { DivideIcon } from "@heroicons/react/24/solid";
 
 export default function ServiceDetailsCard({ serviceId, service, servicesStaticData, modalQueryParams }) {
     if (!service) {
@@ -34,7 +35,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         BGN
                     </p>
                     <p className="flex justify-center items-center border-t border-r p-2 col-span-2">
-                        100 - 200
+                        100 <span> <DivideIcon className="w-4 h-4 mx-1" /> </span> 200
                     </p>
                     <p className="flex justify-center items-center border-t p-2 row-span-2">
                         к. точка
@@ -43,7 +44,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         EU
                     </p>
                     <p className="flex justify-center items-center border-t border-r p-2 col-span-2">
-                        50 - 100
+                        50 <span> <DivideIcon className="w-4 h-4 mx-1" /> </span> 100
                     </p>
 
                 </div>
