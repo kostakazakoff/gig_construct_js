@@ -14,7 +14,7 @@ export default function TranslatedServices() {
     const [pricingText, setPricingText] = useState(Translate({ data: servicesPricingText, language }));
 
     useEffect(() => {
-        const fetchedData = fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICES}`)
+        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICES}`)
             .then(response => response.json())
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {
