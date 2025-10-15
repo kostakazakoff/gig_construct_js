@@ -98,7 +98,7 @@ export const servicesData = {
             id: 2,
             name: "Plumbing services",
             description:
-                "Design,   Installation and Dismantling of Water Supply installation of different types of buildings or premises.",
+                "Design, Installation and Dismantling of Water Supply installation of different types of buildings or premises.",
             src: "/images/services/paint.jpg",
             units: ["perUnit", "perLinearMeter"],
         },
