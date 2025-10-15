@@ -7,7 +7,7 @@ export default function CompLoader() {
                 {/* <div className="w-4 h-4 bg-gig-blue dark:bg-slate-600 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
                 <div className="w-4 h-4 bg-gig-blue dark:bg-slate-600 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
                 <div className="w-4 h-4 bg-gig-blue dark:bg-slate-600 rounded-full animate-bounce"></div> */}
-                <div class="h-10 w-10 border-4 border-gig-blue/40 border-t-transparent border-b-transparent rounded-full animate-spin"></div>
+                <div className="h-10 w-10 border-4 border-gig-blue/40 border-t-transparent border-b-transparent rounded-full animate-spin"></div>
             </div>
         </div>
     );
