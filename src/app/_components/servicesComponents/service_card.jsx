@@ -2,14 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ServiceCard({ service, pricingText, language }) {
-    const units = service.units.map(key => pricingText[key]);
+    // const units = service.units.map(key => pricingText[key]);
 
     return (
         <Link key={service.id} href={`/services/${service.id}`} passHref>
             <article className="group grid grid-rows-4 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200" lang={language.toLowerCase()}>
-                <div className="relative row-span-3 overflow-hidden align-middle text-slate-200">
+
+                <div className="border-t row-span-1 flex flex-col justify-center items-center text-base/6 bg-gig-blue/60 p-2">
+                    <div className="flex justify-center items-center text-center">{service.name}</div>
+                </div>
+
+                <div className="relative row-span-3 overflow-hidden flex text-slate-200">
                     <div>
-                        <div className="absolute inset-0 bg-gig-blue/80" />
+                        <div className="absolute inset-0 bg-gig-blue/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                     </div>
                     <Image
                         alt=""
@@ -19,23 +24,11 @@ export default function ServiceCard({ service, pricingText, language }) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="size-96 object-cover"
                     />
-                    <h2 className="absolute font-bold uppercase text-2xl text-center top-1/2 left-1/2 -translate-1/2 px-2 opacity-100 transition-opacity duration-400 group-hover:opacity-0">
-                        {service.name}
-                    </h2>
                     <h2 className="absolute w-82 h-82 flex justify-center items-center font-bold text-xl top-1/2 left-1/2 -translate-1/2 px-2 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                         {service.description}
                     </h2>
                 </div>
-                <div className="border-t flex flex-col justify-center items-center text-base/6 bg-gig-blue/60 p-2">
-                    <div className="flex justify-center items-center text-center">{pricingText.pricingBasedOn}</div>
-                    <div className="flex flex-wrap justify-center items-center">
-                        {units.map((unit, index) => (
-                            <div key={index} className="m-1 px-2 py-1 bg-slate-200/20 rounded text-sm">
-                                {unit}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+
             </article>
         </Link>
     );

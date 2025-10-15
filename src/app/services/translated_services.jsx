@@ -6,6 +6,7 @@ import { servicesData } from '@/app/_mock_data/services.js'
 import { servicesPricingText } from '@/app/_lib/static_data.js'
 import { useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
+import { API_PATH } from "../_lib/api_paths";
 
 export default function TranslatedServices() {
     const { language } = useLanguageContext();
@@ -13,11 +14,23 @@ export default function TranslatedServices() {
     const [pricingText, setPricingText] = useState(Translate({ data: servicesPricingText, language }));
 
     useEffect(() => {
-        const translatedServices = Translate({ data: servicesData, language });
-        setTranslation(translatedServices);
-        const translatedPricingText = Translate({ data: servicesPricingText, language });
-        setPricingText(translatedPricingText);
+        const fetchedData = fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICES}`)
+            .then(response => response.json())
+            .then(recievedData => {
+                if (recievedData && recievedData.succeed) {
+                    console.log("Fetched services data:", recievedData.data);
+                    const translatedServices = Translate({ data: recievedData.data, language });
+                    setTranslation(translatedServices);
+                }
+            });
     }, [language]);
+
+    // useEffect(() => {
+    //     const translatedServices = Translate({ data: servicesData, language });
+    //     setTranslation(translatedServices);
+    //     const translatedPricingText = Translate({ data: servicesPricingText, language });
+    //     setPricingText(translatedPricingText);
+    // }, [language]);
 
     const services = {};
     Object.values(translation).forEach(element => {
