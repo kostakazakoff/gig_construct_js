@@ -88,15 +88,15 @@ export default function Navbar() {
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <Link className="flex shrink-0 items-center" href="/">
                             <Image
-                                width={32}
-                                height={32}
+                                width={36}
+                                height={36}
                                 alt="GIG Construct Logo"
                                 src="/gig_logo.png"
                                 className="h-auto w-auto rounded-full"
                             />
                         </Link>
-                        <div className="hidden sm:ml-6 sm:block">
-                            <div className="flex space-x-4 max-md:space-x-2 text-slate-300 uppercase">
+                        <div className="hidden sm:ml-6 sm:block content-center">
+                            <div className="flex flex-nowrap space-x-4 max-md:space-x-1 text-slate-300 uppercase">
                                 {navigation.map((item) => (
                                     <Link
                                         key={item.name}
