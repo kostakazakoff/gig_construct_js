@@ -6,13 +6,14 @@ import { servicesData } from '@/app/_mock_data/services.js'
 import { useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
 import { API_PATH } from "../_lib/api_paths";
+import CompLoader from "../_components/mainComponents/compLoader";
 
 export default function TranslatedServices() {
     const { language } = useLanguageContext();
-    const [translation, setTranslation] = useState(Translate({ data: servicesData, language }));
+    const [translation, setTranslation] = useState(null);
 
     useEffect(() => {
-        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICES}`)
+        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICE_CATEGORIES}`)
             .then(response => response.json())
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {
@@ -22,6 +23,10 @@ export default function TranslatedServices() {
                 }
             });
     }, [language]);
+
+    if (!translation) {
+        return <CompLoader />;
+    }
 
     const services = {};
     Object.values(translation).forEach(element => {
