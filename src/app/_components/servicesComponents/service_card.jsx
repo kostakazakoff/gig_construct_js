@@ -5,7 +5,7 @@ export default function ServiceCard({ service, pricingText, language }) {
 
     return (
         <Link key={service.id} href={`/services/${service.id}`} passHref>
-            <article className="group grid grid-rows-4 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200" lang={language.toLowerCase()}>
+            <article className="group grid grid-rows-4 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200 border border-gig-blue" lang={language.toLowerCase()}>
 
                 <div className="row-span-1 flex flex-col justify-center items-center text-base/6 bg-gig-blue/60 p-2">
                     <div className="flex justify-center items-center text-center uppercase text-xl font-bold">{service.name}</div>
