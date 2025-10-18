@@ -11,7 +11,6 @@ import { API_PATH } from "../_lib/api_paths";
 export default function TranslatedServices() {
     const { language } = useLanguageContext();
     const [translation, setTranslation] = useState(Translate({ data: servicesData, language }));
-    const [pricingText, setPricingText] = useState(Translate({ data: servicesPricingText, language }));
 
     useEffect(() => {
         fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICES}`)
@@ -34,7 +33,7 @@ export default function TranslatedServices() {
         <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8">
             <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-6">
                 {Object.values(services).map((service) => (
-                    <ServiceCard key={service.id} service={service} pricingText={pricingText} language={language} />
+                    <ServiceCard key={service.id} service={service} language={language} />
                 ))}
             </section>
         </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ServiceCard({ service, pricingText, language }) {
+export default function ServiceCard({ service, language }) {
 
     return (
         <Link key={service.id} href={`/services/${service.id}`} passHref>
