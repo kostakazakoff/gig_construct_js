@@ -88,8 +88,8 @@ export default function Navbar() {
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <Link className="flex shrink-0 items-center" href="/">
                             <Image
-                                width={36}
-                                height={36}
+                                width={34}
+                                height={34}
                                 alt="GIG Construct Logo"
                                 src="/gig_logo.png"
                                 className="h-auto w-auto rounded-full"
