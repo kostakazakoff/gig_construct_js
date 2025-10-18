@@ -3,7 +3,6 @@
 import ServiceCard from "@/app/_components/servicesComponents/service_card.jsx";
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
 import { servicesData } from '@/app/_mock_data/services.js'
-import { servicesPricingText } from '@/app/_lib/static_data.js'
 import { useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
 import { API_PATH } from "../_lib/api_paths";
