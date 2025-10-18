@@ -10,7 +10,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
 
     return (
         <Link key={service.id} href={`/services/${serviceId}?modal=true`} passHref>
-            <article className="group w-96 h-64 grid grid-rows-5 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-sm relative overflow-hidden bg-gig-blue/20 dark:bg-slate-800/90 text-slate-200">
+            <article className="group w-96 h-64 grid grid-rows-4 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-sm relative overflow-hidden bg-gig-blue/20 dark:bg-slate-800/90 text-slate-200">
                 <div className="relative row-span-3 overflow-hidden object-cover align-middle w-full h-full">
                     <div>
                         <div className="absolute inset-0 bg-gig-blue/80" />
@@ -30,21 +30,15 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         {service.title}
                     </h2>
                 </div>
-                <div className="row-span-2 grid grid-cols-4 grid-rows-2 relative z-1 bg-gig-blue/60 border-gig-blue/20">
+                <div className="grid grid-cols-4 relative z-1 bg-gig-blue/60 border-gig-blue/20">
                     <p className="flex justify-center items-center border-t border-r p-2">
                         BGN
                     </p>
                     <p className="flex justify-center items-center border-t border-r p-2 col-span-2">
                         100 <span> <DivideIcon className="w-4 h-4 mx-1" /> </span> 200
                     </p>
-                    <p className="flex justify-center items-center border-t p-2 row-span-2">
+                    <p className="flex justify-center items-center border-t p-2">
                         к. точка
-                    </p>
-                    <p className="flex justify-center items-center border-t border-r p-2">
-                        EU
-                    </p>
-                    <p className="flex justify-center items-center border-t border-r p-2 col-span-2">
-                        50 <span> <DivideIcon className="w-4 h-4 mx-1" /> </span> 100
                     </p>
 
                 </div>
