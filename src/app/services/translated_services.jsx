@@ -25,13 +25,6 @@ export default function TranslatedServices() {
             });
     }, [language]);
 
-    // useEffect(() => {
-    //     const translatedServices = Translate({ data: servicesData, language });
-    //     setTranslation(translatedServices);
-    //     const translatedPricingText = Translate({ data: servicesPricingText, language });
-    //     setPricingText(translatedPricingText);
-    // }, [language]);
-
     const services = {};
     Object.values(translation).forEach(element => {
         services[element.id] = element;

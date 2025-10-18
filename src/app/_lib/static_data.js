@@ -1,12 +1,12 @@
 export const servicesStaticData = {
     BG: {
-        legend: "Всички цени са с включен ДДС. Цените са ориентировъчни и могат да варират в зависимост от спецификата на обекта и изискванията на клиента. За повече информация, моля свържете се с нас.",
+        legend: "Всички цени са за положен труд. Ценообразуването на услугата, може да варира в зависимост от спецификациите на обекта и изискванията на клиента. За повече информация, моля свържете се с нас.",
         currency: "лв",
         askOfferText: "Поискай оферта",
         estimatedPrice: "Ориентировъчна цена за труд",
     },
     EN: {
-        legend: "All prices include VAT. Prices are indicative and may vary depending on the specifics of the site and customer requirements. For more information, please contact us.",
+        legend: "All prices are for labor. Pricing for the service may vary depending on the specifications of the site and the client's requirements. For more information, please contact us.",
         currency: "BGN",
         askOfferText: "Ask for an offer",
         estimatedPrice: "Estimated labor costs",
