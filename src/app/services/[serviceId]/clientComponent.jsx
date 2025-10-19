@@ -24,6 +24,7 @@ export default function ServiceDetailsComponent() {
     const [translatedOfferConfirmation, setTranslatedOfferConfirmation] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
     const [translatedStaticData, setTranslatedStaticData] = useState({});
 
+        // TODO: Refactor static data translation into one object
     useEffect(() => {
         setOfferNoteTranslated(Translate({ data: offerNoteStaticData, language: language }));
         setTranslatedOfferConfirmation(Translate({ data: offerConfirmationStaticData, language: language }));
@@ -41,7 +42,7 @@ export default function ServiceDetailsComponent() {
                     setServices([]);
                 }
             });
-    }, [slug]);
+    }, [language]);
     
     // State to track if the form has been submitted
     const [formSubmitted, setFormSubmitted] = useState(false);
