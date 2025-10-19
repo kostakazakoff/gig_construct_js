@@ -16,7 +16,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         <div className="absolute inset-0 bg-gig-blue/80" />
                     </div>
                     <Image
-                        src={service.imageSrc}
+                        src={service.image_src}
                         alt={service.title}
                         width={96}
                         height={48}

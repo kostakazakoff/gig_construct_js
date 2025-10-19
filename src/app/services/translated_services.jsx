@@ -13,13 +13,14 @@ export default function TranslatedServices() {
     const [translation, setTranslation] = useState(null);
 
     useEffect(() => {
-        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICE_CATEGORIES}`)
+        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICE_CATEGORIES}`, { method: 'GET' })
             .then(response => response.json())
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {
-                    console.log("Fetched services data:", recievedData.data);
                     const translatedServices = Translate({ data: recievedData.data, language });
                     setTranslation(translatedServices);
+                } else {
+                    setTranslation(null);
                 }
             });
     }, [language]);
