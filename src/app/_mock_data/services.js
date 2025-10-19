@@ -5,84 +5,72 @@ export const servicesData = {
             name: "Боядисване",
             description: "Подготовка, за грундиране и боядисване на различни повърхности.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         2: {
             id: 2,
             name: "ВиК услуги",
             description: "Проектиране, Монтаж и Демонтаж на Водопреносна инсталация.",
             src: "/images/services/plumbing.jpg",
-            units: ["perUnit", "perLinearMeter"],
         },
         3: {
             id: 3,
             name: "Гипсокартон",
             description: "Монтаж, Демонтаж и Подмяна на Гипсокартон, Изграждане на стени, Обшивки, Окачени тавани.",
             src: "/images/services/drywall.jpg",
-            units: ["perSquareMeter"],
         },
         4: {
             id: 4,
             name: "Електро услуги",
             description: "Проектиране, Монтаж и Демонтаж на електроинсталации.",
             src: "/images/services/electrical.jpg",
-            units: ["perLinearMeter", "contactPoint"],
         },
         5: {
             id: 5,
             name: "Замазки",
             description: "Машинно и ръчно полагане на различен по вид замаски, изправяне на стени.",
             src: "/images/services/screeds.jpg",
-            units: ["perSquareMeter"],
         },
         6: {
             id: 6,
             name: "Зидария",
             description: "Зидане с тухла, бетонни блокчета, газобетон Ytong.",
             src: "/images/services/masonry.jpg",
-            units: ["perSquareMeter"],
         },
         7: {
             id: 7,
             name: "Настилки",
             description: "Полагане на Подови или Бетонни настилки.",
             src: "/images/services/flooring.jpg",
-            units: ["perSquareMeter"],
         },
         8: {
             id: 8,
             name: "Окачени тавани",
             description: "Монтаж на окачени тавани от различен вид материали.",
             src: "/images/services/celling.jpg",
-            units: ["perSquareMeter"],
         },
         9: {
             id: 9,
             name: "Плочки, гранитогрес",
             description: "Полагане на Плочки фаянс и теракот плочки - Гранитогрес, Естествен или изкуствен камък.",
             src: "/images/services/tiles.jpg",
-            units: ["perSquareMeter"],
         },
         10: {
             id: 10,
             name: "Изолация",
             description: "Полагане на Топло и Хидро изолация.",
             src: "/images/services/insulation.jpg",
-            units: ["perSquareMeter"],
         },
         11: {
             id: 11,
             name: "Шпакловка",
             description: "Гипсова, Циментова, шпакловка армиране с мрежа,  шпакловка или гласфазерен воал.",
             src: "/images/services/putty.jpeg",
-            units: ["perSquareMeter"],
         },
         12: {
             id: 12,
             name: "Почистване",
             description: "Почистване и извозване на строителни отпадъци.",
             src: "/images/services/cleaning.jpg",
-            units: ["perKg", "perHour"],
         },
     },
     EN: {
@@ -92,7 +80,6 @@ export const servicesData = {
             description:
                 "Preparation, priming and painting of various surfaces, parts according to specified requirements and standard norms.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         2: {
             id: 2,
@@ -100,7 +87,6 @@ export const servicesData = {
             description:
                 "Design, Installation and Dismantling of Water Supply installation of different types of buildings or premises.",
             src: "/images/services/paint.jpg",
-            units: ["perUnit", "perLinearMeter"],
         },
         3: {
             id: 3,
@@ -108,7 +94,6 @@ export const servicesData = {
             description:
                 "Installation, Dismantling and Replacement of Drywall, Building walls, Cladding, Suspended ceilings.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         4: {
             id: 4,
@@ -116,35 +101,30 @@ export const servicesData = {
             description:
                 "Design, Installation and Dismantling of High Voltage or Low Voltage electrical installation, of different types of buildings or premises.",
             src: "/images/services/paint.jpg",
-            units: ["perLinearMeter", "contactPoint"],
         },
         5: {
             id: 5,
             name: "Screeds",
             description: "Machine and manual laying of different types of screeds, wall straightening.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         6: {
             id: 6,
             name: "Masonry",
             description: "Masonry with brick, concrete blocks, Ytong aerated concrete.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         7: {
             id: 7,
             name: "Flooring",
             description: "Laying of Floor or Concrete flooring.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         8: {
             id: 8,
             name: "Suspended ceilings",
             description: "Installation of suspended ceilings made of different types of materials.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         9: {
             id: 9,
@@ -152,28 +132,24 @@ export const servicesData = {
             description:
                 "Laying of Tiles faience and terracotta tiles - Porcelain stoneware, Natural or artificial stone.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         10: {
             id: 10,
             name: "Insulation",
             description: "Laying of Thermal and Hydro insulation.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         11: {
             id: 11,
             name: "Putty",
             description: "Gypsum, Cement, putty reinforcement with mesh, putty or glass fiber veil.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
         12: {
             id: 12,
             name: "Cleaning",
             description: "Cleaning and removal of construction waste.",
             src: "/images/services/paint.jpg",
-            units: ["perSquareMeter"],
         },
     },
 };
