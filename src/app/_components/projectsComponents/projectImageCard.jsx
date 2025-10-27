@@ -1,8 +1,12 @@
 import Image from "next/image";
 
-export default function ProjectImageCard({ project }) {
+export default function ProjectImageCard({ imgSrc, altText }) {
+    const openImage = () => {
+        // Function to handle image click, e.g., open in a modal or new tab
+    };
+
     return (
-        <article className="overflow-hidden rounded-md flex justify-center items-center h-full">
+        <article className="overflow-hidden rounded-md flex justify-center items-center h-full" onClick={openImage}>
             <Image
                 alt=""
                 src="/images/service_details_cards/electro/Electrical-Services.jpg"
