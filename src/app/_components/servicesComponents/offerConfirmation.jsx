@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import SubmitButton from "../buttonsComponents/submit_button";
+import SubmitButton from "../buttonsComponents/submitButton";
 
 export default function OfferConfirmation({ service, translated, formSubmitted, closeWrapper }) {
 

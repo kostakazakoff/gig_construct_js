@@ -2,7 +2,7 @@
 
 import { EnvelopeOpenIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
-import SubmitButton from "@/app/_components/buttonsComponents/submit_button";
+import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
 
 export default function AskOfferForm({
     serviceId,

@@ -2,14 +2,14 @@
 
 import { notFound, useParams } from "next/navigation";
 import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
-import ServiceDetailsCard from "@/app/_components/servicesComponents/service_details_card.jsx";
+import ServiceDetailsCard from "@/app/_components/servicesComponents/serviceDetailsCard.jsx";
 import { servicesStaticData } from "@/app/_lib/static_data.js";
 import { offerConfirmationStaticData } from "@/app/_lib/static_data";
 import { offerNoteStaticData } from "@/app/_lib/static_data.js";
 import Translate from "@/app/_utils/Translator.js";
 import Modal from "@/app/_components/mainComponents/modal/modal";
-import AskOfferForm from "@/app/_components/servicesComponents/ask_offer_form";
-import OfferConfirmation from "@/app/_components/servicesComponents/offer_confirmation";
+import AskOfferForm from "@/app/_components/servicesComponents/askOfferForm";
+import OfferConfirmation from "@/app/_components/servicesComponents/offerConfirmation";
 import { useEffect, useState } from "react";
 import { API_PATH } from "@/app/_lib/api_paths";
 import CompLoader from "@/app/_components/mainComponents/compLoader";
