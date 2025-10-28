@@ -1,13 +1,11 @@
 'use client';
 
-import { useParams } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import ProjectImageCard from "@/app/_components/projectsComponents/projectImageCard.jsx";
 import Modal from "@/app/_components/mainComponents/modal/modal";
 
 export default function ProjectsClientComponent() {
-    const { projectId } = useParams();
 
     const imgCards = [
         {
