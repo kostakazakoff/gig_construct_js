@@ -1,11 +1,16 @@
 'use client';
 
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import ProjectImageCard from "@/app/_components/projectsComponents/projectImageCard.jsx";
 import Modal from "@/app/_components/mainComponents/modal/modal";
 
 export default function ProjectsClientComponent() {
+    const { projectId } = useParams();
+    console.log("Project ID:", projectId);
+
+    // TODO: Use projectId to fetch and display project-specific images
 
     const imgCards = [
         {
@@ -23,7 +28,6 @@ export default function ProjectsClientComponent() {
             imageUrl: "/images/services/masonry.jpg",
             altText: "Masonry Services",
         },
-        // Additional image cards can be added here
     ];
 
     const [modalIsActive, setModalIsActive] = useState(false);
