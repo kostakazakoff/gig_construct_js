@@ -42,7 +42,7 @@ export default function ProjectsClientComponent() {
                         src={imageSrc}
                         width={800}
                         height={600}
-                        className="object-cover"
+                        className="object-cover rounded-md"
                     />
                 </Modal>
             }
