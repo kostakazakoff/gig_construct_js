@@ -1,20 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectImageCard({ imgSrc, altText }) {
-    const openImage = () => {
-        // Function to handle image click, e.g., open in a modal or new tab
-    };
-
     return (
-        <article className="overflow-hidden rounded-md flex justify-center items-center h-full" onClick={openImage}>
+        <Link
+            className="overflow-hidden rounded-md flex justify-center items-center h-full"
+            href={`/projects/galery?modal=true`}
+            passHref
+        >
             <Image
-                alt=""
-                src="/images/service_details_cards/electro/Electrical-Services.jpg"
+                alt={altText}
+                src={imgSrc}
                 width={96}
                 height={48}
                 className="size-96 object-cover self-center"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
-        </article>
+        </Link>
     );
 }
