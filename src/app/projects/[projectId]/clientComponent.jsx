@@ -30,29 +30,32 @@ export default function ProjectsClientComponent() {
 
     const [modalIsActive, setModalIsActive] = useState(false);
 
-    const [imageSrc, setImageSrc] = useState("");
+    const [imageSrc, setImageSrc] = useState(null);
+
 
     return (
         <>
-            <Modal active={modalIsActive} setActive={setModalIsActive}>
-                <Image
-                    alt=""
-                    src={imageSrc}
-                    width={800}
-                    height={600}
-                    className="object-cover"
-                />
-            </Modal>
+            {imageSrc &&
+                <Modal active={modalIsActive} setActive={setModalIsActive}>
+                    <Image
+                        alt=""
+                        src={imageSrc}
+                        width={800}
+                        height={600}
+                        className="object-cover"
+                    />
+                </Modal>
+            }
 
             <ul className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
                 {/* <h1>Project {projectId} Details Page</h1> */}
                 {imgCards.map((card) => (
                     <li
                         key={card.id}
-                        onClick={() => setImageSrc(card.imageUrl)}
-                        className="group w-96 h-64 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
+                        onMouseOver={() => { setImageSrc(card.imageUrl); console.log(imageSrc); }}
+                        className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                     >
-                        <ProjectImageCard imgSrc={card.imageUrl} altText={card.altText} />
+                        <ProjectImageCard img={card.imageUrl} />
                     </li>
                 ))}
             </ul>
