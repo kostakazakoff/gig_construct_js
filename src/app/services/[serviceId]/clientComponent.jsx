@@ -1,6 +1,5 @@
 "use client";
 
-import { notFound, useParams } from "next/navigation";
 import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
 import ServiceDetailsCard from "@/app/_components/servicesComponents/serviceDetailsCard.jsx";
 import { servicesStaticData } from "@/app/_lib/static_data.js";
@@ -13,6 +12,7 @@ import OfferConfirmation from "@/app/_components/servicesComponents/offerConfirm
 import { useEffect, useState } from "react";
 import { API_PATH } from "@/app/_lib/api_paths";
 import CompLoader from "@/app/_components/mainComponents/compLoader";
+import be from "@/app/_utils/Api";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
@@ -32,13 +32,14 @@ export default function ServiceDetailsComponent() {
     }, [language]);
 
     useEffect(() => {
-        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICE_CATEGORIES}${slug}`, { method: 'GET' })
-            .then(response => response.json())
+        be.get(`${API_PATH.SERVICE_CATEGORIES}${slug}`)
+            .then(response => response.data)
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {
                     const translatedData = Translate({ data: recievedData.data, language: language });
                     setServices(translatedData);
                 } else {
+                    console.log('Error message:', recievedData.message);
                     setServices([]);
                 }
             });

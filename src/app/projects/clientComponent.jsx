@@ -6,7 +6,6 @@ import { projectsStaticData } from '@/app/_lib/static_data.js';
 import { useEffect, useState } from 'react';
 import Translate from '../_utils/Translator';
 import be from '../_utils/Api';
-import { API_PATH } from '../_lib/api_paths';
 import CompLoader from '../_components/mainComponents/compLoader';
 
 export default function ProjectsComponent() {
@@ -22,6 +21,9 @@ export default function ProjectsComponent() {
             console.log('Raw projects data:', projectsData.data.data);
             const translatedProjects = Translate({ data: projectsData.data.data, language });
             setTranslated(translatedProjects);
+        } else {
+            console.log(projectsData.message);
+            setTranslated(null);
         }
     };
 
