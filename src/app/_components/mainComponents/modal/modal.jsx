@@ -50,10 +50,10 @@ export default function Modal({ active, setActive, children }) {
         <>
             {/* Full-screen backdrop with blur */}
             <div
-                className="fixed inset-0 bg-black/80 backdrop-blur-xs z-40"
+                className="fixed inset-0 bg-black/80 backdrop-blur-xs z-50"
                 onClick={handleClose}
             >
-                <div className="p-2 flex justify-end fixed top-24 right-4">
+                <div className="p-2 flex justify-end fixed top-4 right-4">
                     <XButton onClick={handleClose} />
                 </div>
 

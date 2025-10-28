@@ -42,8 +42,8 @@ export default function ProjectsClientComponent() {
                         src={imageSrc}
                         width={1400}
                         height={900}
-                        className="w-[90vw] h-auto max-w-6xl object-cover rounded-md"
-                        sizes="90vw"
+                        className="w-[85vw] h-auto max-w-6xl object-cover rounded-md"
+                        sizes="85vw"
                     />
                 </Modal>
             }

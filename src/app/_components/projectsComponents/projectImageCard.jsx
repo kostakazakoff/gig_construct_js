@@ -12,9 +12,9 @@ export default function ProjectImageCard({ img }) {
             <Image
                 alt=''
                 src={img}
-                width={96}
-                height={48}
-                className="size-96 object-cover self-center"
+                width={384}
+                height={256}
+                className="w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             }
