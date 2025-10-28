@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+
 export default function ProjectsCard({ project, staticData, language }) {
     return (
         <Link className="group max-w-xl hover:shadow-xl/20 hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg"
@@ -27,7 +29,7 @@ export default function ProjectsCard({ project, staticData, language }) {
                                     width={48}
                                     height={64}
                                     alt=""
-                                    src={project.imageSrc ? project.imageSrc : "/photo.svg"}
+                                    src={project.image_src ? BACKEND_URL + project.image_src : "/photo.svg"}
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="size-64 flex-none bg-slate-300 dark:bg-gray-800 dark:outline-white/10 object-cover"
                                 />

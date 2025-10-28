@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
 import { API_PATH } from "../_lib/api_paths";
 import CompLoader from "../_components/mainComponents/compLoader";
+import be from "../_utils/Api";
 
 export default function TranslatedServices() {
     const { language } = useLanguageContext();
     const [translation, setTranslation] = useState(null);
 
     useEffect(() => {
-        fetch(`${API_PATH.ORIGIN}${API_PATH.SERVICE_CATEGORIES}`, { method: 'GET' })
+        be.get(`${API_PATH.SERVICE_CATEGORIES}`)
             .then(response => response.json())
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {
