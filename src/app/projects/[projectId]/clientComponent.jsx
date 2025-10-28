@@ -48,7 +48,6 @@ export default function ProjectsClientComponent() {
             }
 
             <ul className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
-                {/* <h1>Project {projectId} Details Page</h1> */}
                 {imgCards.map((card) => (
                     <li
                         key={card.id}
