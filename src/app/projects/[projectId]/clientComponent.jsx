@@ -40,10 +40,10 @@ export default function ProjectsClientComponent() {
                     <Image
                         alt=""
                         src={imageSrc}
-                        width={800}
-                        height={600}
-                        className="size-128 object-cover rounded-md"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 50vw"
+                        width={1400}
+                        height={900}
+                        className="w-[90vw] h-auto max-w-6xl object-cover rounded-md"
+                        sizes="90vw"
                     />
                 </Modal>
             }
