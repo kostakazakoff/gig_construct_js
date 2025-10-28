@@ -52,19 +52,23 @@ export default function Modal({ active, setActive, children }) {
             <div
                 className="fixed inset-0 bg-black/80 backdrop-blur-xs z-40"
                 onClick={handleClose}
-            ></div>
+            >
+                <div className="p-2 flex justify-end fixed top-24 right-4">
+                    <XButton onClick={handleClose} />
+                </div>
+
+            </div>
 
             {/* Modal dialog */}
             <dialog
                 ref={modalRef}
-                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-transparent p-0 border-0"
+                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-55 bg-transparent p-0 border-0 relative"
                 onClick={handleBackdropClick}
             >
-                <div className="bg-slate-200 dark:bg-slate-900 dark:text-slate-300 overflow-hidden shadow-lg/40 rounded-lg relative">
 
-                    <div className="p-2 flex justify-end">
-                        <XButton onClick={handleClose} />
-                    </div>
+                <div className="bg-slate-200 dark:bg-slate-900 dark:text-slate-300 overflow-hidden shadow-lg/40 rounded-lg">
+
+
 
                     <div className="p-4">
                         {/* Use ModalPropsProvider to elegantly pass props to a multiple children */}
