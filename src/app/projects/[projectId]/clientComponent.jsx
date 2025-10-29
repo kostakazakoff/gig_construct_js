@@ -7,9 +7,10 @@ import ProjectImageCard from "@/app/_components/projectsComponents/projectImageC
 import Modal from "@/app/_components/mainComponents/modal/modal";
 import be from "@/app/_utils/Api";
 import { API_PATH } from "@/app/_lib/api_paths.js";
+import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
 
 export default function ProjectsClientComponent() {
-    
+
     const { projectId } = useParams();
 
     useEffect(() => {
@@ -30,13 +31,40 @@ export default function ProjectsClientComponent() {
 
     const [imgCards, setImgCards] = useState(null);
     const [imageSrc, setImageSrc] = useState(null);
-
     const [modalIsActive, setModalIsActive] = useState(false);
+    const [imageId, setImageId] = useState(null);
+
+    useEffect(() => {
+        if (imageId !== null && imgCards && imgCards.length > 0) {
+            const card = imgCards.find(card => card.id === imageId);
+            if (card) {
+                setImageSrc(API_PATH.BACKEND_URL + card.imageUrl);
+            }
+        }
+    }, [imageId, imgCards]);
+
+    const navigateImage = (direction) => {
+        if (!imgCards || imgCards.length === 0) return;
+        
+        const currentIndex = imgCards.findIndex(card => card.id === imageId);
+        let newIndex;
+        
+        if (direction === 'next') {
+            newIndex = (currentIndex + 1) % imgCards.length;
+        } else if (direction === 'prev') {
+            newIndex = (currentIndex - 1 + imgCards.length) % imgCards.length;
+        }
+        
+        const newImageId = imgCards[newIndex].id;
+        setImageId(newImageId);
+    };
 
     return (
         <>
             {imageSrc &&
                 <Modal active={modalIsActive} setActive={setModalIsActive}>
+                    <SubmitButton onClick={() => navigateImage('prev')}>Previous</SubmitButton>
+                    <SubmitButton onClick={() => navigateImage('next')}>Next</SubmitButton>
                     <Image
                         alt=""
                         src={imageSrc}
@@ -52,7 +80,7 @@ export default function ProjectsClientComponent() {
                 {imgCards && imgCards.map((card) => (
                     <li
                         key={card.id}
-                        onMouseOver={() => setImageSrc(API_PATH.BACKEND_URL + card.imageUrl)}
+                        onMouseOver={() => setImageId(card.id)}
                         className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                     >
                         <ProjectImageCard img={API_PATH.BACKEND_URL + card.imageUrl} id={projectId} />
