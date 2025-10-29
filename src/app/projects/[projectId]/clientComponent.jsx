@@ -6,24 +6,20 @@ import Image from "next/image";
 import ProjectImageCard from "@/app/_components/projectsComponents/projectImageCard.jsx";
 import Modal from "@/app/_components/mainComponents/modal/modal";
 import be from "@/app/_utils/Api";
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+import { API_PATH } from "@/app/_lib/api_paths.js";
 
 export default function ProjectsClientComponent() {
+    
     const { projectId } = useParams();
-    console.log("NEXT_PUBLIC_API_ORIGIN:", process.env.NEXT_API_ORIGIN);
-
-    // TODO: Use projectId to fetch and display project-specific images
 
     useEffect(() => {
         be.get(`projects/${projectId}`)
             .then(response => response.data)
             .then(data => {
                 const images = data.data.images;
-                console.log('Project images:', images);
                 const imgCardsData = images.map((image) => ({
                     id: image.id,
-                    imageUrl: BACKEND_URL + image.image_src,
+                    imageUrl: image.image_src,
                 }));
                 setImgCards(imgCardsData);
             })
@@ -56,10 +52,10 @@ export default function ProjectsClientComponent() {
                 {imgCards && imgCards.map((card) => (
                     <li
                         key={card.id}
-                        onMouseOver={() => { setImageSrc(card.imageUrl); console.log(imageSrc); }}
+                        onMouseOver={() => setImageSrc(card.imageUrl)}
                         className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                     >
-                        <ProjectImageCard img={card.imageUrl} />
+                        <ProjectImageCard img={API_PATH.BACKEND_URL + card.imageUrl} />
                     </li>
                 ))}
             </ul>
