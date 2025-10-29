@@ -42,7 +42,7 @@ export default function ProjectsClientComponent() {
                         src={imageSrc}
                         width={1400}
                         height={900}
-                        className="w-[85vw] h-auto max-w-6xl object-cover rounded-md"
+                        className="w-[85vw] h-[85v] max-w-6xl object-cover rounded-md"
                         sizes="85vw"
                     />
                 </Modal>
@@ -52,7 +52,7 @@ export default function ProjectsClientComponent() {
                 {imgCards && imgCards.map((card) => (
                     <li
                         key={card.id}
-                        onMouseOver={() => setImageSrc(card.imageUrl)}
+                        onMouseOver={() => setImageSrc(API_PATH.BACKEND_URL + card.imageUrl)}
                         className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                     >
                         <ProjectImageCard img={API_PATH.BACKEND_URL + card.imageUrl} id={projectId} />

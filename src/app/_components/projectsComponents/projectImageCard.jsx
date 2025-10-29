@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProjectImageCard({ img, id }) {
-    console.log("ProjectImageCard img:", img);
     return (
         <Link
             className="overflow-hidden rounded-md flex justify-center items-center h-full"
