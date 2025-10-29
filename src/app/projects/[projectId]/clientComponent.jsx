@@ -8,6 +8,8 @@ import Modal from "@/app/_components/mainComponents/modal/modal";
 import be from "@/app/_utils/Api";
 import { API_PATH } from "@/app/_lib/api_paths.js";
 import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
+import { Button } from "@headlessui/react";
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 export default function ProjectsClientComponent() {
 
@@ -45,16 +47,16 @@ export default function ProjectsClientComponent() {
 
     const navigateImage = (direction) => {
         if (!imgCards || imgCards.length === 0) return;
-        
+
         const currentIndex = imgCards.findIndex(card => card.id === imageId);
         let newIndex;
-        
+
         if (direction === 'next') {
             newIndex = (currentIndex + 1) % imgCards.length;
         } else if (direction === 'prev') {
             newIndex = (currentIndex - 1 + imgCards.length) % imgCards.length;
         }
-        
+
         const newImageId = imgCards[newIndex].id;
         setImageId(newImageId);
     };
@@ -63,8 +65,18 @@ export default function ProjectsClientComponent() {
         <>
             {imageSrc &&
                 <Modal active={modalIsActive} setActive={setModalIsActive}>
-                    <SubmitButton onClick={() => navigateImage('prev')}>Previous</SubmitButton>
-                    <SubmitButton onClick={() => navigateImage('next')}>Next</SubmitButton>
+                    <Button
+                        onClick={() => navigateImage('prev')}
+                        className='fixed left-4 top-1/2 translate-y-[-50%] z-60 p-12'
+                    >
+                        <ArrowLeftCircleIcon className="h-12 w-12 text-white bg-slate-800 rounded-full" />
+                    </Button>
+                    <Button
+                        onClick={() => navigateImage('next')}
+                        className='fixed right-4 top-1/2 translate-y-[-50%] z-60 p-12'
+                    >
+                        <ArrowRightCircleIcon className="h-12 w-12 text-white bg-slate-800 rounded-full" />
+                    </Button>
                     <Image
                         alt=""
                         src={imageSrc}
