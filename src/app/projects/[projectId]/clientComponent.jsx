@@ -67,13 +67,13 @@ export default function ProjectsClientComponent() {
                 <Modal active={modalIsActive} setActive={setModalIsActive}>
                     <Button
                         onClick={() => navigateImage('prev')}
-                        className='fixed left-4 top-1/2 translate-y-[-50%] z-60 p-12 sm:p-24 lg:p-48 xl:p-60 cursor-pointer opacity-20 hover:opacity-100 transition-opacity duration-400'
+                        className='fixed left-4 top-1/2 translate-y-[-50%] z-60 p-12 sm:p-24 lg:p-48 xl:p-60 cursor-pointer opacity-20 hover:opacity-100 transition-opacity duration-300 hover:animate-pulse'
                     >
                         <ArrowLeftCircleIcon className="h-12 w-12 text-white bg-slate-800 rounded-full" />
                     </Button>
                     <Button
                         onClick={() => navigateImage('next')}
-                        className='fixed right-4 top-1/2 translate-y-[-50%] z-60 p-12 sm:p-24 lg:p-48 xl:p-60 cursor-pointer opacity-20 hover:opacity-100 transition-opacity duration-400'
+                        className='fixed right-4 top-1/2 translate-y-[-50%] z-60 p-12 sm:p-24 lg:p-48 xl:p-60 cursor-pointer opacity-20 hover:opacity-100 transition-opacity duration-300 hover:animate-pulse'
                     >
                         <ArrowRightCircleIcon className="h-12 w-12 text-white bg-slate-800 rounded-full" />
                     </Button>
