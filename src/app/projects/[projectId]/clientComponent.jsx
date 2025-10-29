@@ -1,39 +1,41 @@
 'use client';
 
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ProjectImageCard from "@/app/_components/projectsComponents/projectImageCard.jsx";
 import Modal from "@/app/_components/mainComponents/modal/modal";
+import be from "@/app/_utils/Api";
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
 
 export default function ProjectsClientComponent() {
     const { projectId } = useParams();
-    console.log("Project ID:", projectId);
+    console.log("NEXT_PUBLIC_API_ORIGIN:", process.env.NEXT_API_ORIGIN);
 
     // TODO: Use projectId to fetch and display project-specific images
 
-    const imgCards = [
-        {
-            id: 1,
-            imageUrl: "/images/services/electrical.jpg",
-            altText: "Electrical Services",
-        },
-        {
-            id: 2,
-            imageUrl: "/images/services/plumbing.jpg",
-            altText: "Plumbing Services",
-        },
-        {
-            id: 3,
-            imageUrl: "/images/services/masonry.jpg",
-            altText: "Masonry Services",
-        },
-    ];
+    useEffect(() => {
+        be.get(`projects/${projectId}`)
+            .then(response => response.data)
+            .then(data => {
+                const images = data.data.images;
+                console.log('Project images:', images);
+                const imgCardsData = images.map((image) => ({
+                    id: image.id,
+                    imageUrl: BACKEND_URL + image.image_src,
+                }));
+                setImgCards(imgCardsData);
+            })
+            .catch(error => {
+                console.error("Error fetching project data:", error);
+            });
+    }, [projectId]);
 
-    const [modalIsActive, setModalIsActive] = useState(false);
-
+    const [imgCards, setImgCards] = useState(null);
     const [imageSrc, setImageSrc] = useState(null);
 
+    const [modalIsActive, setModalIsActive] = useState(false);
 
     return (
         <>
@@ -51,7 +53,7 @@ export default function ProjectsClientComponent() {
             }
 
             <ul className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
-                {imgCards.map((card) => (
+                {imgCards && imgCards.map((card) => (
                     <li
                         key={card.id}
                         onMouseOver={() => { setImageSrc(card.imageUrl); console.log(imageSrc); }}

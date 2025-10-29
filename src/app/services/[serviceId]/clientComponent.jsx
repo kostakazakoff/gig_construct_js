@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { API_PATH } from "@/app/_lib/api_paths";
 import CompLoader from "@/app/_components/mainComponents/compLoader";
 import be from "@/app/_utils/Api";
+import { useParams } from "next/navigation";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
