@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
     return (
-        <div>
+        <div className="py-12">
             <ProjectsComponent />
         </div>
     );

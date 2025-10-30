@@ -8,7 +8,7 @@ export const metadata = {
 export default async function ServiceDetailsPage() {
 
     return (
-        <div>
+        <div className="py-8">
             <ServiceDetailsComponent />
         </div>
     )

@@ -8,7 +8,9 @@ export const metadata = {
 
 export default function Home() {
 
-  return (
-    <TranslatedServices />
-  );
+    return (
+        <div className=" py-8">
+            <TranslatedServices />
+        </div>
+    );
 }

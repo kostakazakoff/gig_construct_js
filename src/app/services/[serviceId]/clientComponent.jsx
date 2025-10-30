@@ -67,7 +67,7 @@ export default function ServiceDetailsComponent() {
     return (
         <>
             {services.length === 0 ? <CompLoader /> :
-                <div className="relative my-4 px-4">
+                <div className="relative px-4">
                     <Modal active={modalIsActive} setActive={setModalIsActive}>
                         <AskOfferForm
                             serviceId={slug}

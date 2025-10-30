@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col items-center justify-start w-full">
+    <div className="flex flex-col items-center justify-start w-full py-12">
       <AboutComponent />
     </div>
   );
