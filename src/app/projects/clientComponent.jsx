@@ -36,7 +36,7 @@ export default function ProjectsComponent() {
     return (
         <>
         {translated ?
-            <div className='relative my-4'>
+            <div className='relative'>
                 <section className='grid grid-cols-1 xl:grid-cols-2 gap-16 px-8 xl:px-24 2xl:px-40'>
                     {translated.map((details) => (
                         <ProjectCard key={details.id} project={details} staticData={translatedStaticData} language={language} />

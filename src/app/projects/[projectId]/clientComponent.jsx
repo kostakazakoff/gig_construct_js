@@ -10,6 +10,7 @@ import { API_PATH } from "@/app/_lib/api_paths.js";
 import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
 import { Button } from "@headlessui/react";
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
+import CompLoader from "@/app/_components/mainComponents/compLoader";
 
 export default function ProjectsClientComponent() {
 
@@ -88,16 +89,18 @@ export default function ProjectsClientComponent() {
                 </Modal>
             }
 
-            <ul className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
-                {imgCards && imgCards.map((card) => (
+            <ul className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
+                {imgCards ? imgCards.map((card) => (
                     <li
                         key={card.id}
+                        id={card.id}
                         onMouseOver={() => setImageId(card.id)}
                         className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                     >
                         <ProjectImageCard img={API_PATH.BACKEND_URL + card.imageUrl} id={projectId} />
                     </li>
-                ))}
+                ))
+                : <CompLoader />}
             </ul>
         </>
     );

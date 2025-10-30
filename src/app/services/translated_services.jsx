@@ -32,7 +32,7 @@ export default function TranslatedServices() {
 
     return (
         <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8">
-            <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-6">
+            <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
                 {translation.map((service) => (
                     <ServiceCard key={service.id} service={service} language={language} />
                 ))}
