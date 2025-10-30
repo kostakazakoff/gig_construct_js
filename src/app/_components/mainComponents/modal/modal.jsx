@@ -53,7 +53,7 @@ export default function Modal({ active, setActive, children }) {
                 className="fixed inset-0 bg-black/80 backdrop-blur-xs z-50"
                 onClick={handleClose}
             >
-                <div className="p-2 flex justify-end fixed top-4 right-4">
+                <div className="p-2 flex justify-end fixed top-2 right-4">
                     <XButton onClick={handleClose} />
                 </div>
 
