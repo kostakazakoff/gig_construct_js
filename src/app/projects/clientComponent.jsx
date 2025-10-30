@@ -18,7 +18,6 @@ export default function ProjectsComponent() {
     const getProjectsData = async () => {
         const projectsData = await be.get('projects/');
         if (projectsData && projectsData.data && projectsData.data.succeed) {
-            console.log('Raw projects data:', projectsData.data.data);
             const translatedProjects = Translate({ data: projectsData.data.data, language });
             setTranslated(translatedProjects);
         } else {
@@ -30,7 +29,6 @@ export default function ProjectsComponent() {
     useEffect(() => {
         setTranslatedStaticData(Translate({ data: projectsStaticData, language: language }));
         getProjectsData();
-        console.log('Fetched projects data:', translated);
     }, [language]);
 
     return (
@@ -38,8 +36,8 @@ export default function ProjectsComponent() {
         {translated ?
             <div className='relative'>
                 <section className='grid grid-cols-1 xl:grid-cols-2 gap-16 px-8 xl:px-24 2xl:px-40'>
-                    {translated.map((details) => (
-                        <ProjectCard key={details.id} project={details} staticData={translatedStaticData} language={language} />
+                    {translated.map((project) => (
+                        <ProjectCard key={project.project_id} project={project} staticData={translatedStaticData} language={language} />
                     ))}
                 </section>
             </div>
