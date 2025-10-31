@@ -37,8 +37,9 @@ export default function ProjectLayout({ children }) {
                 <div className="flex items-center justify-between max-w-7xl mx-auto px-8">
                     <h1 className="lg:text-3xl font-semibold">{projectTitle}</h1>
                     <Link
-                        href="/projects"
+                        href={`/projects#${projectId}`}
                         className="flex-none rounded-full bg-slate-900 dark:bg-slate-800 px-3.5 py-1 text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+                        scroll={true}
                     >
                         <span aria-hidden="true">&larr;</span> {language === 'EN' ? 'Back to projects' : 'Назад към проекти'}
                     </Link>
