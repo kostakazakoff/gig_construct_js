@@ -30,14 +30,14 @@ export default function ProjectsCard({ project, staticData, language }) {
                             </p>
                             <hr className="max-md:hidden" />
                             <div className="mt-4">
-                                <div className="relative overflow-hidden h-48 w-64 rounded-sm bg-slate-300 shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 group-hover:opacity-75 group-hover:grayscale-80 transition duration-400 ease-in-out:grayscale float-left max-xl:mb-4 md:mr-4">
+                                <div className="relative overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 group-hover:opacity-75 group-hover:grayscale-80 transition duration-400 ease-in-out:grayscale float-left max-xl:mb-4 md:mr-4">
                                     <Image
                                         width={256}
                                         height={192}
                                         alt=""
-                                        src={project.image_src ? BACKEND_URL + project.image_src : "/photo.svg"}
+                                        src={project.image_src && BACKEND_URL + project.image_src}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="w-full h-full object-cover bg-slate-300 dark:bg-gray-800"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <p className="mt-1 text-sm text-justify indent-8 md:text-base hyphens-auto" lang={language.toLowerCase()}>
