@@ -6,7 +6,7 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:800
 export default function ProjectsCard({ project, staticData, language }) {
     return (
         <article
-            className="group max-w-xl hover:shadow-xl/20 hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg"
+            className="group max-w-xl shadow-md/20 hover:shadow-xl/20 hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg"
             id={project.project_id}
         >
             <Link
