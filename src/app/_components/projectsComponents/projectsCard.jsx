@@ -3,6 +3,16 @@ import Link from "next/link";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
 
+const addImage = (imageSrc) => {
+    if (!imageSrc) {
+        return "/gig_logo.svg"; // Fallback изображение вместо null
+    } else if (imageSrc.startsWith('http')) {
+        return imageSrc;
+    }
+    console.log('Adding backend URL to image source:', imageSrc);
+    return BACKEND_URL + imageSrc;
+}
+
 export default function ProjectsCard({ project, staticData, language }) {
     return (
         <article
@@ -34,8 +44,8 @@ export default function ProjectsCard({ project, staticData, language }) {
                                     <Image
                                         width={256}
                                         height={192}
-                                        alt=""
-                                        src={project.image_src && BACKEND_URL + project.image_src}
+                                        alt="project image"
+                                        src={addImage(project.image_src)}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="w-full h-full object-cover"
                                     />
