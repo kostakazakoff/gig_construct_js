@@ -86,7 +86,7 @@ export default function Navbar() {
                         </DisclosureButton>
                     </div>
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <Link className="flex shrink-0 items-center" href="/">
+                        <Link className="flex shrink-0 items-center relative" href="/">
                             <Image
                                 width={34}
                                 height={34}
