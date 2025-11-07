@@ -14,10 +14,10 @@ export default function NewsCard({ newsItem }) {
 
     return (
         <div className="max-w-6xl">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-slate-800 leading-none border-b-2 pb-2">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-slate-800 dark:text-slate-200 leading-none border-b-2 pb-2">
                 {newsItem.title}
             </h2>
-            <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 float-left mr-4">
+            <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-8 border-slate-200 float-left mr-4">
                 <Image
                     src={addImage(newsItem.image_src)}
                     alt={newsItem.title}
