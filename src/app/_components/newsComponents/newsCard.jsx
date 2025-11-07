@@ -13,11 +13,11 @@ export default function NewsCard({ newsItem }) {
     }
 
     return (
-        <div className="max-w-6xl px-6 py-2 border-l-4 border-slate-800 dark:border-slate-200">
+        <div className="max-w-6xl pl-8 py-2 border-l-4 border-slate-800 dark:border-slate-200">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-slate-800 dark:text-slate-200 leading-none pb-2">
                 {newsItem.title}
             </h2>
-            <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-2 float-left mr-4 border-slate-200 dark:border-slate-800">
+            <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-2 float-left mr-4 border-slate-400">
                 <Image
                     src={addImage(newsItem.image_src)}
                     alt={newsItem.title}
