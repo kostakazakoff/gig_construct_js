@@ -50,7 +50,7 @@ export default function ProjectsCard({ project, staticData, language }) {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <p className="mt-1 text-sm text-justify indent-8 md:text-base hyphens-auto" lang={language.toLowerCase()}>
+                                <p className="mt-1 text-sm text-justify indent-8 md:text-base hyphens-auto">
                                     {project.description}
                                 </p>
                             </div>

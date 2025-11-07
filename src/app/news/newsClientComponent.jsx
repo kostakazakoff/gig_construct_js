@@ -28,7 +28,7 @@ export default function NewsClientComponent() {
 
     return (
         news ? (
-                    <div className="flex flex-col gap-16 px-8 py-12">
+                    <div className="flex flex-col gap-16 py-12" lang={language.toLowerCase()}>
                         {news.map((item) => (
                             <NewsCard key={item.id} newsItem={item} />
                         ))}
