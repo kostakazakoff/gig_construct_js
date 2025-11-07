@@ -12,11 +12,25 @@ export default function NewsCard({ newsItem }) {
         return API_PATH.BACKEND_URL + imageSrc;
     }
 
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+    }
+
     return (
         <div className="max-w-6xl pl-8 py-2 border-l-4 border-slate-800 dark:border-slate-200">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-slate-800 dark:text-slate-200 leading-none pb-2">
-                {newsItem.title}
-            </h2>
+            <div className="flex justify-between items-start gap-24 mb-6">
+                <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 dark:text-slate-200 leading-none pb-2">
+                    {newsItem.title}
+                </h2>
+                <p className="text-sm text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                    {formatDate(newsItem.created_at)}
+                </p>
+            </div>
             <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-2 float-left mr-4 border-slate-400">
                 <Image
                     src={addImage(newsItem.image_src)}
@@ -24,7 +38,7 @@ export default function NewsCard({ newsItem }) {
                     width={96}
                     height={48}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="size-96 object-cover self-center"
+                    className="w-full h-full object-cover"
                 />
             </div>
             <p className="mt-1 text-sm text-justify indent-8 md:text-base hyphens-auto">
