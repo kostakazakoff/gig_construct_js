@@ -31,10 +31,10 @@ export default function ClientContact() {
     const handleInputChange = (e) => {
         console.log("Input Changed:", e.target);
         const { name, value } = e.target;
-        
+
         // Премахване на персонализирано съобщение за грешка при промяна
         e.target.setCustomValidity('');
-        
+
         setFormData({
             ...formData,
             [name]: value
@@ -43,7 +43,7 @@ export default function ClientContact() {
 
     const handleInvalid = (e) => {
         const { name } = e.target;
-        
+
         // Маппинг на имената на полетата към ключовете в errors обекта
         const errorMapping = {
             first_name: 'firstName',
@@ -53,7 +53,7 @@ export default function ClientContact() {
             message: 'message',
             'agree-to-policies': 'privacyPolicy',
         };
-        
+
         const errorKey = errorMapping[name];
         if (errorKey && contactData?.errors?.[errorKey]) {
             e.target.setCustomValidity(contactData.errors[errorKey]);
@@ -220,6 +220,7 @@ export default function ClientContact() {
                                             aria-label="Agree to policies"
                                             className="absolute inset-0 appearance-none focus:outline-hidden"
                                             onInvalid={handleInvalid}
+                                            title={contactData?.hints?.agreeToPolicies}
                                         />
                                     </div>
                                 </div>

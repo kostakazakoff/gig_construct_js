@@ -210,6 +210,7 @@ export const contactStaticData = {
             email: "Вашият имейл адрес за връзка (задължително)",
             phone: "Телефонен номер за връзка (задължително)",
             message: "Опишете вашето запитване или проект (задължително)",
+            agreeToPolicies: "Отбележете, че сте съгласни с политиката за поверителност",
         },
     },
     EN: {
@@ -245,6 +246,7 @@ export const contactStaticData = {
             email: "Your email address for contact (required)",
             phone: "Contact phone number (required)",
             message: "Describe your inquiry or project (required)",
+            agreeToPolicies: "Check that you agree to the privacy policy",
         },
     },
 };
