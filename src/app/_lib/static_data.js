@@ -194,6 +194,23 @@ export const contactStaticData = {
         companyAddress: "адрес: ул. Примерна 123, София, България",
         companyPhone: "телефон: +359 88 123 4567",
         companyEmail: "поща: info@gigconstruct.bg",
+
+        errors: {
+            firstName: "Моля, въведете име",
+            lastName: "Моля, въведете фамилия",
+            email: "Моля, въведете валиден имейл адрес",
+            phone: "Моля, въведете телефонен номер",
+            message: "Моля, въведете съобщение",
+            privacyPolicy: "Моля, приемете политиката за поверителност",
+        },
+        hints: {
+            firstName: "Въведете вашето собствено име",
+            lastName: "Въведете вашата фамилия",
+            company: "Името на вашата фирма (опционално)",
+            email: "Вашият имейл адрес за връзка (задължително)",
+            phone: "Телефонен номер за връзка (задължително)",
+            message: "Опишете вашето запитване или проект (задължително)",
+        },
     },
     EN: {
         title: "Contact Us",
@@ -212,6 +229,23 @@ export const contactStaticData = {
         companyAddress: "address: 123 Example St, Sofia, Bulgaria",
         companyPhone: "phone: +359 88 123 4567",
         companyEmail: "email: info@gigconstruct.bg",
+
+        errors: {
+            firstName: "Please enter your first name",
+            lastName: "Please enter your last name",
+            email: "Please enter a valid email address",
+            phone: "Please enter your phone number",
+            message: "Please enter a message",
+            privacyPolicy: "Please accept the privacy policy",
+        },
+        hints: {
+            firstName: "Enter your first name",
+            lastName: "Enter your last name",
+            company: "Your company name (optional)",
+            email: "Your email address for contact (required)",
+            phone: "Contact phone number (required)",
+            message: "Describe your inquiry or project (required)",
+        },
     },
 };
 

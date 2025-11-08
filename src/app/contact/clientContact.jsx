@@ -31,10 +31,33 @@ export default function ClientContact() {
     const handleInputChange = (e) => {
         console.log("Input Changed:", e.target);
         const { name, value } = e.target;
+        
+        // Премахване на персонализирано съобщение за грешка при промяна
+        e.target.setCustomValidity('');
+        
         setFormData({
             ...formData,
             [name]: value
         });
+    }
+
+    const handleInvalid = (e) => {
+        const { name } = e.target;
+        
+        // Маппинг на имената на полетата към ключовете в errors обекта
+        const errorMapping = {
+            first_name: 'firstName',
+            last_name: 'lastName',
+            email: 'email',
+            phone: 'phone',
+            message: 'message',
+            'agree-to-policies': 'privacyPolicy',
+        };
+        
+        const errorKey = errorMapping[name];
+        if (errorKey && contactData?.errors?.[errorKey]) {
+            e.target.setCustomValidity(contactData.errors[errorKey]);
+        }
     }
 
     useEffect(() => {
@@ -73,8 +96,10 @@ export default function ClientContact() {
                                         name="first_name"
                                         type="text"
                                         autoComplete="given-name"
+                                        title={contactData?.hints?.firstName}
                                         className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                         onChange={handleInputChange}
+                                        onInvalid={handleInvalid}
                                     />
                                 </div>
                             </div>
@@ -88,8 +113,10 @@ export default function ClientContact() {
                                         name="last_name"
                                         type="text"
                                         autoComplete="family-name"
+                                        title={contactData?.hints?.lastName}
                                         className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                         onChange={handleInputChange}
+                                        onInvalid={handleInvalid}
                                     />
                                 </div>
                             </div>
@@ -103,6 +130,7 @@ export default function ClientContact() {
                                         name="company"
                                         type="text"
                                         autoComplete="organization"
+                                        title={contactData?.hints?.company}
                                         className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                         onChange={handleInputChange}
                                     />
@@ -110,7 +138,7 @@ export default function ClientContact() {
                             </div>
                             <div className="sm:col-span-2">
                                 <label htmlFor="email" className="block text-sm/6 font-semibold">
-                                    {contactData.email}
+                                    {contactData.email} *
                                 </label>
                                 <div className="mt-2.5">
                                     <input
@@ -119,14 +147,16 @@ export default function ClientContact() {
                                         name="email"
                                         type="email"
                                         autoComplete="email"
+                                        title={contactData?.hints?.email}
                                         className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                         onChange={handleInputChange}
+                                        onInvalid={handleInvalid}
                                     />
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
                                 <label htmlFor="phone-number" className="block text-sm/6 font-semibold">
-                                    {contactData.phone}
+                                    {contactData.phone} *
                                 </label>
                                 <div className="mt-2.5">
                                     <div className="flex rounded-md bg-white dark:bg-slate-600 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
@@ -152,15 +182,17 @@ export default function ClientContact() {
                                             id="phone"
                                             name="phone"
                                             type="text"
+                                            title={contactData?.hints?.phone}
                                             className="block min-w-0 grow py-2 pr-3 px-3.5 text-base placeholder:text-slate-400 focus:outline-none sm:text-sm/6"
                                             onChange={handleInputChange}
+                                            onInvalid={handleInvalid}
                                         />
                                     </div>
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
                                 <label htmlFor="message" className="block text-sm/6 font-semibold">
-                                    {contactData.message}
+                                    {contactData.message} *
                                 </label>
                                 <div className="mt-2.5">
                                     <textarea
@@ -168,9 +200,11 @@ export default function ClientContact() {
                                         id="message"
                                         name="message"
                                         rows={4}
+                                        title={contactData?.hints?.message}
                                         className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                         defaultValue={''}
                                         onChange={handleInputChange}
+                                        onInvalid={handleInvalid}
                                     />
                                 </div>
                             </div>
@@ -185,13 +219,14 @@ export default function ClientContact() {
                                             type="checkbox"
                                             aria-label="Agree to policies"
                                             className="absolute inset-0 appearance-none focus:outline-hidden"
+                                            onInvalid={handleInvalid}
                                         />
                                     </div>
                                 </div>
                                 <label htmlFor="agree-to-policies" className="text-sm/6 ">
                                     {contactData.privacyPolicy}{' '}
                                     <a href="privacy" className="font-semibold whitespace-nowrap text-indigo-600">
-                                        {contactData.privacyPolicyLink}
+                                        {contactData.privacyPolicyLink} *
                                     </a>
                                 </label>
                             </div>
