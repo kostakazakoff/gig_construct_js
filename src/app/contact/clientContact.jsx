@@ -41,7 +41,7 @@ export default function ClientContact() {
                                     name="first-name"
                                     type="text"
                                     autoComplete="given-name"
-                                    className="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -55,7 +55,7 @@ export default function ClientContact() {
                                     name="last-name"
                                     type="text"
                                     autoComplete="family-name"
-                                    className="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default function ClientContact() {
                                     name="company"
                                     type="text"
                                     autoComplete="organization"
-                                    className="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -83,7 +83,7 @@ export default function ClientContact() {
                                     name="email"
                                     type="email"
                                     autoComplete="email"
-                                    className="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -99,7 +99,7 @@ export default function ClientContact() {
                                             name="country"
                                             autoComplete="country"
                                             aria-label="Country"
-                                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-500 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-500 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                                         >
                                             <option>US</option>
                                             <option>CA</option>
@@ -114,7 +114,7 @@ export default function ClientContact() {
                                         id="phone-number"
                                         name="phone-number"
                                         type="text"
-                                        className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                                        className="text-slate-600 block min-w-0 grow py-1.5 pr-3 pl-1 text-base placeholder:text-slate-400 focus:outline-none sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ export default function ClientContact() {
                                     id="message"
                                     name="message"
                                     rows={4}
-                                    className="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                     defaultValue={''}
                                 />
                             </div>
@@ -142,7 +142,7 @@ export default function ClientContact() {
                                         name="agree-to-policies"
                                         type="checkbox"
                                         aria-label="Agree to policies"
-                                        className="absolute inset-0 appearance-none focus:outline-hidden"
+                                        className="text-slate-600 absolute inset-0 appearance-none focus:outline-hidden"
                                     />
                                 </div>
                             </div>
