@@ -175,3 +175,40 @@ export const servicesPricingText = {
         contactPoint: "Contact Point",
     },
 };
+
+export const contactStaticData = {
+    BG: {
+        title: "Свържете се с нас",
+        description: "Наш сътрудник ще отговори на вашето запитване възможно най-скоро.",
+        firstName: "Име",
+        lastName: "Фамилия",
+        email: "Имейл",
+        phone: "Телефон",
+        message: "Съобщение",
+        privacyPolicy: "С избора си, вие се съгласявате с нашата",
+        privacyPolicyLink: "политика за поверителност",
+        sendButton: "Изпрати запитване",
+
+        companyName: "ГИГ КОНСТРУКТ ООД",
+        companyAddress: "адрес: ул. Примерна 123, София, България",
+        companyPhone: "телефон: +359 88 123 4567",
+        companyEmail: "поща: info@gigconstruct.bg",
+    },
+    EN: {
+        title: "Contact Us",
+        description: "A member of our team will respond to your inquiry as soon as possible.",
+        firstName: "Name",
+        lastName: "Last Name",
+        email: "Email",
+        phone: "Phone",
+        message: "Message",
+        privacyPolicy: "By selecting this, you agree to our",
+        privacyPolicyLink: "privacy policy",
+        sendButton: "Send Inquiry",
+
+        companyName: "GIG CONSTRUCT LTD",
+        companyAddress: "address: 123 Example St, Sofia, Bulgaria",
+        companyPhone: "phone: +359 88 123 4567",
+        companyEmail: "email: info@gigconstruct.bg",
+    },
+};

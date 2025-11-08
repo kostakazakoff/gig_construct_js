@@ -1,4 +1,4 @@
-import CompLoader from '../_components/mainComponents/compLoader';
+import ClientContact from './clientContact';
 
 export const metadata = {
     title: 'Contact',
@@ -8,8 +8,8 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        <div className='flex justify-center items-center'>
-            <CompLoader />
+        <div className="p-12">
+            <ClientContact />
         </div>
     );
 }
