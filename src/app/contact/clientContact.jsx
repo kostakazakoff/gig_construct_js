@@ -148,7 +148,7 @@ export default function ClientContact() {
                             </div>
                             <label htmlFor="agree-to-policies" className="text-sm/6 ">
                                 {contactData.privacyPolicy}{' '}
-                                <a href="#" className="font-semibold whitespace-nowrap text-indigo-600">
+                                <a href="privacy" className="font-semibold whitespace-nowrap text-indigo-600">
                                     {contactData.privacyPolicyLink}
                                 </a>
                             </label>
