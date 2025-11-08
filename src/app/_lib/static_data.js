@@ -179,7 +179,7 @@ export const servicesPricingText = {
 export const contactStaticData = {
     BG: {
         title: "Свържете се с нас",
-        description: "Наш сътрудник ще отговори на вашето запитване възможно най-скоро.",
+        description: "Наш сътрудник ще отговори на вашето запитване възможно най-скоро",
         firstName: "Име",
         lastName: "Фамилия",
         email: "Имейл",
@@ -196,7 +196,7 @@ export const contactStaticData = {
     },
     EN: {
         title: "Contact Us",
-        description: "A member of our team will respond to your inquiry as soon as possible.",
+        description: "A member of our team will respond to your inquiry as soon as possible",
         firstName: "Name",
         lastName: "Last Name",
         email: "Email",

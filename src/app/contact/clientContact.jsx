@@ -18,7 +18,7 @@ export default function ClientContact() {
         contactData ? (
             <>
             <section className="w-full py-12 mb-6 px-12 isolate border border-slate-800 dark:border-slate-200 rounded-t-lg">
-                    <h2 className="text-4xl font-bold">{contactData.companyName}</h2>
+                    <h2 className="text-xl sm:text-2xl lg:text-4xl  font-bold">{contactData.companyName}</h2>
                     <p className="mt-2">{contactData.companyAddress}</p>
                     <p className="mt-2">{contactData.companyPhone}</p>
                     <p className="mt-2">{contactData.companyEmail}</p>
@@ -26,8 +26,8 @@ export default function ClientContact() {
             
             <section className="bg-slate-50 dark:bg-slate-700 px-6 py-24 sm:py-32 lg:px-8 max-w-xl rounded-b-lg">
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">{contactData.title}</h2>
-                    <p className="mt-2 ">{contactData.description}</p>
+                    <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight text-balance">{contactData.title}</h2>
+                    <p className="mt-2">{contactData.description}</p>
                 </div>
                 <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -151,7 +151,6 @@ export default function ClientContact() {
                                 <a href="#" className="font-semibold whitespace-nowrap text-indigo-600">
                                     {contactData.privacyPolicyLink}
                                 </a>
-                                .
                             </label>
                         </div>
                     </div>
