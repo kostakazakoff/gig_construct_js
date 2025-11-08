@@ -32,7 +32,7 @@ export default function NewsCard({ newsItem }) {
                 </p>
                 <div className="absolute -z-2 w-full h-1 bg-slate-100 dark:bg-slate-700 shadow-md/20" />
             </section>
-            <section className="bg-slate-100 dark:bg-slate-700 p-8">
+            <section className="bg-slate-100 dark:bg-slate-700 p-8 sm:p-12">
             <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-2 float-left mr-4 border-slate-400">
                 <Image
                     src={addImage(newsItem.image_src)}
