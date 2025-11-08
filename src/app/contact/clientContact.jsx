@@ -74,7 +74,7 @@ export default function ClientContact() {
                     <p className="mt-2">{contactData.companyEmail}</p>
                 </section>
 
-                <section className="bg-slate-50 dark:bg-slate-700 px-6 py-24 sm:py-32 lg:px-8 max-w-xl rounded-b-lg">
+                <section className="bg-slate-50 dark:bg-slate-700 px-6 py-12 sm:py-20 lg:px-8 max-w-xl rounded-b-lg">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight text-balance">{contactData.title}</h2>
                         <p className="mt-2">{contactData.description}</p>
@@ -83,7 +83,7 @@ export default function ClientContact() {
                         // action="#"
                         onSubmit={handleSubmit}
                         method="POST"
-                        className="mx-auto mt-16 max-w-xl sm:mt-20"
+                        className="mx-auto mt-12 max-w-xl sm:mt-16"
                     >
                         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                             <div>
