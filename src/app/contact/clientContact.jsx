@@ -18,7 +18,7 @@ export default function ClientContact() {
         contactData ? (
             <>
             <section className="w-full py-12 mb-6 px-12 isolate border border-slate-800 dark:border-slate-200 rounded-t-lg">
-                    <h2 className="text-xl sm:text-2xl lg:text-4xl  font-bold">{contactData.companyName}</h2>
+                    <h2 className="text-xl lg:text-2xl font-bold mb-6">{contactData.companyName}</h2>
                     <p className="mt-2">{contactData.companyAddress}</p>
                     <p className="mt-2">{contactData.companyPhone}</p>
                     <p className="mt-2">{contactData.companyEmail}</p>
@@ -41,7 +41,7 @@ export default function ClientContact() {
                                     name="first-name"
                                     type="text"
                                     autoComplete="given-name"
-                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -55,7 +55,7 @@ export default function ClientContact() {
                                     name="last-name"
                                     type="text"
                                     autoComplete="family-name"
-                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default function ClientContact() {
                                     name="company"
                                     type="text"
                                     autoComplete="organization"
-                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -83,7 +83,7 @@ export default function ClientContact() {
                                     name="email"
                                     type="email"
                                     autoComplete="email"
-                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 />
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export default function ClientContact() {
                                 {contactData.phone}
                             </label>
                             <div className="mt-2.5">
-                                <div className="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+                                <div className="flex rounded-md bg-white dark:bg-slate-600 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
                                     {/* <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                                         <select
                                             id="country"
@@ -114,7 +114,7 @@ export default function ClientContact() {
                                         id="phone-number"
                                         name="phone-number"
                                         type="text"
-                                        className="text-slate-600 block min-w-0 grow py-1.5 pr-3 pl-1 text-base placeholder:text-slate-400 focus:outline-none sm:text-sm/6"
+                                        className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base placeholder:text-slate-400 focus:outline-none sm:text-sm/6"
                                     />
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ export default function ClientContact() {
                                     id="message"
                                     name="message"
                                     rows={4}
-                                    className="text-slate-600 block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                    className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                     defaultValue={''}
                                 />
                             </div>
@@ -142,7 +142,7 @@ export default function ClientContact() {
                                         name="agree-to-policies"
                                         type="checkbox"
                                         aria-label="Agree to policies"
-                                        className="text-slate-600 absolute inset-0 appearance-none focus:outline-hidden"
+                                        className="absolute inset-0 appearance-none focus:outline-hidden"
                                     />
                                 </div>
                             </div>
