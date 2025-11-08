@@ -23,14 +23,16 @@ export default function NewsCard({ newsItem }) {
 
     return (
         <div className="max-w-6xl py-4">
-            <div className="flex justify-between items-start gap-24 mb-6">
-                <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-slate-800 dark:text-slate-200 px-8 py-4 bg-slate-100 dark:bg-slate-700 border-b-2 border-slate-300 dark:border-slate-700">
+            <section className="relative sticky z-20 top-20 flex justify-between items-start gap-24 mb-6">
+                <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-slate-800 dark:text-slate-200 px-8 py-4 bg-slate-100 dark:bg-slate-700 rounded-br-xl shadow-md/20">
                     {newsItem.title}
                 </h2>
-                <p className="text-slate-600 dark:text-slate-400 whitespace-nowrap underline decoration-dotted">
+                <p className="text-slate-600 dark:text-slate-400 whitespace-nowrap bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-bl-xl shadow-md/20">
                     {formatDate(newsItem.created_at)}
                 </p>
-            </div>
+                <div className="absolute -z-2 w-full h-1 bg-slate-100 dark:bg-slate-700 shadow-md/20" />
+            </section>
+            <section className="bg-slate-100 dark:bg-slate-700 p-8">
             <div className="relative sm:mb-1 overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-2 float-left mr-4 border-slate-400">
                 <Image
                     src={addImage(newsItem.image_src)}
@@ -45,6 +47,7 @@ export default function NewsCard({ newsItem }) {
                 {newsItem.content}
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum corporis expedita at architecto consectetur. Porro, laborum? Adipisci incidunt ipsa aut iusto ullam, blanditiis maiores? Alias consequatur, doloribus, corporis porro vitae modi in natus eaque hic eveniet reiciendis magni eligendi optio, soluta illo illum aspernatur maiores atque similique nisi mollitia voluptatem. Incidunt laborum eaque dolore explicabo cum, odio sit dicta rerum voluptate totam unde debitis sint officia nihil at magnam vero beatae aliquid laboriosam? Unde, quos soluta provident iste, enim fugit ut at quia doloribus veritatis facilis fuga? Repudiandae, sapiente nesciunt voluptatum sunt aspernatur laborum velit similique sint dolore ab necessitatibus neque atque quasi eveniet alias ut exercitationem libero! Sequi commodi asperiores illo, perspiciatis unde qui deserunt accusantium tenetur optio nemo repellendus! Earum asperiores iusto praesentium beatae odio ad veritatis soluta, quod fugiat voluptas hic reprehenderit dignissimos alias nisi corporis sit molestiae aliquid repudiandae, omnis et. Excepturi, minima, pariatur labore et fuga possimus natus debitis, placeat omnis reprehenderit aut officiis sunt! Soluta aperiam ut perspiciatis voluptates inventore odio tenetur praesentium ad natus! Voluptates voluptas, harum cupiditate quod, nisi ad modi natus iure ab magni ex mollitia laborum, sint eligendi numquam? Optio vitae corporis nisi error quasi tempore laudantium voluptate, dolorum consequatur.
             </p>
+            </section>
         </div>
     );
 }
