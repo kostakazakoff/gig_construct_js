@@ -13,17 +13,19 @@ import { useEffect, useState } from "react";
 import { API_PATH } from "@/app/_lib/api_paths";
 import CompLoader from "@/app/_components/mainComponents/compLoader";
 import be from "@/app/_utils/Api";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
     const params = useParams();
+    const router = useRouter();
     const slug = params.serviceId;
 
-    const [services, setServices] = useState([]);
+    const [services, setServices] = useState(null);
     const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: offerNoteStaticData, language: language }));
     const [translatedOfferConfirmation, setTranslatedOfferConfirmation] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
     const [translatedStaticData, setTranslatedStaticData] = useState({});
+
 
         // TODO: Refactor static data translation into one object
     useEffect(() => {
@@ -41,8 +43,13 @@ export default function ServiceDetailsComponent() {
                     setServices(translatedData);
                 } else {
                     console.log('Error message:', recievedData.message);
-                    setServices([]);
+                    setServices(null);
                 }
+            })
+            .catch(error => {
+                console.log('Error fetching service data:', error);
+                setServices(null);
+                router.push(`/services#${slug}`);
             });
     }, [language]);
     
@@ -66,7 +73,7 @@ export default function ServiceDetailsComponent() {
 
     return (
         <>
-            {services.length === 0 ? <CompLoader /> :
+            {services ? 
                 <div className="relative px-4">
                     <Modal active={modalIsActive} setActive={setModalIsActive}>
                         <AskOfferForm
@@ -97,6 +104,7 @@ export default function ServiceDetailsComponent() {
                         <p className="text-xs text-slate-700 dark:text-slate-300">{translatedStaticData.legend}</p>
                     </section>
                 </div>
+                : <CompLoader />
             }
         </>
     );

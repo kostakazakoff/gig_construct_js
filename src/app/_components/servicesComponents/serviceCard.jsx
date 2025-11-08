@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function ServiceCard({ service, language }) {
 
     return (
-        <Link key={service.id} href={`/services/${service.category}`} passHref>
+        <Link key={service.id} href={`/services/${service.category}`} id={service.category} passHref>
             <article className="group grid grid-rows-4 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200 border border-gig-blue dark:border-slate-300" lang={language.toLowerCase()}>
 
                 <div className="row-span-1 flex flex-col justify-center items-center text-base/6 bg-gig-blue/60 p-2">

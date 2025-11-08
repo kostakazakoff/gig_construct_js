@@ -7,10 +7,25 @@ import Translate from "@/app/_utils/Translator.js";
 import { API_PATH } from "../_lib/api_paths";
 import CompLoader from "../_components/mainComponents/compLoader";
 import be from "../_utils/Api";
+import { usePathname } from "next/navigation";
 
 export default function TranslatedServices() {
+
+    const pathname = usePathname();
     const { language } = useLanguageContext();
     const [translation, setTranslation] = useState(null);
+
+    useEffect(() => {
+        const hash = window.location.hash;
+        console.log('Current hash:', hash);
+        console.log('Pathname changed:', pathname);
+        if (hash) {
+            setTimeout(() => {
+                const el = document.getElementById(hash.substring(1));
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+            }, 500);
+        }
+    }, [pathname]);
 
     useEffect(() => {
         be.get(`${API_PATH.SERVICE_CATEGORIES}`)
