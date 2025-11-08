@@ -53,13 +53,10 @@ export default function PrivacyPolicyDisplay({ language }) {
     };
 
     return (
-        <div lang={language.toLowerCase()} className="text-justify hyphens-auto flex flex-col gap-4 max-w-4xl mx-auto px-6">
-            <h2 className="md:text-2xl underline text-center mb-12 font-bold">
+        <div lang={language.toLowerCase()} className="text-justify hyphens-auto flex flex-col gap-4 max-w-4xl mx-auto">
+            <h2 className="text-lg md:text-2xl underline text-center mb-12 font-bold">
                 {data.title}
             </h2>
-
-            <p><strong>{data.companyName}</strong></p>
-            <p>{data.lastUpdated}</p>
 
             {data.sections.map((section, index) => (
                 <div key={index}>
