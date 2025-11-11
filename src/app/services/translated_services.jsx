@@ -34,6 +34,7 @@ export default function TranslatedServices() {
                 if (recievedData && recievedData.succeed) {
                     const translatedServices = Translate({ data: recievedData.data, language });
                     setTranslation(translatedServices);
+                    console.log('Translated services data:', translatedServices);
                 } else {
                     console.log(recievedData.message)
                     setTranslation(null);

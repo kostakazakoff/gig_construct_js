@@ -82,7 +82,7 @@ export default function ServiceDetailsComponent() {
                             setFormSubmitted={setFormSubmitted}
                         />
                         <OfferConfirmation
-                            service={services}
+                            service={services.services[0]}
                             translated={translatedOfferConfirmation}
                             formSubmitted={formSubmitted}
                             setFormSubmitted={setFormSubmitted}
@@ -90,7 +90,7 @@ export default function ServiceDetailsComponent() {
                     </Modal>
 
                     <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
-                        {services.map((s, index) => (
+                        {services.services.map((s, index) => (
                             <ServiceDetailsCard
                                 key={index}
                                 serviceId={s.id}
