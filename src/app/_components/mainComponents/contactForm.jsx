@@ -38,21 +38,7 @@ export default function ContactForm({ handleSubmit }) {
 
     const handleInvalid = (e) => {
         const { name } = e.target;
-
-        // Маппинг на имената на полетата към ключовете в errors обекта
-        const errorMapping = {
-            first_name: 'firstName',
-            last_name: 'lastName',
-            email: 'email',
-            phone: 'phone',
-            message: 'message',
-            agree: 'agree',
-        };
-
-        const errorKey = errorMapping[name];
-        if (errorKey && contactData?.errors?.[errorKey]) {
-            e.target.setCustomValidity(contactData.errors[errorKey]);
-        }
+        e.target.setCustomValidity(contactData?.errors?.[name] || '');
     }
     return (
         contactData ? (
@@ -79,7 +65,7 @@ export default function ContactForm({ handleSubmit }) {
                                 name="first_name"
                                 type="text"
                                 autoComplete="given-name"
-                                title={contactData?.hints?.firstName}
+                                title={contactData?.hints?.first_name}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
@@ -97,7 +83,7 @@ export default function ContactForm({ handleSubmit }) {
                                 name="last_name"
                                 type="text"
                                 autoComplete="family-name"
-                                title={contactData?.hints?.lastName}
+                                title={contactData?.hints?.last_name}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
@@ -204,7 +190,7 @@ export default function ContactForm({ handleSubmit }) {
                                     aria-label="Agree to policies"
                                     className="absolute inset-0 appearance-none focus:outline-hidden"
                                     onInvalid={handleInvalid}
-                                    title={contactData?.hints?.agreeToPolicies}
+                                    title={contactData?.hints?.agree}
                                 />
                             </div>
                         </div>

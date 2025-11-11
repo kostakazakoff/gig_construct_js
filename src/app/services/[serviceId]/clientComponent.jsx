@@ -4,7 +4,7 @@ import useLanguageContext from "@/app/_hooks/useLanguageContext.jsx";
 import ServiceDetailsCard from "@/app/_components/servicesComponents/serviceDetailsCard.jsx";
 import { servicesStaticData } from "@/app/_lib/static_data.js";
 import { offerConfirmationStaticData } from "@/app/_lib/static_data";
-import { offerNoteStaticData } from "@/app/_lib/static_data.js";
+import { contactStaticData } from "@/app/_lib/static_data.js";
 import Translate from "@/app/_utils/Translator.js";
 import Modal from "@/app/_components/mainComponents/modal/modal";
 import AskOfferForm from "@/app/_components/servicesComponents/askOfferForm";
@@ -22,12 +22,12 @@ export default function ServiceDetailsComponent() {
     const slug = params.serviceId;
 
     const [services, setServices] = useState(null);
-    const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: offerNoteStaticData, language: language }));
+    const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: contactStaticData, language: language }));
     const [translatedOfferConfirmation, setTranslatedOfferConfirmation] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
     const [translatedStaticData, setTranslatedStaticData] = useState({});
 
     useEffect(() => {
-        setOfferNoteTranslated(Translate({ data: offerNoteStaticData, language: language }));
+        setOfferNoteTranslated(Translate({ data: contactStaticData, language: language }));
         setTranslatedOfferConfirmation(Translate({ data: offerConfirmationStaticData, language: language }));
         setTranslatedStaticData(Translate({ data: servicesStaticData, language: language }));
     }, [language]);

@@ -28,7 +28,10 @@ export default function AskOfferForm({
 
     const [inputValues, setInputValues] = useState({
         id: serviceId,
-        name: "",
+        first_name: "",
+        last_name: "",
+        company: "",
+        phone: "",
         email: "",
         message: "",
     });
@@ -47,16 +50,7 @@ export default function AskOfferForm({
 
     const handleInvalid = (e) => {
         const { name } = e.target;
-        e.target.setCustomValidity(translated?.errors[name]);
-        
-        // Задаване на персонализирани съобщения за грешка
-        // if (name === 'name' && translated?.errors?.name) {
-        //     e.target.setCustomValidity(translated.errors.name);
-        // } else if (name === 'phone' && translated?.errors?.phone) {
-        //     e.target.setCustomValidity(translated.errors.phone);
-        // } else if (name === 'email' && translated?.errors?.email) {
-        //     e.target.setCustomValidity(translated.errors.email);
-        // }
+        e.target.setCustomValidity(translated?.errors?.[name] || '');
     };
 
     const handleSubmit = (e) => {
@@ -80,27 +74,60 @@ export default function AskOfferForm({
                 </div>
 
                 <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div className="flex flex-col md:flex-row gap-4">
+                        <div className="flex-1">
+                            <label htmlFor="first_name" className="block text-sm font-medium dark:text-slate-300">
+                                {translated.firstName}
+                                <span className="text-red-500 text-2xl"> *</span>
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                id="first_name"
+                                name="first_name"
+                                placeholder={translated.firstNamePlaceholder}
+                                title={translated?.hints?.first_name}
+                                onChange={handleInputChange}
+                                onInvalid={handleInvalid}
+                                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            />
+                        </div>
+                        <div className="flex-1">
+                            <label htmlFor="last_name" className="block text-sm font-medium dark:text-slate-300">
+                                {translated.lastName}
+                                <span className="text-red-500 text-2xl"> *</span>
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                id="last_name"
+                                name="last_name"
+                                placeholder={translated.lastNamePlaceholder}
+                                title={translated?.hints?.last_name}
+                                onChange={handleInputChange}
+                                onInvalid={handleInvalid}
+                                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            />
+                        </div>
+                    </div>
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium dark:text-slate-300">
-                            {translated.nameLabel}
-                            <span className="text-red-500 text-2xl">*</span>
+                        <label htmlFor="company" className="block text-sm font-medium dark:text-slate-300">
+                            {translated.companyLabel}
                         </label>
                         <input
-                            required
                             type="text"
-                            id="name"
-                            name="name"
-                            placeholder={translated.namePlaceholder}
-                            title={translated?.hints?.name}
+                            id="company"
+                            name="company"
+                            placeholder={translated.companyPlaceholder}
+                            title={translated?.hints?.company}
                             onChange={handleInputChange}
-                            onInvalid={handleInvalid}
                             className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
                     <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.phoneLabel}
-                            <span className="text-red-500 text-2xl">*</span>
+                            <span className="text-red-500 text-2xl"> *</span>
                         </label>
                         <input
                             required
@@ -144,7 +171,32 @@ export default function AskOfferForm({
                         ></textarea>
                     </div>
 
-                    <div className="pt-4 mt-12 border-t flex justify-end">
+                    <div className="flex gap-x-4">
+                        <div className="flex h-6 items-center">
+                            <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
+                                <span className="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5" />
+                                <input
+                                    required
+                                    id="agree-to-policies"
+                                    name="agree"
+                                    type="checkbox"
+                                    aria-label="Agree to policies"
+                                    className="absolute inset-0 appearance-none focus:outline-hidden"
+                                    onInvalid={handleInvalid}
+                                    title={translated?.hints?.agree}
+                                />
+                            </div>
+                        </div>
+                        <label htmlFor="agree-to-policies" className="text-sm/6">
+                            {translated.privacyPolicy}{' '}
+                            <a href="/privacy" className="font-semibold whitespace-nowrap text-indigo-600">
+                                {translated.privacyPolicyLink}
+                            </a>
+                            <span className="text-red-500 text-2xl"> *</span>
+                        </label>
+                    </div>
+
+                    <div className="pt-4 mt-8 border-t flex justify-end">
                         <SubmitButton type="submit">{language === "BG" ? "Изпрати" : "Send"}</SubmitButton>
                     </div>
                 </form>
