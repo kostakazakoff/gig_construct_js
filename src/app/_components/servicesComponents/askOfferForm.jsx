@@ -4,6 +4,8 @@ import { EnvelopeOpenIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
+import be from "@/app/_utils/Api";
+import { API_PATH } from "@/app/_lib/api_paths";
 
 export default function AskOfferForm({
     serviceId,
@@ -20,11 +22,22 @@ export default function AskOfferForm({
         if (formData) {
             formRef.current.style.opacity = 0;
             formRef.current.style.display = 'none';
-            // TODO: Logic to send the data to your server or API
+            sendMessageToServer(formData);
         } else {
             formRef.current.style.opacity = 1;
         }
     }, [formData]);
+
+    const sendMessageToServer = (data) => {
+        be.post(API_PATH.CLIENT_REQUEST, data)
+            .then(response => {
+                console.log("Server response:", response.data);
+            })
+            .catch(error => {
+                console.error("Error sending message to server:", error);
+            });
+        console.log("Sending message to server:", data);
+    };
 
     const [inputValues, setInputValues] = useState({
         id: serviceId,
@@ -34,6 +47,7 @@ export default function AskOfferForm({
         phone: "",
         email: "",
         message: "",
+        language: language,
     });
 
     const handleInputChange = (e) => {
@@ -55,7 +69,7 @@ export default function AskOfferForm({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Validation
+        
         if (setFormData) {
             setFormData(inputValues);
             if (setFormSubmitted) {
