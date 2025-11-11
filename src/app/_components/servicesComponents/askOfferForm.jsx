@@ -3,6 +3,7 @@
 import { EnvelopeOpenIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
+import useLanguageContext from "@/app/_hooks/useLanguageContext";
 
 export default function AskOfferForm({
     serviceId,
@@ -13,6 +14,7 @@ export default function AskOfferForm({
 
     const formRef = useRef();
     const [formData, setFormData] = useState(null);
+    const {language} = useLanguageContext();
 
     useEffect(() => {
         if (formData) {
@@ -116,7 +118,7 @@ export default function AskOfferForm({
                     </div>
 
                     <div className="pt-4 mt-12 border-t flex justify-end">
-                        <SubmitButton type="submit">Изпрати{/* TODO: /Send */}</SubmitButton>
+                        <SubmitButton type="submit">{language === "BG" ? "Изпрати" : "Send"}</SubmitButton>
                     </div>
                 </form>
             </div>

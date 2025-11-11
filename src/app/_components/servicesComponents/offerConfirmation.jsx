@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import SubmitButton from "../buttonsComponents/submitButton";
+import useLanguageContext from "@/app/_hooks/useLanguageContext";
 
 export default function OfferConfirmation({ service, translated, formSubmitted, closeWrapper }) {
 
     const confirmRef = useRef();
+    const {language} = useLanguageContext();
 
     useEffect(() => {
         if (confirmRef.current) {
@@ -47,7 +49,7 @@ export default function OfferConfirmation({ service, translated, formSubmitted, 
                     {/* Close бутон */}
                     <div className="pt-4 border-t flex justify-end">
                         <SubmitButton type="button" onClick={closeModal}>
-                            Затвори {/* TODO: /Close */}
+                            {language === "BG" ? "Затвори" : "Close"}
                         </SubmitButton>
                     </div>
                 </div>
