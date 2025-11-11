@@ -9,7 +9,6 @@ const addImage = (imageSrc) => {
     } else if (imageSrc.startsWith('http')) {
         return imageSrc;
     }
-    console.log('Adding backend URL to image source:', imageSrc);
     return BACKEND_URL + imageSrc;
 }
 

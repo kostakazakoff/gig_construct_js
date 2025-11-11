@@ -19,7 +19,6 @@ export default function ProjectLayout({ children }) {
                 .then(response => response.data)
                 .then(data => {
                     const fetchedData = data.data;
-                    console.log('Fetched project data:', fetchedData);
                     const projectData = Translate({ data: fetchedData, language });
                     setProjectTitle(projectData.title || `Project ${projectId}`);
                 })

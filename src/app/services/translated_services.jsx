@@ -17,8 +17,6 @@ export default function TranslatedServices() {
 
     useEffect(() => {
         const hash = window.location.hash;
-        console.log('Current hash:', hash);
-        console.log('Pathname changed:', pathname);
         if (hash) {
             setTimeout(() => {
                 const el = document.getElementById(hash.substring(1));
@@ -34,7 +32,6 @@ export default function TranslatedServices() {
                 if (recievedData && recievedData.succeed) {
                     const translatedServices = Translate({ data: recievedData.data, language });
                     setTranslation(translatedServices);
-                    console.log('Translated services data:', translatedServices);
                 } else {
                     console.log(recievedData.message)
                     setTranslation(null);

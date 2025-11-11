@@ -15,7 +15,6 @@ export default function NewsClientComponent() {
         be.get('news/')
             .then(response =>  response.data )
             .then(data => {
-                console.log('Fetched news data:', data);
                 if (data && data.succeed) {
                     const translatedNews = Translate({ data: data.data, language });
                     setNews(translatedNews);

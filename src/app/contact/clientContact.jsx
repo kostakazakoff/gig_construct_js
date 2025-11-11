@@ -25,11 +25,9 @@ export default function ClientContact() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
-        console.log("Form data submitted:", formData);
     }
 
     const handleInputChange = (e) => {
-        console.log("Input Changed:", e.target);
         const { name, value } = e.target;
 
         // Премахване на персонализирано съобщение за грешка при промяна
@@ -59,10 +57,6 @@ export default function ClientContact() {
             e.target.setCustomValidity(contactData.errors[errorKey]);
         }
     }
-
-    useEffect(() => {
-        console.log("Form Data Updated:", formData);
-    }, [formData]);
 
     return (
         contactData ? (
