@@ -62,7 +62,7 @@ export default function Modal({ active, setActive, children }) {
             {/* Modal dialog */}
             <dialog
                 ref={modalRef}
-                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-55 bg-transparent p-0 border-0 relative"
+                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-55 bg-transparent p-0 border-0 max-h-screen overflow-y-auto"
                 onClick={handleBackdropClick}
             >
 

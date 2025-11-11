@@ -71,7 +71,7 @@ export default function ServiceDetailsComponent() {
     return (
         <>
             {services ? 
-                <div className="relative px-4">
+                <div className="px-4">
                     <Modal active={modalIsActive} setActive={setModalIsActive}>
                         <AskOfferForm
                             serviceId={slug}
