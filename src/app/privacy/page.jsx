@@ -1,8 +1,8 @@
-import { PrivacyPolicyTranslator } from "./privacyPolicyTranslator";
+import PrivacyPolicyDisplay from "../_components/mainComponents/PrivacyPolicyDisplay";
 
 const PrivacyPolicyPage = () => {
     return (
-        <PrivacyPolicyTranslator />
+        <PrivacyPolicyDisplay />
     );
 };
 

@@ -1,7 +1,17 @@
-import { privacyPolicyStaticData } from "@/app/_lib/static_data";
+'use client';
 
-export default function PrivacyPolicyDisplay({ language }) {
-    const data = privacyPolicyStaticData[language];
+import useLanguageContext from "@/app/_hooks/useLanguageContext";
+import { privacyPolicyStaticData } from "@/app/_lib/static_data";
+import CompLoader from "./compLoader";
+import { useEffect, useState } from "react";
+
+export default function PrivacyPolicyDisplay() {
+    const { language } = useLanguageContext();
+    const [data, setData] = useState(privacyPolicyStaticData[language]);
+
+    useEffect(() => {
+        setData(privacyPolicyStaticData[language]);
+    }, [language]);
 
     // Функция за обработка на текста - преобразува markdown-подобен синтаксис в HTML
     const renderContent = (text) => {
@@ -53,6 +63,7 @@ export default function PrivacyPolicyDisplay({ language }) {
     };
 
     return (
+        data ? (
         <div lang={language.toLowerCase()} className="text-justify hyphens-auto flex flex-col gap-4 max-w-4xl mx-auto">
             <h2 className="text-lg md:text-2xl underline text-center mb-12 font-bold">
                 {data.title}
@@ -67,5 +78,6 @@ export default function PrivacyPolicyDisplay({ language }) {
                 </div>
             ))}
         </div>
+        ) : <CompLoader />
     );
 }
