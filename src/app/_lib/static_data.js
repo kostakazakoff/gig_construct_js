@@ -105,6 +105,17 @@ export const offerNoteStaticData = {
         successMessage: "Вашето съобщение беше изпратено успешно!",
         errorMessage: "Възникна грешка при изпращането на вашето съобщение. Моля, опитайте отново по-късно.",
         title: "Поискай оферта",
+        errors: {
+            name: "Моля, въведете вашето име и фамилия",
+            phone: "Моля, въведете телефонен номер за връзка",
+            email: "Моля, въведете валиден имейл адрес",
+        },
+        hints: {
+            name: "Вашето име и фамилия (задължително)",
+            phone: "Телефонен номер за връзка (задължително)",
+            email: "Вашият имейл адрес (опционално)",
+            message: "Вашето запитване",
+        },
     },
 
     EN: {
@@ -119,6 +130,17 @@ export const offerNoteStaticData = {
         successMessage: "Your message was sent successfully!",
         errorMessage: "An error occurred while sending your message. Please try again later.",
         title: "Request a Free Offer",
+        errors: {
+            name: "Please enter your name and surname",
+            phone: "Please enter a contact phone number",
+            email: "Please enter a valid email address",
+        },
+        hints: {
+            name: "Your name and surname (required)",
+            phone: "Contact phone number (required)",
+            email: "Your email address (optional)",
+            message: "Your inquiry",
+        },
     },
 };
 

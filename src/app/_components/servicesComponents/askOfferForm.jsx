@@ -35,10 +35,28 @@ export default function AskOfferForm({
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        
+        // Премахване на персонализирано съобщение за грешка при промяна
+        e.target.setCustomValidity('');
+        
         setInputValues((oldState) => ({
             ...oldState,
             [name]: value,
         }));
+    };
+
+    const handleInvalid = (e) => {
+        const { name } = e.target;
+        e.target.setCustomValidity(translated?.errors[name]);
+        
+        // Задаване на персонализирани съобщения за грешка
+        // if (name === 'name' && translated?.errors?.name) {
+        //     e.target.setCustomValidity(translated.errors.name);
+        // } else if (name === 'phone' && translated?.errors?.phone) {
+        //     e.target.setCustomValidity(translated.errors.phone);
+        // } else if (name === 'email' && translated?.errors?.email) {
+        //     e.target.setCustomValidity(translated.errors.email);
+        // }
     };
 
     const handleSubmit = (e) => {
@@ -68,11 +86,14 @@ export default function AskOfferForm({
                             <span className="text-red-500 text-2xl">*</span>
                         </label>
                         <input
+                            required
                             type="text"
                             id="name"
                             name="name"
                             placeholder={translated.namePlaceholder}
+                            title={translated?.hints?.name}
                             onChange={handleInputChange}
+                            onInvalid={handleInvalid}
                             className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
@@ -82,11 +103,14 @@ export default function AskOfferForm({
                             <span className="text-red-500 text-2xl">*</span>
                         </label>
                         <input
-                            type="phone"
+                            required
+                            type="tel"
                             id="phone"
                             name="phone"
                             placeholder={translated.phonePlaceholder}
+                            title={translated?.hints?.phone}
                             onChange={handleInputChange}
+                            onInvalid={handleInvalid}
                             className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
@@ -99,7 +123,9 @@ export default function AskOfferForm({
                             id="email"
                             name="email"
                             placeholder={translated.emailPlaceholder}
+                            title={translated?.hints?.email}
                             onChange={handleInputChange}
+                            onInvalid={handleInvalid}
                             className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
@@ -112,6 +138,7 @@ export default function AskOfferForm({
                             name="message"
                             rows="4"
                             placeholder={translated.messagePlaceholder}
+                            title={translated?.hints?.message}
                             onChange={handleInputChange}
                             className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         ></textarea>
