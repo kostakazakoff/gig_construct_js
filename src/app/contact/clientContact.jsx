@@ -5,6 +5,7 @@ import CompLoader from '../_components/mainComponents/compLoader';
 import useLanguageContext from '../_hooks/useLanguageContext';
 import { contactStaticData } from '../_lib/static_data';
 import ContactForm from '../_components/mainComponents/contactForm';
+import VizitCard from '../_components/mainComponents/contact/vizitCard';
 
 export default function ClientContact() {
 
@@ -24,12 +25,7 @@ export default function ClientContact() {
     return (
         contactData ? (
             <>
-                <section className="w-full py-12 mb-6 px-12 isolate border border-slate-800 dark:border-slate-200 rounded-t-lg">
-                    <h2 className="text-xl lg:text-2xl font-bold mb-6">{contactData.companyName}</h2>
-                    <p className="mt-2">{contactData.companyAddress}</p>
-                    <p className="mt-2">{contactData.companyPhone}</p>
-                    <p className="mt-2">{contactData.companyEmail}</p>
-                </section>
+                <VizitCard contactData={contactData} />
 
                 <ContactForm
                     contactData={contactData}
