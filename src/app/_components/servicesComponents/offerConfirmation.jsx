@@ -3,7 +3,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import SubmitButton from "../buttonsComponents/submitButton";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 
-export default function OfferConfirmation({ service, translated, formSubmitted, closeWrapper }) {
+export default function OfferConfirmation({ translated, formSubmitted, closeWrapper }) {
 
     const confirmRef = useRef();
     const {language} = useLanguageContext();

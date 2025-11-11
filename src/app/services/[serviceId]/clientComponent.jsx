@@ -79,7 +79,6 @@ export default function ServiceDetailsComponent() {
                             setFormSubmitted={setFormSubmitted}
                         />
                         <OfferConfirmation
-                            // service={services.services[0]}
                             translated={translatedOfferConfirmation}
                             formSubmitted={formSubmitted}
                             setFormSubmitted={setFormSubmitted}
