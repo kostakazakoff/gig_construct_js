@@ -196,7 +196,7 @@ export default function AskOfferForm({
                         </label>
                     </div>
 
-                    <div className="pt-4 mt-6 border-t flex justify-end">
+                    <div className="pt-4 mt-8 border-t flex justify-end">
                         <SubmitButton type="submit">{language === "BG" ? "Изпрати" : "Send"}</SubmitButton>
                     </div>
                 </form>
