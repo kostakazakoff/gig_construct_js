@@ -16,23 +16,12 @@ export default function ClientContact() {
         setContactData(contactStaticData[language]);
     }, [language]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form submitted");
-        // Handle form submission logic here
-    }
-
     return (
         contactData ? (
             <>
                 <VizitCard contactData={contactData} />
-
-                <ContactForm
-                    contactData={contactData}
-                    handleSubmit={handleSubmit}
-                />
+                <ContactForm />
             </>
-
         ) : (
             <CompLoader />
         )

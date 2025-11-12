@@ -10,7 +10,7 @@ export default function Modal({ active, setActive, children }) {
 
     const router = useRouter();
     const searchParams = useSearchParams();
-    const open = searchParams.get('modal') === 'true';
+    const open = searchParams.get('modal') === 'true' || active;
     const modalRef = useRef(null);
 
     // Open or close the modal based on the 'open' state

@@ -16,13 +16,12 @@ export default function AskOfferForm({
 
     const formRef = useRef();
     const [formData, setFormData] = useState(null);
+    const [isVisible, setIsVisible] = useState(true);
     const { language } = useLanguageContext();
 
     useEffect(() => {
         if (formData) {
             sendMessageToServer(formData);
-        } else {
-            formRef.current.style.opacity = 1;
         }
     }, [formData]);
 
@@ -30,16 +29,14 @@ export default function AskOfferForm({
         be.post(API_PATH.CLIENT_REQUEST, data)
             .then(response => {
                 if (response.data.succeed) {
-                    formRef.current.style.opacity = 0;
-                    formRef.current.style.display = 'none';
+                    setIsVisible(false);
                     if (setFormSubmitted) {
                         setFormSubmitted(true); // Notify parent about form submission
                     }
                     setFormData(null);
                 } else {
                     // Server responded but with succeed: false
-                    formRef.current.style.opacity = 0;
-                    formRef.current.style.display = 'none';
+                    setIsVisible(false);
                     if (setFormSubmitted) {
                         setFormSubmitted(false);
                     }
@@ -50,8 +47,7 @@ export default function AskOfferForm({
                 console.log("Server response:", response.data);
             })
             .catch(error => {
-                formRef.current.style.opacity = 0;
-                formRef.current.style.display = 'none';
+                setIsVisible(false);
                 if (setFormSubmitted) {
                     setFormSubmitted(false); // Notify parent about form submission
                 }
@@ -98,7 +94,7 @@ export default function AskOfferForm({
     };
 
     return (
-        <div ref={formRef} className="opacity-100 transition-opacity duration-300 ease-in-out display-block">
+        <div ref={formRef} className={`transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
             <div className="w-sm sm:w-96 lg:w-128 xl:w-160 p-4 text-slate-700 dark:text-slate-300">
                 <div className="flex items-center mb-8 space-x-6 border-b border-slate-900 dark:border-slate-200 py-4">
                     <EnvelopeOpenIcon className="h-8 w-8" />

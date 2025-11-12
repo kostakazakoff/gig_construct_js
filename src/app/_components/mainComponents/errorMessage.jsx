@@ -7,20 +7,13 @@ export default function ErrorMessage({ formError }) {
     const { language } = useLanguageContext();
 
     useEffect(() => {
-        if (confirmRef.current) {
-            if (formError) {
-                console.log("Displaying error message:", formError);
-                confirmRef.current.style.opacity = 1;
-                confirmRef.current.style.display = 'block';
-            } else {
-                confirmRef.current.style.opacity = 0;
-                confirmRef.current.style.display = 'none';
-            }
+        if (formError) {
+            console.log("Displaying error message:", formError);
         }
     }, [formError]);
 
     return (
-        <div ref={confirmRef} className="opacity-0 transition-opacity duration-300 ease-in-out bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <div ref={confirmRef} className={`transition-opacity duration-300 ease-in-out bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative ${formError ? 'opacity-100 block' : 'opacity-0 hidden'}`} role="alert">
             <strong className="font-bold">Error: </strong>{formError}
         </div>
     );

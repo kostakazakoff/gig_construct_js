@@ -1,38 +1,62 @@
 'use client';
 
-import { contactStaticData } from "@/app/_lib/static_data";
-import { useState, useEffect } from "react";
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import { contactStaticData, offerConfirmationStaticData } from "@/app/_lib/static_data";
+import { useState, useEffect, useRef } from "react";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 import CompLoader from "./compLoader";
+import Modal from "./modal/modal";
+import OfferConfirmation from "../servicesComponents/offerConfirmation";
+import ErrorMessage from "./errorMessage";
+import Translate from "@/app/_utils/Translator";
+import be from "@/app/_utils/Api";
+import { API_PATH } from "@/app/_lib/api_paths";
 
-export default function ContactForm({ handleSubmit }) {
+export default function ContactForm() {
 
     const { language } = useLanguageContext();
     const [contactData, setContactData] = useState(null);
+    const [modalIsActive, setModalIsActive] = useState(false);
+    const [translated, setTranslated] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
+    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [formError, setFormError] = useState(null);
+    const formRef = useRef();
 
     useEffect(() => {
         setContactData(contactStaticData[language]);
     }, [language]);
 
+    useEffect(() => {
+        setTranslated(Translate({ data: offerConfirmationStaticData, language: language }));
+    }, [language]);
+
+    useEffect(() => {
+        if (modalIsActive) {
+            setFormSubmitted(true);
+            setFormError(null);
+        }
+    }, [modalIsActive]);
+
     const [formData, setFormData] = useState({
+        gender: '',
         first_name: '',
         last_name: '',
         company: '',
         email: '',
         phone: '',
         message: '',
+        agree: false,
+        language: language,
     });
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
 
         // Премахване на персонализирано съобщение за грешка при промяна
         e.target.setCustomValidity('');
 
         setFormData({
             ...formData,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         });
     }
 
@@ -40,15 +64,59 @@ export default function ContactForm({ handleSubmit }) {
         const { name } = e.target;
         e.target.setCustomValidity(contactData?.errors?.[name] || '');
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        be.post(API_PATH.CLIENT_REQUEST, formData)
+            .then(response => {
+                if (response.data.succeed) {
+                    setFormSubmitted(true);
+                    setModalIsActive(true);
+                    // Reset form
+                    setFormData({
+                        gender: '',
+                        first_name: '',
+                        last_name: '',
+                        company: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                        agree: false,
+                        language: language,
+                    });
+                    if (formRef.current) {
+                        formRef.current.reset();
+                    }
+                } else {
+                    setFormError(response.data.message || 'An error occurred while processing your request');
+                    setModalIsActive(true);
+                }
+            })
+            .catch(error => {
+                setFormError(error.message);
+                setModalIsActive(true);
+            });
+    }
+
     return (
         contactData ? (
+            <>
+                <Modal active={modalIsActive} setActive={setModalIsActive}>
+                    <OfferConfirmation
+                        translated={translated}
+                        formSubmitted={formSubmitted}
+                        closeWrapper={() => setModalIsActive(false)}
+                    />
+                    <ErrorMessage formError={formError} />
+                </Modal>
         <section className="bg-slate-50 dark:bg-slate-700 px-6 py-12 sm:py-20 lg:px-8 max-w-xl rounded-b-lg">
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight text-balance">{contactData.title}</h2>
                 <p className="mt-2">{contactData.description}</p>
             </div>
             <form
-                // action="#"
+                ref={formRef}
                 onSubmit={handleSubmit}
                 method="POST"
                 className="mx-auto mt-12 max-w-xl sm:mt-16"
@@ -130,23 +198,6 @@ export default function ContactForm({ handleSubmit }) {
                         </label>
                         <div className="mt-2.5">
                             <div className="flex rounded-md bg-white dark:bg-slate-600 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                                {/* <div className="grid shrink-0 grid-cols-1 focus-within:relative">
-                                        <select
-                                            id="country"
-                                            name="country"
-                                            autoComplete="country"
-                                            aria-label="Country"
-                                            className="col-start-1 row-start-1 w-full appearance-none rounded-md py-2 pr-7 pl-3.5 text-base text-gray-500 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                                        >
-                                            <option>US</option>
-                                            <option>CA</option>
-                                            <option>EU</option>
-                                        </select>
-                                        <ChevronDownIcon
-                                            aria-hidden="true"
-                                            className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
-                                        />
-                                    </div> */}
                                 <input
                                     required
                                     id="phone"
@@ -189,6 +240,7 @@ export default function ContactForm({ handleSubmit }) {
                                     type="checkbox"
                                     aria-label="Agree to policies"
                                     className="absolute inset-0 appearance-none focus:outline-hidden"
+                                    onChange={handleInputChange}
                                     onInvalid={handleInvalid}
                                     title={contactData?.hints?.agree}
                                 />
@@ -212,6 +264,7 @@ export default function ContactForm({ handleSubmit }) {
                 </div>
             </form>
         </section>
+            </>
         ) : <CompLoader />
     );
 }
