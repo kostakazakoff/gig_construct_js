@@ -14,6 +14,7 @@ import { API_PATH } from "@/app/_lib/api_paths";
 import CompLoader from "@/app/_components/mainComponents/compLoader";
 import be from "@/app/_utils/Api";
 import { useParams, useRouter } from "next/navigation";
+import ErrorMessage from "@/app/_components/mainComponents/errorMessage";
 
 export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
@@ -25,6 +26,7 @@ export default function ServiceDetailsComponent() {
     const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: contactStaticData, language: language }));
     const [translatedOfferConfirmation, setTranslatedOfferConfirmation] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
     const [translatedStaticData, setTranslatedStaticData] = useState({});
+    const [formError, setFormError] = useState(null);
 
     useEffect(() => {
         setOfferNoteTranslated(Translate({ data: contactStaticData, language: language }));
@@ -40,13 +42,13 @@ export default function ServiceDetailsComponent() {
                     const translatedData = Translate({ data: recievedData.data, language: language });
                     setServices(translatedData);
                 } else {
-                    console.log('Error message:', recievedData.message);
                     setServices(null);
+                    setFormError(recievedData?.message ?? 'Unknown error occurred');
                 }
             })
             .catch(error => {
-                console.log('Error fetching service data:', error);
                 setServices(null);
+                setFormError(error.message);
                 router.push(`/services#${slug}`);
             });
     }, [language]);
@@ -56,7 +58,6 @@ export default function ServiceDetailsComponent() {
     useEffect(() => {
         if (formSubmitted) {
             console.log("Form submitted for service slug:", slug);
-            // Logic to handle after form submission, send data to server, etc.
         }
     }, [formSubmitted]);
 
@@ -65,6 +66,7 @@ export default function ServiceDetailsComponent() {
     useEffect(() => {
         if (modalIsActive) {
             setFormSubmitted(false);
+            setFormError(null);
         }
     }, [modalIsActive]);
 
@@ -77,12 +79,14 @@ export default function ServiceDetailsComponent() {
                             serviceId={slug}
                             translated={offerNoteTranslated}
                             setFormSubmitted={setFormSubmitted}
+                            setFormErrored={setFormError}
                         />
                         <OfferConfirmation
                             translated={translatedOfferConfirmation}
                             formSubmitted={formSubmitted}
                             setFormSubmitted={setFormSubmitted}
                         />
+                        <ErrorMessage formError={formError} />
                     </Modal>
 
                     <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">

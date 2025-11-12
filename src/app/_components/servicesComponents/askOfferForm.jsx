@@ -11,7 +11,7 @@ export default function AskOfferForm({
     serviceId,
     translated,
     setFormSubmitted, // function to set form submission state in parent
-    closeWrapper, // closing function passed from Modal wrapper
+    setFormErrored, // function to set form error state in parent
 }) {
 
     const formRef = useRef();
@@ -36,12 +36,28 @@ export default function AskOfferForm({
                         setFormSubmitted(true); // Notify parent about form submission
                     }
                     setFormData(null);
+                } else {
+                    // Server responded but with succeed: false
+                    formRef.current.style.opacity = 0;
+                    formRef.current.style.display = 'none';
+                    if (setFormSubmitted) {
+                        setFormSubmitted(false);
+                    }
+                    if (setFormErrored) {
+                        setFormErrored(response.data.message || 'An error occurred while processing your request');
+                    }
                 }
                 console.log("Server response:", response.data);
             })
             .catch(error => {
-                // TODO: Handle error appropriately
-                console.error("Error sending message to server:", error);
+                formRef.current.style.opacity = 0;
+                formRef.current.style.display = 'none';
+                if (setFormSubmitted) {
+                    setFormSubmitted(false); // Notify parent about form submission
+                }
+                if (setFormErrored) {
+                    setFormErrored(error.message); // Notify parent about form error
+                }
             });
     };
 
