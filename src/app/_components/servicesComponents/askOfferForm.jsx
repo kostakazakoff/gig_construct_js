@@ -98,7 +98,6 @@ export default function AskOfferForm({
             <div className="w-sm sm:w-96 lg:w-128 xl:w-160 p-4 text-slate-700 dark:text-slate-300">
                 <div className="flex items-center mb-8 space-x-6 border-b border-slate-900 dark:border-slate-200 py-4">
                     <EnvelopeOpenIcon className="h-8 w-8" />
-
                     <h2 className="text-2xl font-bold uppercase text-center">{translated.title}</h2>
                 </div>
 
@@ -107,7 +106,7 @@ export default function AskOfferForm({
                         <div className="flex-1">
                             <label htmlFor="first_name" className="block text-sm font-medium dark:text-slate-300">
                                 {translated.firstName}
-                                <span className="text-red-500 text-2xl"> *</span>
+                                <span className="text-red-500"> *</span>
                             </label>
                             <input
                                 required
@@ -124,10 +123,9 @@ export default function AskOfferForm({
                         <div className="flex-1">
                             <label htmlFor="last_name" className="block text-sm font-medium dark:text-slate-300">
                                 {translated.lastName}
-                                <span className="text-red-500 text-2xl"> *</span>
+                                <span className="text-red-500"> </span>
                             </label>
                             <input
-                                required
                                 type="text"
                                 id="last_name"
                                 name="last_name"
@@ -156,7 +154,7 @@ export default function AskOfferForm({
                     <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.phoneLabel}
-                            <span className="text-red-500 text-2xl"> *</span>
+                            <span className="text-red-500"> *</span>
                         </label>
                         <input
                             required
@@ -173,8 +171,10 @@ export default function AskOfferForm({
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.emailLabel}
+                            <span className="text-red-500"> *</span>
                         </label>
                         <input
+                            required
                             type="email"
                             id="email"
                             name="email"
@@ -188,8 +188,10 @@ export default function AskOfferForm({
                     <div>
                         <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.messageLabel}
+                            <span className="text-red-500"> *</span>
                         </label>
                         <textarea
+                            required
                             id="message"
                             name="message"
                             rows="2"

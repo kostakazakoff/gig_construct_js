@@ -147,11 +147,10 @@ export default function ContactForm() {
                     </div>
                     <div>
                         <label htmlFor="last-name" className="block text-sm/6 font-semibold">
-                            {contactData.lastName} *
+                            {contactData.lastName} 
                         </label>
                         <div className="mt-2.5">
                             <input
-                                required
                                 id="last-name"
                                 name="last_name"
                                 type="text"
