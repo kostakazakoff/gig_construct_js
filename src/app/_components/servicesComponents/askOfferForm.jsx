@@ -16,12 +16,10 @@ export default function AskOfferForm({
 
     const formRef = useRef();
     const [formData, setFormData] = useState(null);
-    const {language} = useLanguageContext();
+    const { language } = useLanguageContext();
 
     useEffect(() => {
         if (formData) {
-            formRef.current.style.opacity = 0;
-            formRef.current.style.display = 'none';
             sendMessageToServer(formData);
         } else {
             formRef.current.style.opacity = 1;
@@ -31,12 +29,20 @@ export default function AskOfferForm({
     const sendMessageToServer = (data) => {
         be.post(API_PATH.CLIENT_REQUEST, data)
             .then(response => {
+                if (response.data.succeed) {
+                    formRef.current.style.opacity = 0;
+                    formRef.current.style.display = 'none';
+                    if (setFormSubmitted) {
+                        setFormSubmitted(true); // Notify parent about form submission
+                    }
+                    setFormData(null);
+                }
                 console.log("Server response:", response.data);
             })
             .catch(error => {
+                // TODO: Handle error appropriately
                 console.error("Error sending message to server:", error);
             });
-        console.log("Sending message to server:", data);
     };
 
     const [inputValues, setInputValues] = useState({
@@ -52,10 +58,10 @@ export default function AskOfferForm({
 
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
-        
+
         // Премахване на персонализирано съобщение за грешка при промяна
         e.target.setCustomValidity('');
-        
+
         setInputValues((oldState) => ({
             ...oldState,
             [name]: type === 'checkbox' ? checked : value,
@@ -69,12 +75,9 @@ export default function AskOfferForm({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (setFormData) {
             setFormData(inputValues);
-            if (setFormSubmitted) {
-                setFormSubmitted(true); // Notify parent about form submission
-            }
         }
     };
 
