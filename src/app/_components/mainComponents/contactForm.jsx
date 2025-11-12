@@ -26,15 +26,20 @@ export default function ContactForm() {
     }, [language]);
 
     useEffect(() => {
-        setTranslated(Translate({ data: offerConfirmationStaticData, language: language }));
+        setTranslated(offerConfirmationStaticData[language]);
     }, [language]);
 
     useEffect(() => {
-        if (modalIsActive) {
-            setFormSubmitted(true);
-            setFormError(null);
+        if (formSubmitted) {
+            setModalIsActive(true);
         }
-    }, [modalIsActive]);
+    }, [formSubmitted]);
+
+    useEffect(() => {
+        if (formError) {
+            setModalIsActive(true);
+        }
+    }, [formError]);
 
     const [formData, setFormData] = useState({
         gender: '',
@@ -108,7 +113,7 @@ export default function ContactForm() {
                         formSubmitted={formSubmitted}
                         closeWrapper={() => setModalIsActive(false)}
                     />
-                    <ErrorMessage formError={formError} />
+                    <ErrorMessage formError={formError} closeWrapper={() => setModalIsActive(false)} />
                 </Modal>
         <section className="bg-slate-50 dark:bg-slate-700 px-6 py-12 sm:py-20 lg:px-8 max-w-xl rounded-b-lg">
             <div className="mx-auto max-w-2xl text-center">
