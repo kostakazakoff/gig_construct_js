@@ -31,12 +31,14 @@ export default function ContactForm() {
 
     useEffect(() => {
         if (formSubmitted) {
+            setFormError(null);
             setModalIsActive(true);
         }
     }, [formSubmitted]);
 
     useEffect(() => {
         if (formError) {
+            setFormSubmitted(false);
             setModalIsActive(true);
         }
     }, [formError]);
