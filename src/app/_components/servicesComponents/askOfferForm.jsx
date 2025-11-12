@@ -51,14 +51,14 @@ export default function AskOfferForm({
     });
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
         
         // Премахване на персонализирано съобщение за грешка при промяна
         e.target.setCustomValidity('');
         
         setInputValues((oldState) => ({
             ...oldState,
-            [name]: value,
+            [name]: type === 'checkbox' ? checked : value,
         }));
     };
 
@@ -196,6 +196,7 @@ export default function AskOfferForm({
                                     type="checkbox"
                                     aria-label="Agree to policies"
                                     className="absolute inset-0 appearance-none focus:outline-hidden"
+                                    onChange={handleInputChange}
                                     onInvalid={handleInvalid}
                                     title={translated?.hints?.agree}
                                 />
