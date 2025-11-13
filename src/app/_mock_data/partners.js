@@ -14,7 +14,7 @@ export const partners = [
     {
         id: 4,
         name: "GIG",
-        logoUrl: "/gig_logo.svg",
+        logoUrl: "/gig_logo_blue_256.svg",
         websiteUrl: "https://gigmusic.com/"
     },
     {

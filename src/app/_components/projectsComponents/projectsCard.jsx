@@ -5,7 +5,7 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:800
 
 const addImage = (imageSrc) => {
     if (!imageSrc) {
-        return "/gig_logo.svg"; // Fallback изображение вместо null
+        return "/gig_logo_blue_256.svg"; // Fallback изображение вместо null
     } else if (imageSrc.startsWith('http')) {
         return imageSrc;
     }
