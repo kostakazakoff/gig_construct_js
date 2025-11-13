@@ -75,7 +75,7 @@ export default function ContactForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        be.post(API_PATH.CLIENT_REQUEST, formData)
+        be.post(API_PATH.INQUIRY, formData)
             .then(response => {
                 if (response.data.succeed) {
                     setFormSubmitted(true);

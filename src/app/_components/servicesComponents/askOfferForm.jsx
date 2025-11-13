@@ -9,6 +9,7 @@ import { API_PATH } from "@/app/_lib/api_paths";
 
 export default function AskOfferForm({
     serviceId,
+    slug,
     translated,
     setFormSubmitted, // function to set form submission state in parent
     setFormErrored, // function to set form error state in parent
@@ -26,7 +27,7 @@ export default function AskOfferForm({
     }, [formData]);
 
     const sendMessageToServer = (data) => {
-        be.post(API_PATH.CLIENT_REQUEST, data)
+        be.post(API_PATH.INQUIRY, data)
             .then(response => {
                 if (response.data.succeed) {
                     setIsVisible(false);
@@ -66,6 +67,7 @@ export default function AskOfferForm({
         email: "",
         message: "",
         language: language,
+        category: slug || null,
     });
 
     const handleInputChange = (e) => {

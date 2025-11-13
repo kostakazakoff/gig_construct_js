@@ -4,5 +4,5 @@ export const API_PATH = {
     SERVICE_CATEGORIES: "services/",
     USERS: "users/",
     AUTH: "auth/",
-    CLIENT_REQUEST: "inquiry/",
+    INQUIRY: "inquiry/",
 };
