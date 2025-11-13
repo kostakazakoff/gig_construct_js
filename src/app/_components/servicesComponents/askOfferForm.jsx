@@ -9,7 +9,6 @@ import { API_PATH } from "@/app/_lib/api_paths";
 
 export default function AskOfferForm({
     serviceId,
-    slug,
     translated,
     setFormSubmitted, // function to set form submission state in parent
     setFormErrored, // function to set form error state in parent
@@ -59,7 +58,6 @@ export default function AskOfferForm({
     };
 
     const [inputValues, setInputValues] = useState({
-        id: serviceId,
         first_name: "",
         last_name: "",
         company: "",
@@ -67,7 +65,7 @@ export default function AskOfferForm({
         email: "",
         message: "",
         language: language,
-        category: slug || null,
+        category: serviceId || "",
     });
 
     const handleInputChange = (e) => {

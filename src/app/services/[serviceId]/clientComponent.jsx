@@ -77,7 +77,6 @@ export default function ServiceDetailsComponent() {
                     <Modal active={modalIsActive} setActive={setModalIsActive}>
                         <AskOfferForm
                             serviceId={slug}
-                            slug={slug}
                             translated={offerNoteTranslated}
                             setFormSubmitted={setFormSubmitted}
                             setFormErrored={setFormError}
