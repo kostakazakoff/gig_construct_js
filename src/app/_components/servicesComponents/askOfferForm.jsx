@@ -6,18 +6,26 @@ import SubmitButton from "@/app/_components/buttonsComponents/submitButton";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 import be from "@/app/_utils/Api";
 import { API_PATH } from "@/app/_lib/api_paths";
+import CancelButton from "../buttonsComponents/cancelButton";
 
 export default function AskOfferForm({
     serviceId,
     translated,
     setFormSubmitted, // function to set form submission state in parent
     setFormErrored, // function to set form error state in parent
+    closeWrapper,
 }) {
 
-    const formRef = useRef();
+    const sectionRef = useRef();
     const [formData, setFormData] = useState(null);
     const [isVisible, setIsVisible] = useState(true);
     const { language } = useLanguageContext();
+    
+    const closeModal = () => {
+        if (closeWrapper) {
+            closeWrapper();
+        }
+    };
 
     useEffect(() => {
         if (formData) {
@@ -94,7 +102,7 @@ export default function AskOfferForm({
     };
 
     return (
-        <div ref={formRef} className={`transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
+        <section ref={sectionRef} className={`transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
             <div className="w-sm sm:w-96 lg:w-128 xl:w-160 p-4 text-slate-700 dark:text-slate-300">
                 <div className="flex items-center mb-8 space-x-6 border-b border-slate-900 dark:border-slate-200 py-4">
                     <EnvelopeOpenIcon className="h-8 w-8" />
@@ -228,11 +236,16 @@ export default function AskOfferForm({
                         </label>
                     </div>
 
-                    <div className="pt-4 mt-8 border-t flex justify-end">
-                        <SubmitButton type="submit">{language === "BG" ? "Изпрати" : "Send"}</SubmitButton>
-                    </div>
+                    <section className="pt-4 mt-8 border-t flex justify-end gap-4">
+                        <div>
+                            <CancelButton type="button" onClick={closeModal}>{language === "BG" ? "Отказ" : "Cancel"}</CancelButton>
+                        </div>
+                        <div className="">
+                            <SubmitButton type="submit">{language === "BG" ? "Изпрати" : "Send"}</SubmitButton>
+                        </div>
+                    </section>
                 </form>
             </div>
-        </div>
+        </section>
     );
 }
