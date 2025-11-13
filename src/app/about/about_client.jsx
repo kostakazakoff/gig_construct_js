@@ -17,7 +17,7 @@ export default function AboutComponent() {
     }, [language]);
 
     return (
-        <section className="flex flex-col items-center justify-start align-strech px-4 w-full">
+        <section className="flex flex-col items-center justify-start align-strech px-8 w-full">
             <h2 className="text-3xl font-bold uppercase">{aboutText.title}</h2>
             <div className="mt-4 max-w-3xl text-center">
                 {aboutText.aboutText.split('\n\n').map((paragraph, idx) => (
@@ -27,7 +27,7 @@ export default function AboutComponent() {
                 ))}
             </div>
 
-            <div className="w-full bg-slate-300 dark:bg-slate-800 mt-12 border-t-1 pb-4">
+            <div className="w-screen bg-slate-300 dark:bg-slate-800 mt-12 border-t-1 pb-4">
                 <div className="flex flex-col items-center justify-start py-12 px-4 max-w-5xl mx-auto">
                     <h2 className="text-2xl font-bold uppercase mb-12">{aboutText.partnersTitle}</h2>
                     <div className="flex flex-wrap justify-center gap-8">
