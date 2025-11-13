@@ -3,7 +3,7 @@ import ProjectsComponent from "./clientComponent";
 export const metadata = {
     title: 'Projects',
     description: 'Our completed projects showcasing our expertise in construction and renovation services.',
-    tags: ['construction', 'renovation', 'projects', 'portfolio'],
+    tags: ['construction', 'renovation', 'projects', 'portfolio', 'строителство', 'ремонт', 'проекти', 'портфолио'],
 }
 
 export default function ProjectsPage() {

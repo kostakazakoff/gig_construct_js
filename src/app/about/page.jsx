@@ -3,7 +3,7 @@ import AboutComponent from "./about_client";
 export const metadata = {
     title: 'About Us',
     description: 'Научете повече за GiG Construct, нашата мисия, визия и екип. Строителни услуги с качество и доверие.',
-    tags: ['about us', 'GIG construct', 'mission', 'vision', 'team', 'quality construction', 'trusted builder'],
+    tags: ['about us', 'GIG construct', 'mission', 'vision', 'team', 'quality construction', 'trusted builder', 'за нас', 'мисия', 'визия', 'екип', 'качествено строителство', 'доверен строител', 'ремонтни услуги'],
 }
 
 export default function AboutPage() {
