@@ -50,14 +50,14 @@ export default function Modal({ active, setActive, children }) {
         <>
             {/* Full-screen backdrop with blur */}
             <div
-                className="fixed inset-0 bg-black/60 backdrop-blur-md z-50"
+                className="fixed inset-0 bg-black/60 backdrop-blur-md z-60"
                 onClick={handleClose}
             ></div>
 
             {/* Modal dialog */}
             <dialog
                 ref={modalRef}
-                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[60] bg-transparent p-0 border-0 max-h-screen overflow-y-auto"
+                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-70 bg-transparent p-0 border-0 max-h-screen overflow-y-auto"
                 onClick={handleBackdropClick}
             >
                 <div className="bg-slate-200 dark:bg-slate-900 dark:text-slate-300 overflow-hidden shadow-2xl rounded-lg relative">
