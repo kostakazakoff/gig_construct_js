@@ -91,7 +91,7 @@ export default function Navbar() {
                                 width={34}
                                 height={34}
                                 alt="GIG Construct Logo"
-                                src="/gig_logo_white_48px.png"
+                                src="/GIG_logo_white_48px.png"
                                 className="h-auto w-auto rounded-full"
                             />
                         </Link>

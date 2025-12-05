@@ -6,8 +6,8 @@ export const metadata = {
     tags: ['gallery', 'GIG construct', 'mission', 'vision', 'team', 'quality construction', 'trusted builder', 'мисия', 'визия', 'екип', 'качествено строителство', 'доверен строител', 'ремонтни услуги'],
 }
 
-export default function ProjectDetailsPage({ params }) {
-    const { projectId } = params;
+export default async function ProjectDetailsPage({ params }) {
+    const { projectId } = await params;
 
     return (
         <ProjectsClientComponent projectId={projectId} />
