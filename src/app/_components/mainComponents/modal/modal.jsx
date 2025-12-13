@@ -13,6 +13,17 @@ export default function Modal({ active, setActive, children }) {
     const open = searchParams.get('modal') === 'true' || active;
     const modalRef = useRef(null);
 
+    const handleClose = () => {
+        modalRef.current?.close();
+        // Remove modal parameter from URL
+        const currentParams = new URLSearchParams(searchParams.toString());
+        currentParams.delete('modal');
+        const newUrl = `${window.location.pathname}${currentParams.toString() ? '?' + currentParams.toString() : ''}`;
+        router.push(newUrl);
+
+        setActive(false);
+    };
+
     // Open or close the modal based on the 'open' state
     useEffect(() => {
         if (open) {
@@ -27,17 +38,6 @@ export default function Modal({ active, setActive, children }) {
     if (!open) {
         return null;
     }
-
-    const handleClose = () => {
-        modalRef.current?.close();
-        // Remove modal parameter from URL
-        const currentParams = new URLSearchParams(searchParams.toString());
-        currentParams.delete('modal');
-        const newUrl = `${window.location.pathname}${currentParams.toString() ? '?' + currentParams.toString() : ''}`;
-        router.push(newUrl);
-
-        setActive(false);
-    };
 
     // Handle clicking outside the modal
     const handleBackdropClick = (e) => {

@@ -49,6 +49,36 @@ export default function ProjectsClientComponent() {
         }
     }, [imageId, imgCards]);
 
+    // Keyboard navigation for modal
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (!modalIsActive) return;
+            
+            switch (event.key) {
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateImage('prev');
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateImage('next');
+                    break;
+                // case 'Escape':
+                //     event.preventDefault();
+                //     setModalIsActive(false);
+                //     break;
+                default:
+                    break;
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [modalIsActive, imageId, imgCards]);
+
     const navigateImage = (direction) => {
         if (!imgCards || imgCards.length === 0) return;
 
