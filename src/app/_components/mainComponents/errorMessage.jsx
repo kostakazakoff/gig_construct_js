@@ -1,5 +1,4 @@
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
-import { useEffect } from "react";
 
 export default function ErrorMessage({ formError, closeWrapper }) {
 
