@@ -28,12 +28,12 @@ export default function TranslatedServices() {
     useEffect(() => {
         be.get(`${API_PATH.SERVICE_CATEGORIES}`)
             .then(response => response.data)
-            .then(recievedData => {
-                if (recievedData && recievedData.succeed) {
-                    const translatedServices = Translate({ data: recievedData.data, language });
+            .then(receivedData => {
+                if (receivedData && receivedData.succeed) {
+                    const translatedServices = Translate({ data: receivedData.data, language });
                     setTranslation(translatedServices);
                 } else {
-                    console.log(recievedData.message)
+                    console.log(receivedData.message)
                     setTranslation(null);
                 }
             });
