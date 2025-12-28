@@ -8,12 +8,16 @@ import { API_PATH } from "../_lib/api_paths";
 import CompLoader from "../_components/mainComponents/compLoader";
 import be from "../_utils/Api";
 import { usePathname } from "next/navigation";
+import Modal from "../_components/mainComponents/modal/modal";
+import ErrorMessage from "../_components/mainComponents/errorMessage";
 
 export default function TranslatedServices() {
 
     const pathname = usePathname();
     const { language } = useLanguageContext();
     const [translation, setTranslation] = useState(null);
+    const [modalIsActive, setModalIsActive] = useState(false);
+    const [formError, setFormError] = useState(null);
 
     useEffect(() => {
         const hash = window.location.hash;
@@ -33,23 +37,42 @@ export default function TranslatedServices() {
                     const translatedServices = Translate({ data: receivedData.data, language });
                     setTranslation(translatedServices);
                 } else {
-                    console.log(receivedData.message)
+                    console.log("Received error from API:", receivedData);
+                    setFormError(receivedData?.message || 'An error occurred while loading services');
+                    setModalIsActive(true);
                     setTranslation(null);
                 }
+            })
+            .catch(response => {
+                setFormError(response.response.data.message || 'Failed to fetch service categories');
+                setModalIsActive(true);
+                setTranslation(null);
             });
     }, [language]);
 
     if (!translation) {
-        return <CompLoader />;
+        return (
+            <>
+                <CompLoader />
+                <Modal active={modalIsActive} setActive={setModalIsActive}>
+                    <ErrorMessage formError={formError} closeWrapper={() => setModalIsActive(false)} />
+                </Modal>
+            </>
+        );
     }
 
     return (
-        <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8">
-            <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
-                {translation.map((service) => (
-                    <ServiceCard key={service.id} service={service} language={language} />
-                ))}
-            </section>
-        </div>
+        <>
+            <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8">
+                <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
+                    {translation.map((service) => (
+                        <ServiceCard key={service.id} service={service} language={language} />
+                    ))}
+                </section>
+            </div>
+            <Modal active={modalIsActive} setActive={setModalIsActive}>
+                <ErrorMessage formError={formError} closeWrapper={() => setModalIsActive(false)} />
+            </Modal>
+        </>
     );
 }
