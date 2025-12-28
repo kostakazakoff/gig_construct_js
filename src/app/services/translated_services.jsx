@@ -10,15 +10,14 @@ import be from "../_utils/Api";
 import { usePathname } from "next/navigation";
 import Modal from "../_components/mainComponents/modal/modal";
 import ErrorMessage from "../_components/mainComponents/errorMessage";
-import { activateErrorModal } from "../_utils/ActivateErrorModal";
+import { useErrorModal } from "../_utils/ActivateErrorModal";
 
 export default function TranslatedServices() {
 
     const pathname = usePathname();
     const { language } = useLanguageContext();
     const [translation, setTranslation] = useState(null);
-    const [modalIsActive, setModalIsActive] = useState(false);
-    const [formError, setFormError] = useState(null);
+    const { modalIsActive, setModalIsActive, formError, activateErrorModal } = useErrorModal();
 
     useEffect(() => {
         const hash = window.location.hash;
@@ -38,12 +37,12 @@ export default function TranslatedServices() {
                     const translatedServices = Translate({ data: receivedData.data, language });
                     setTranslation(translatedServices);
                 } else {
-                    activateErrorModal(receivedData?.message || 'An error occurred while loading services', setFormError, setModalIsActive);
+                    activateErrorModal(receivedData?.message || 'An error occurred while loading services');
                     setTranslation(null);
                 }
             })
             .catch(response => {
-                activateErrorModal(response.response.data.message || 'Failed to fetch service categories', setFormError, setModalIsActive);
+                activateErrorModal(response.response.data.message || 'Failed to fetch service categories');
                 setTranslation(null);
             });
     }, [language]);

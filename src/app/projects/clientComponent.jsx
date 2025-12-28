@@ -8,6 +8,9 @@ import Translate from '../_utils/Translator';
 import be from '../_utils/Api';
 import CompLoader from '../_components/mainComponents/compLoader';
 import { usePathname } from 'next/navigation';
+import Modal from '../_components/mainComponents/modal/modal';
+import ErrorMessage from '../_components/mainComponents/errorMessage';
+import { useErrorModal } from '../_utils/ActivateErrorModal';
 
 export default function ProjectsComponent() {
 
@@ -15,16 +18,27 @@ export default function ProjectsComponent() {
     const { language } = useLanguageContext();
     const [translated, setTranslated] = useState(null);
     const [translatedStaticData, setTranslatedStaticData] = useState(Translate({ data: projectsStaticData, language: language }));
+    const { modalIsActive, setModalIsActive, formError, activateErrorModal } = useErrorModal();
 
-    const getProjectsData = async () => {
-        const projectsData = await be.get('projects/');
-        if (projectsData && projectsData.data && projectsData.data.succeed) {
-            const translatedProjects = Translate({ data: projectsData.data.data, language });
-            setTranslated(translatedProjects);
-        } else {
-            console.log(projectsData.message);
-            setTranslated(null);
-        }
+    const getProjectsData = () => {
+        be.get('projects/')
+            .then(response => response.data)
+            .then(projectsData => {
+                console.log('Projects data received:', projectsData.succeed);
+                if (projectsData && projectsData.data && projectsData.succeed) {
+                    const translatedProjects = Translate({ data: projectsData.data, language });
+                    setTranslated(translatedProjects);
+                } else {
+                    // activateErrorModal(projectsData?.message || 'An error occurred while loading projects');
+                    console.log('Error loading projects:', projectsData?.message || 'Unknown error');
+                    setTranslated(null);
+                }
+            })
+            .catch(response => {
+                // activateErrorModal(response.response.data.message || 'Failed to fetch projects data');
+                console.log('Error fetching projects data:', response.response.data.message);
+                setTranslated(null);
+            });
     };
 
     useEffect(() => {
@@ -44,6 +58,11 @@ export default function ProjectsComponent() {
 
     return (
         <>
+
+            {/* <Modal active={modalIsActive} setActive={setModalIsActive}>
+                <ErrorMessage formError={formError} closeWrapper={() => setModalIsActive(false)} />
+            </Modal> */}
+
             {translated ?
                 <div className='relative'>
                     <section className='grid grid-cols-1 xl:grid-cols-2 gap-16 px-8 xl:px-24 2xl:px-40' lang={language.toLowerCase()}>

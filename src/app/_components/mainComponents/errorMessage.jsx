@@ -11,7 +11,7 @@ export default function ErrorMessage({ formError, closeWrapper }) {
         role="alert"
         onClick={closeWrapper}
         >
-            <strong className="font-bold">Error: </strong>{formError}
+            <strong className="font-bold"></strong>{formError}
         </div>
     );
 }
