@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import CompLoader from '../_components/mainComponents/compLoader';
+import ComponentLoader from '../_components/mainComponents/componentLoader';
 import useLanguageContext from '../_hooks/useLanguageContext';
 import { contactStaticData } from '../_lib/static_data';
 import ContactForm from '../_components/mainComponents/contactForm';
@@ -23,7 +23,7 @@ export default function ClientContact() {
                 <ContactForm />
             </>
         ) : (
-            <CompLoader />
+            <ComponentLoader />
         )
     )
 };

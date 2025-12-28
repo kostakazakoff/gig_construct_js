@@ -6,7 +6,7 @@ import { projectsStaticData } from '@/app/_lib/static_data.js';
 import { useEffect, useState } from 'react';
 import Translate from '../_utils/Translator';
 import be from '../_utils/Api';
-import CompLoader from '../_components/mainComponents/compLoader';
+import ComponentLoader from '../_components/mainComponents/componentLoader';
 import { usePathname } from 'next/navigation';
 import Modal from '../_components/mainComponents/modal/modal';
 import ErrorMessage from '../_components/mainComponents/errorMessage';
@@ -71,7 +71,7 @@ export default function ProjectsComponent() {
                         ))}
                     </section>
                 </div>
-                : <CompLoader />
+                : <ComponentLoader />
             }
         </>
     );

@@ -9,7 +9,7 @@ import be from "@/app/_utils/Api";
 import { API_PATH } from "@/app/_lib/api_paths.js";
 import { Button } from "@headlessui/react";
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
-import CompLoader from "@/app/_components/mainComponents/compLoader";
+import ComponentLoader from "@/app/_components/mainComponents/componentLoader";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 import Translate from "@/app/_utils/Translator";
 
@@ -136,6 +136,6 @@ export default function ProjectsClientComponent() {
                     ))}
                 </ul>
             </>
-        ) : <CompLoader />
+        ) : <ComponentLoader />
     );
 }

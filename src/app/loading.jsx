@@ -1,7 +1,7 @@
-import CompLoader from "./_components/mainComponents/compLoader";
+import ComponentLoader from "./_components/mainComponents/componentLoader";
 
 export default function Loading() {
     return (
-        <CompLoader />
+        <ComponentLoader />
     );
 }

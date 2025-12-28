@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import useLanguageContext from "../_hooks/useLanguageContext";
 import NewsCard from "@/app/_components/newsComponents/newsCard.jsx";
-import CompLoader from "../_components/mainComponents/compLoader";
+import ComponentLoader from "../_components/mainComponents/componentLoader";
 import be from "../_utils/Api";
 import Translate from "../_utils/Translator";
 
@@ -38,7 +38,7 @@ export default function NewsClientComponent() {
                 ))}
             </div>
         ) : (
-            <CompLoader />
+            <ComponentLoader />
         )
     );
 }

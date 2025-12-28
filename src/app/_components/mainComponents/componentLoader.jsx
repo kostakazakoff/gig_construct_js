@@ -1,4 +1,4 @@
-export default function CompLoader() {
+export default function ComponentLoader() {
     return (
         <div
             className="fixed inset-0 bg-slate-300/80 dark:bg-slate-800/80 backdrop-blur-xs z-40"

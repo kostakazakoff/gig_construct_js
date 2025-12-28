@@ -11,7 +11,7 @@ import AskOfferForm from "@/app/_components/servicesComponents/askOfferForm";
 import OfferConfirmation from "@/app/_components/servicesComponents/offerConfirmation";
 import { useEffect, useState } from "react";
 import { API_PATH } from "@/app/_lib/api_paths";
-import CompLoader from "@/app/_components/mainComponents/compLoader";
+import ComponentLoader from "@/app/_components/mainComponents/componentLoader";
 import be from "@/app/_utils/Api";
 import { useParams, useRouter } from "next/navigation";
 import ErrorMessage from "@/app/_components/mainComponents/errorMessage";
@@ -104,7 +104,7 @@ export default function ServiceDetailsComponent() {
                         <p className="text-xs text-slate-700 dark:text-slate-300">{translatedStaticData.legend}</p>
                     </section>
                 </div>
-                : <CompLoader />
+                : <ComponentLoader />
             }
         </>
     );

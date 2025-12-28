@@ -5,7 +5,7 @@ import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
 import { useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
 import { API_PATH } from "../_lib/api_paths";
-import CompLoader from "../_components/mainComponents/compLoader";
+import ComponentLoader from "../_components/mainComponents/componentLoader";
 import be from "../_utils/Api";
 import { usePathname } from "next/navigation";
 import Modal from "../_components/mainComponents/modal/modal";
@@ -50,7 +50,7 @@ export default function TranslatedServices() {
     if (!translation) {
         return (
             <>
-                <CompLoader />
+                <ComponentLoader />
                 <Modal active={modalIsActive} setActive={setModalIsActive}>
                     <ErrorMessage formError={formError} closeWrapper={() => setModalIsActive(false)} />
                 </Modal>

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import be from '@/app/_utils/Api';
 import useLanguageContext from '@/app/_hooks/useLanguageContext';
-import CompLoader from '@/app/_components/mainComponents/compLoader';
+import ComponentLoader from '@/app/_components/mainComponents/componentLoader';
 import Translate from '@/app/_utils/Translator';
 
 export default function ProjectLayout({ children }) {
@@ -49,6 +49,6 @@ export default function ProjectLayout({ children }) {
                 {children}
             </div>
         </section>
-        ) : <CompLoader />
+        ) : <ComponentLoader />
     );
 }

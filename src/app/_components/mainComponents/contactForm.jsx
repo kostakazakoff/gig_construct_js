@@ -3,7 +3,7 @@
 import { contactStaticData, offerConfirmationStaticData } from "@/app/_lib/static_data";
 import { useState, useEffect, useRef } from "react";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
-import CompLoader from "./compLoader";
+import ComponentLoader from "./componentLoader";
 import Modal from "./modal/modal";
 import OfferConfirmation from "../servicesComponents/offerConfirmation";
 import ErrorMessage from "./errorMessage";
@@ -271,6 +271,6 @@ export default function ContactForm() {
             </form>
         </section>
             </>
-        ) : <CompLoader />
+        ) : <ComponentLoader />
     );
 }

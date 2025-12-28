@@ -2,7 +2,7 @@
 
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 import { privacyPolicyStaticData } from "@/app/_lib/static_data";
-import CompLoader from "./compLoader";
+import ComponentLoader from "./componentLoader";
 import { useEffect, useState } from "react";
 
 export default function PrivacyPolicyDisplay() {
@@ -78,6 +78,6 @@ export default function PrivacyPolicyDisplay() {
                 </div>
             ))}
         </div>
-        ) : <CompLoader />
+        ) : <ComponentLoader />
     );
 }
