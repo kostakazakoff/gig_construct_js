@@ -13,29 +13,32 @@ export default function NewsClientComponent() {
 
     useEffect(() => {
         be.get('news/')
-            .then(response =>  response.data )
+            .then(response => response.data)
             .then(data => {
-                if (data && data.succeed) {
+                if (data && data.succeed && data.length > 0) {
                     const translatedNews = Translate({ data: data.data, language });
                     setNews(translatedNews);
                 } else {
+                console.log('News data received:', data);
                     console.log('Failed to fetch news:', data?.message);
                     setNews(null);
                 }
+            })
+            .catch(error => {
+                console.log('Error fetching news:', error.response?.data?.message || error.message);
+                setNews(null);
             });
     }, [language]);
 
     return (
         news ? (
-                    <div className="flex flex-col gap-16 py-12 px-6" lang={language.toLowerCase()}>
-                        {news.map((item) => (
-                            <NewsCard key={item.id} newsItem={item} />
-                        ))}
-                    </div>
-                ) : (
-                    <div>
-                        <CompLoader />
-                    </div>
-                )
+            <div className="flex flex-col gap-16 py-12 px-6" lang={language.toLowerCase()}>
+                {news.map((item) => (
+                    <NewsCard key={item.id} newsItem={item} />
+                ))}
+            </div>
+        ) : (
+            <CompLoader />
+        )
     );
 }
