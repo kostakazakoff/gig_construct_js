@@ -10,6 +10,7 @@ import be from "../_utils/Api";
 import { usePathname } from "next/navigation";
 import Modal from "../_components/mainComponents/modal/modal";
 import ErrorMessage from "../_components/mainComponents/errorMessage";
+import { activateErrorModal } from "../_utils/ActivateErrorModal";
 
 export default function TranslatedServices() {
 
@@ -29,12 +30,6 @@ export default function TranslatedServices() {
         }
     }, [pathname]);
 
-    const activateErrorModal = (message) => {
-        setFormError(message);
-        setModalIsActive(true);
-        setTranslation(null);
-    }
-
     useEffect(() => {
         be.get(`${API_PATH.SERVICE_CATEGORIES}`)
             .then(response => response.data)
@@ -43,11 +38,13 @@ export default function TranslatedServices() {
                     const translatedServices = Translate({ data: receivedData.data, language });
                     setTranslation(translatedServices);
                 } else {
-                    activateErrorModal(receivedData?.message || 'An error occurred while loading services');
+                    activateErrorModal(receivedData?.message || 'An error occurred while loading services', setFormError, setModalIsActive);
+                    setTranslation(null);
                 }
             })
             .catch(response => {
-                activateErrorModal(response.response.data.message || 'Failed to fetch service categories');
+                activateErrorModal(response.response.data.message || 'Failed to fetch service categories', setFormError, setModalIsActive);
+                setTranslation(null);
             });
     }, [language]);
 
