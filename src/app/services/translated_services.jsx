@@ -29,6 +29,12 @@ export default function TranslatedServices() {
         }
     }, [pathname]);
 
+    const activateErrorModal = (message) => {
+        setFormError(message);
+        setModalIsActive(true);
+        setTranslation(null);
+    }
+
     useEffect(() => {
         be.get(`${API_PATH.SERVICE_CATEGORIES}`)
             .then(response => response.data)
@@ -37,16 +43,11 @@ export default function TranslatedServices() {
                     const translatedServices = Translate({ data: receivedData.data, language });
                     setTranslation(translatedServices);
                 } else {
-                    console.log("Received error from API:", receivedData);
-                    setFormError(receivedData?.message || 'An error occurred while loading services');
-                    setModalIsActive(true);
-                    setTranslation(null);
+                    activateErrorModal(receivedData?.message || 'An error occurred while loading services');
                 }
             })
             .catch(response => {
-                setFormError(response.response.data.message || 'Failed to fetch service categories');
-                setModalIsActive(true);
-                setTranslation(null);
+                activateErrorModal(response.response.data.message || 'Failed to fetch service categories');
             });
     }, [language]);
 
