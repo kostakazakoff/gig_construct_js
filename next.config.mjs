@@ -27,7 +27,7 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "c.pxhere.com",
+                hostname: "gig-construct.s3.eu-central-1.amazonaws.com",
                 port: "",
                 pathname: "/**",
             },

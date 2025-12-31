@@ -35,7 +35,7 @@ export default function ServiceDetailsComponent() {
     }, [language]);
 
     useEffect(() => {
-        be.get(`${API_PATH.SERVICE_CATEGORIES}${slug}`)
+        be.get(`${API_PATH.CATEGORIES}${slug}`)
             .then(response => response.data)
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {

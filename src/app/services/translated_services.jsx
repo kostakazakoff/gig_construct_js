@@ -30,10 +30,11 @@ export default function TranslatedServices() {
     }, [pathname]);
 
     useEffect(() => {
-        be.get(`${API_PATH.SERVICE_CATEGORIES}`)
+        be.get(`${API_PATH.CATEGORIES}`)
             .then(response => response.data)
             .then(receivedData => {
                 if (receivedData && receivedData.succeed) {
+                    console.log('Received service categories:', receivedData.data);
                     const translatedServices = Translate({ data: receivedData.data, language });
                     setTranslation(translatedServices);
                 } else {
