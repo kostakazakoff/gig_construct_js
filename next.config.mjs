@@ -30,6 +30,12 @@ const nextConfig = {
                 hostname: "gig-construct.s3.eu-central-1.amazonaws.com",
                 port: "",
                 pathname: "/**",
+            }, 
+            {
+                protocol: "https",
+                hostname: "gig-construct-predator.s3.eu-central-1.amazonaws.com",
+                port: "",
+                pathname: "/**",
             },
         ],
     },
