@@ -15,14 +15,16 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                     <div>
                         <div className="absolute inset-0 bg-gig-blue/80" />
                     </div>
+                    {service.image_src && 
                     <Image
                         src={service.image_src}
                         alt={service.title}
-                        width={96}
-                        height={48}
+                        width={384}
+                        height={256}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="size-96 object-cover"
-                    />
+                        className="w-full h-full object-cover"
+                    />}
+                    
                     <div className="font-bold uppercase text-center absolute -top-1/2 group-hover:top-1/2 left-1/2 -translate-1/2 px-4 text-wrap opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                         {servicesStaticData.askOfferText}
                     </div>

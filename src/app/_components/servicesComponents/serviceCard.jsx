@@ -18,10 +18,10 @@ export default function ServiceCard({ service, language }) {
                     <Image
                         alt=""
                         src={service.image_src ? service.image_src : "/photo.svg"}
-                        width={96}
-                        height={48}
+                        width={384}
+                        height={256}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="size-96 object-cover self-center"
+                        className="w-full h-full object-cover"
                     />
                     <h2 className="absolute w-82 h-82 flex justify-center items-center font-bold text-xl -top-1/2 group-hover:top-1/2 left-1/2 -translate-1/2 transition-translate duration-400">
                         {service.description}
