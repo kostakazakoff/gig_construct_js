@@ -15,17 +15,14 @@ export default function NewsClientComponent() {
         be.get('news/')
             .then(response => response.data)
             .then(data => {
-                console.log('News data fetched:', data.data);
                 if (data && data.succeed) {
                     const translatedNews = Translate({ data: data.data, language });
                     setNews(translatedNews);
                 } else {
-                    console.log('Failed to fetch news:', data?.message);
                     setNews(null);
                 }
             })
             .catch(error => {
-                console.log('Error fetching news:', error.response?.data?.message || error.message);
                 setNews(null);
             });
     }, [language]);

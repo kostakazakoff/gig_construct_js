@@ -52,7 +52,6 @@ export default function AskOfferForm({
                         setFormErrored(response.data.message || 'An error occurred while processing your request');
                     }
                 }
-                console.log("Server response:", response.data);
             })
             .catch(error => {
                 setIsVisible(false);

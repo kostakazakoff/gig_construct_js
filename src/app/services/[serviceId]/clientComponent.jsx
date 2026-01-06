@@ -38,7 +38,6 @@ export default function ServiceDetailsComponent() {
         be.get(`${API_PATH.SERVICES}${id}`)
             .then(response => response.data)
             .then(recievedData => {
-                console.log("Received service data:", recievedData);
                 if (recievedData && recievedData.succeed) {
                     setServices(recievedData.data);
                 } else {
@@ -54,12 +53,6 @@ export default function ServiceDetailsComponent() {
     }, [language]);
     
     const [formSubmitted, setFormSubmitted] = useState(false);
-
-    useEffect(() => {
-        if (formSubmitted) {
-            console.log("Form submitted for service id:", id);
-        }
-    }, [formSubmitted]);
 
     const [modalIsActive, setModalIsActive] = useState(false);
 

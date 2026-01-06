@@ -19,7 +19,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                     {service.image_src && 
                     <Image
                         src={service.image_src}
-                        alt={service.title}
+                        alt={service.name}
                         width={384}
                         height={256}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

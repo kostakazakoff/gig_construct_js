@@ -24,19 +24,16 @@ export default function ProjectsComponent() {
         be.get('projects/')
             .then(response => response.data)
             .then(projectsData => {
-                console.log('Projects data received:', projectsData.succeed);
                 if (projectsData && projectsData.data && projectsData.succeed) {
                     const translatedProjects = Translate({ data: projectsData.data, language });
                     setTranslated(translatedProjects);
                 } else {
                     // activateErrorModal(projectsData?.message || 'An error occurred while loading projects');
-                    console.log('Error loading projects:', projectsData?.message || 'Unknown error');
                     setTranslated(null);
                 }
             })
             .catch(response => {
                 // activateErrorModal(response.response.data.message || 'Failed to fetch projects data');
-                console.log('Error fetching projects data:', response.response.data.message);
                 setTranslated(null);
             });
     };
