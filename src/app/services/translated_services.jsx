@@ -35,8 +35,7 @@ export default function TranslatedServices() {
             .then(receivedData => {
                 if (receivedData && receivedData.succeed) {
                     console.log('Received service categories:', receivedData.data);
-                    const translatedServices = Translate({ data: receivedData.data, language });
-                    setTranslation(translatedServices);
+                    setTranslation(receivedData.data);
                 } else {
                     activateErrorModal(receivedData?.message || 'An error occurred while loading services');
                     setTranslation(null);
