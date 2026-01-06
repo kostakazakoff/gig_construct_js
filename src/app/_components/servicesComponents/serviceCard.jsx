@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ServiceCard({ service, language }) {
-
+    console.log("Rendering ServiceCard for service:", service);
     return (
         <Link key={service.id} href={`/services/${service.id}`} id={service.category} passHref>
             <article className="group grid grid-rows-4 w-96 h-80 transition duration-300 ease-in-outhover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-md overflow-hidden text-slate-200 border border-gig-blue dark:border-slate-300" lang={language.toLowerCase()}>

@@ -20,10 +20,13 @@ export default function ProjectLayout({ children }) {
             be.get(`${API_PATH.SERVICES}${serviceId}`)
                 .then(response => response?.data)
                 .then(data => {
-                    if (data && data.succeed && data.data) {
+                    if (data && data.succeed && data.data && data.data.length > 0) {
                         const fetchedData = data.data;
                         const serviceData = Array.isArray(fetchedData) ? fetchedData[0] : fetchedData;
                         setServiceTitle(serviceData.category?.name || `${serviceId} services`);
+                    } else {
+                        setServiceTitle(null);
+                        router.push(`/services#${serviceId}`);
                     }
                 })
                 .catch(error => {
