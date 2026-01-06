@@ -2,7 +2,7 @@
 
 import ServiceCard from "@/app/_components/servicesComponents/serviceCard.jsx";
 import useLanguageContext from '@/app/_hooks/useLanguageContext.jsx'
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Translate from "@/app/_utils/Translator.js";
 import { API_PATH } from "../_lib/api_paths";
 import ComponentLoader from "../_components/mainComponents/componentLoader";
@@ -34,7 +34,6 @@ export default function TranslatedServices() {
             .then(response => response.data)
             .then(receivedData => {
                 if (receivedData && receivedData.succeed) {
-                    console.log('Received service categories:', receivedData.data);
                     setTranslation(receivedData.data);
                 } else {
                     activateErrorModal(receivedData?.message || 'An error occurred while loading services');
@@ -62,8 +61,8 @@ export default function TranslatedServices() {
         <>
             <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8">
                 <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8">
-                    {translation.map((service) => (
-                        <ServiceCard key={service.id} service={service} language={language} />
+                    {translation.map((category) => (
+                        <ServiceCard key={category.id} service={category} language={language} />
                     ))}
                 </section>
             </div>

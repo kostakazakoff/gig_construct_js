@@ -7,6 +7,7 @@ import be from '@/app/_utils/Api';
 import useLanguageContext from '@/app/_hooks/useLanguageContext';
 import ComponentLoader from '@/app/_components/mainComponents/componentLoader';
 import Translate from '@/app/_utils/Translator';
+import { API_PATH } from '@/app/_lib/api_paths';
 
 export default function ProjectLayout({ children }) {
     const { language } = useLanguageContext();
@@ -16,18 +17,17 @@ export default function ProjectLayout({ children }) {
 
     useEffect(() => {
         if (serviceId) {
-            be.get(`services/${serviceId}`)
+            be.get(`${API_PATH.SERVICES}${serviceId}`)
                 .then(response => response?.data)
                 .then(data => {
-                    if (!data || !data.succeed) {
-                        router.push(`/services#${serviceId}`);
+                    if (data && data.succeed && data.data) {
+                        const fetchedData = data.data;
+                        const serviceData = Array.isArray(fetchedData) ? fetchedData[0] : fetchedData;
+                        setServiceTitle(serviceData.category?.name || `${serviceId} services`);
                     }
-                    const fetchedData = data.data;
-                    const serviceData = Translate({ data: fetchedData, language });
-                    setServiceTitle(serviceData.category.name || `${serviceId} services`);
                 })
                 .catch(error => {
-                    router.push(`/services#${serviceId}`);
+                    console.error('Error fetching service title:', error);
                 });
         }
     }, [serviceId, language]);

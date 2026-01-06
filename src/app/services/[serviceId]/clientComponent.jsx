@@ -20,7 +20,7 @@ export default function ServiceDetailsComponent() {
     const { language } = useLanguageContext();
     const params = useParams();
     const router = useRouter();
-    const slug = params.serviceId;
+    const id = params.serviceId;
 
     const [services, setServices] = useState(null);
     const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: contactStaticData, language: language }));
@@ -35,12 +35,12 @@ export default function ServiceDetailsComponent() {
     }, [language]);
 
     useEffect(() => {
-        be.get(`${API_PATH.SERVICES}${slug}`)
+        be.get(`${API_PATH.SERVICES}${id}`)
             .then(response => response.data)
             .then(recievedData => {
+                console.log("Received service data:", recievedData);
                 if (recievedData && recievedData.succeed) {
-                    const translatedData = Translate({ data: recievedData.data, language: language });
-                    setServices(translatedData);
+                    setServices(recievedData.data);
                 } else {
                     setServices(null);
                     setFormError(recievedData?.message ?? 'Unknown error occurred');
@@ -49,7 +49,7 @@ export default function ServiceDetailsComponent() {
             .catch(error => {
                 setServices(null);
                 setFormError(error.message);
-                router.push(`/services#${slug}`);
+                router.push(`/services#${id}`);
             });
     }, [language]);
     
@@ -57,7 +57,7 @@ export default function ServiceDetailsComponent() {
 
     useEffect(() => {
         if (formSubmitted) {
-            console.log("Form submitted for service slug:", slug);
+            console.log("Form submitted for service id:", id);
         }
     }, [formSubmitted]);
 
@@ -76,7 +76,7 @@ export default function ServiceDetailsComponent() {
                 <div className="px-4">
                     <Modal active={modalIsActive} setActive={setModalIsActive}>
                         <AskOfferForm
-                            serviceId={slug}
+                            serviceId={id}
                             translated={offerNoteTranslated}
                             setFormSubmitted={setFormSubmitted}
                             setFormErrored={setFormError}
@@ -90,7 +90,7 @@ export default function ServiceDetailsComponent() {
                     </Modal>
 
                     <section className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 py-2">
-                        {services.services.map((s, index) => (
+                        {services.map((s, index) => (
                             <ServiceDetailsCard
                                 key={index}
                                 serviceId={s.id}
