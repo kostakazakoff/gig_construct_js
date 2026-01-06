@@ -47,7 +47,7 @@ export default function TranslatedServices() {
             });
     }, [language]);
 
-    if (!translation) {
+    if (!translation || translation.length === 0) {
         return (
             <>
                 <ComponentLoader />
