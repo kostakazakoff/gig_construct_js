@@ -41,7 +41,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                         {service.price_from} <span> <DivideIcon className="w-4 h-4 mx-1" /> </span> {service.price_to}
                     </p>
                     <p className="flex justify-center items-center border-t p-2">
-                        {service.unit}
+                        {service.unit.name}
                     </p>
 
                 </div>
