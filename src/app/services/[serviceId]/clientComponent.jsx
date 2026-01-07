@@ -21,6 +21,7 @@ export default function ServiceDetailsComponent() {
     const params = useParams();
     const router = useRouter();
     const id = params.serviceId;
+    console.log("ServiceDetailsComponent mounted with serviceId:", id);
 
     const [services, setServices] = useState(null);
     const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: contactStaticData, language: language }));
@@ -63,6 +64,10 @@ export default function ServiceDetailsComponent() {
         }
     }, [modalIsActive]);
 
+    useEffect(() => {
+        console.log('Serviices data:', services);
+    }, [services]);
+
     return (
         <>
             {services ? 
@@ -86,7 +91,7 @@ export default function ServiceDetailsComponent() {
                         {services.map((s, index) => (
                             <ServiceDetailsCard
                                 key={index}
-                                serviceId={s.id}
+                                serviceId={id}
                                 service={s}
                                 servicesStaticData={translatedStaticData}
                             />
