@@ -35,7 +35,7 @@ export default function ServiceDetailsCard({ serviceId, service, servicesStaticD
                 </div>
                 <div className="grid grid-cols-4 relative z-1 bg-gig-blue/60 border-gig-blue/20">
                     <p className="flex justify-center items-center border-t border-r p-2">
-                        BGN
+                        €
                     </p>
                     <p className="flex justify-center items-center border-t border-r p-2 col-span-2">
                         {service.price_from} <span> <DivideIcon className="w-4 h-4 mx-1" /> </span> {service.price_to}

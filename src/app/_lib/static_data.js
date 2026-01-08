@@ -16,11 +16,11 @@ export const servicesStaticData = {
 export const projectsStaticData = {
     BG: {
         value: "Приблизителна стойност",
-        currency: "лв",
+        currency: "€",
     },
     EN: {
         value: "Аpproximate value",
-        currency: "BGN",
+        currency: "€",
     },
 };
 

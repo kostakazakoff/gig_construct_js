@@ -11,7 +11,6 @@ import { Button } from "@headlessui/react";
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import ComponentLoader from "@/app/_components/mainComponents/componentLoader";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
-import Translate from "@/app/_utils/Translator";
 
 export default function ProjectsClientComponent({ initialProjectData, projectId: propProjectId }) {
 
