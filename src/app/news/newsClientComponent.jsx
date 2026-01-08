@@ -5,19 +5,19 @@ import useLanguageContext from "../_hooks/useLanguageContext";
 import NewsCard from "@/app/_components/newsComponents/newsCard.jsx";
 import ComponentLoader from "../_components/mainComponents/componentLoader";
 import be from "../_utils/Api";
-import Translate from "../_utils/Translator";
+import { API_PATH } from "../_lib/api_paths";
 
 export default function NewsClientComponent() {
     const { language } = useLanguageContext();
     const [news, setNews] = useState(null);
 
     useEffect(() => {
-        be.get('news/')
+        be.get(API_PATH.NEWS)
             .then(response => response.data)
             .then(data => {
                 if (data && data.succeed) {
-                    const translatedNews = Translate({ data: data.data, language });
-                    setNews(translatedNews);
+                    console.log("Fetched news data:", data.data);
+                    setNews(data.data);
                 } else {
                     setNews(null);
                 }

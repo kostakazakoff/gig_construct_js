@@ -4,6 +4,7 @@ export const API_PATH = {
     CATEGORIES: "categories/",
     SERVICES: "services/",
     PROJECTS: "projects/",
+    NEWS: "news/",
     USERS: "users/",
     AUTH: "auth/",
     INQUIRY: "inquiry/",
