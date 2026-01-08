@@ -1,25 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { API_PATH } from "@/app/_lib/api_paths.js";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
-
-const placeImage = (imageSrc) => {
-    if (!imageSrc) {
-        return "/gig_logo_blue_256.svg"; // Fallback изображение вместо null
-    } else if (imageSrc.startsWith('http')) {
-        return imageSrc;
-    }
-    return BACKEND_URL + imageSrc;
-}
+const resolveImageUrl = (url) => (url?.startsWith("http") ? url : `${API_PATH.BACKEND_URL}${url}`);
 
 export default function ProjectsCard({ project, staticData, language }) {
+    console.log("project data in card:", project.data);
     return (
         <article
             className="group max-w-xl shadow-md/20 hover:shadow-xl/20 hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg"
-            id={project.project_id}
+            id={project.id}
         >
             <Link
-                href={`/projects/${project.project_id}`}
+                href={`/projects/${project.id}`}
                 passHref
             >
                 <div className="px-6 py-4 text-slate-700 font-bold font-medium rounded-t-sm bg-slate-300 dark:bg-slate-800 dark:text-slate-200 flex justify-between max-md:flex-col max-md:gap-2 max-md:items-center group-hover:bg-gig-blue dark:group-hover:bg-blue-400 group-hover:text-white transition duration-300 ease-in-out shadow-md">
@@ -44,7 +37,7 @@ export default function ProjectsCard({ project, staticData, language }) {
                                         width={256}
                                         height={192}
                                         alt="project image"
-                                        src={placeImage(project.image_src)}
+                                        src={resolveImageUrl(project.image_src)}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="w-full h-full object-cover"
                                     />

@@ -17,16 +17,21 @@ export default function ProjectsClientComponent() {
 
     const { language } = useLanguageContext();
     const { projectId } = useParams();
+    const [imgCards, setImgCards] = useState(null);
+    const [imageSrc, setImageSrc] = useState(null);
+    const [modalIsActive, setModalIsActive] = useState(false);
+    const [imageId, setImageId] = useState(null);
 
     useEffect(() => {
-        be.get(`projects/${projectId}`)
+        be.get(`${API_PATH.PROJECTS}${projectId}`)
             .then(response => response.data)
             .then(data => {
-                const translatedData = Translate({ data: data.data, language });
-                const images = translatedData.images;
+                console.log("project data:", data.data);
+                const images = data.data.media;
+                console.log("project images:", images[0]);
                 const imgCardsData = images.map((image) => ({
                     id: image.id,
-                    imageUrl: image.image_src,
+                    imageUrl: image.original_url,
                 }));
                 setImgCards(imgCardsData);
             })
@@ -35,16 +40,11 @@ export default function ProjectsClientComponent() {
             });
     }, [projectId, language]);
 
-    const [imgCards, setImgCards] = useState(null);
-    const [imageSrc, setImageSrc] = useState(null);
-    const [modalIsActive, setModalIsActive] = useState(false);
-    const [imageId, setImageId] = useState(null);
-
     useEffect(() => {
         if (imageId !== null && imgCards && imgCards.length > 0) {
             const card = imgCards.find(card => card.id === imageId);
             if (card) {
-                setImageSrc(API_PATH.BACKEND_URL + card.imageUrl);
+                setImageSrc(card.imageUrl);
             }
         }
     }, [imageId, imgCards]);
@@ -131,7 +131,7 @@ export default function ProjectsClientComponent() {
                             onMouseOver={() => setImageId(card.id)}
                             className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                         >
-                            <ProjectImageCard img={API_PATH.BACKEND_URL + card.imageUrl} id={projectId} />
+                            <ProjectImageCard img={card.imageUrl} id={projectId} />
                         </li>
                     ))}
                 </ul>

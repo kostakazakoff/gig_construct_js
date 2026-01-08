@@ -7,6 +7,7 @@ import be from '@/app/_utils/Api';
 import useLanguageContext from '@/app/_hooks/useLanguageContext';
 import ComponentLoader from '@/app/_components/mainComponents/componentLoader';
 import Translate from '@/app/_utils/Translator';
+import { API_PATH } from '@/app/_lib/api_paths';
 
 export default function ProjectLayout({ children }) {
     const { language } = useLanguageContext();
@@ -15,12 +16,11 @@ export default function ProjectLayout({ children }) {
 
     useEffect(() => {
         if (projectId) {
-            be.get(`projects/${projectId}`)
+            be.get(`${API_PATH.PROJECTS}${projectId}`)
                 .then(response => response.data)
                 .then(data => {
                     const fetchedData = data.data;
-                    const projectData = Translate({ data: fetchedData, language });
-                    setProjectTitle(projectData.title || `Project ${projectId}`);
+                    setProjectTitle(fetchedData.title || `Project ${projectId}`);
                 })
                 .catch(error => {
                     console.error('Error fetching project data:', error);
