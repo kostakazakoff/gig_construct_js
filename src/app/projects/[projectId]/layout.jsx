@@ -6,13 +6,14 @@ import Link from 'next/link';
 import be from '@/app/_utils/Api';
 import useLanguageContext from '@/app/_hooks/useLanguageContext';
 import ComponentLoader from '@/app/_components/mainComponents/componentLoader';
-import Translate from '@/app/_utils/Translator';
 import { API_PATH } from '@/app/_lib/api_paths';
+import { cloneElement } from 'react';
 
 export default function ProjectLayout({ children }) {
     const { language } = useLanguageContext();
     const { projectId } = useParams();
     const [projectTitle, setProjectTitle] = useState(null);
+    const [projectData, setProjectData] = useState(null);
 
     useEffect(() => {
         if (projectId) {
@@ -21,10 +22,12 @@ export default function ProjectLayout({ children }) {
                 .then(data => {
                     const fetchedData = data.data;
                     setProjectTitle(fetchedData.title || `Project ${projectId}`);
+                    setProjectData(data);
                 })
                 .catch(error => {
                     console.error('Error fetching project data:', error);
                     setProjectTitle(`Project ${projectId}`);
+                    setProjectData(null);
                 });
         }
     }, [projectId, language]);
@@ -46,7 +49,7 @@ export default function ProjectLayout({ children }) {
             </div>
 
             <div className="py-24">
-                {children}
+                {projectData && cloneElement(children, { initialProjectData: projectData, projectId })}
             </div>
         </section>
         ) : <ComponentLoader />

@@ -9,21 +9,22 @@ import Translate from "@/app/_utils/Translator.js";
 import Modal from "@/app/_components/mainComponents/modal/modal";
 import AskOfferForm from "@/app/_components/servicesComponents/askOfferForm";
 import OfferConfirmation from "@/app/_components/servicesComponents/offerConfirmation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { API_PATH } from "@/app/_lib/api_paths";
 import ComponentLoader from "@/app/_components/mainComponents/componentLoader";
 import be from "@/app/_utils/Api";
 import { useParams, useRouter } from "next/navigation";
 import ErrorMessage from "@/app/_components/mainComponents/errorMessage";
 
-export default function ServiceDetailsComponent() {
+export default function ServiceDetailsComponent({ initialServicesData, serviceId: propServiceId }) {
     const { language } = useLanguageContext();
     const params = useParams();
     const router = useRouter();
-    const id = params.serviceId;
+    const id = propServiceId || params.serviceId;
+    const isFirstRender = useRef(true);
     console.log("ServiceDetailsComponent mounted with serviceId:", id);
 
-    const [services, setServices] = useState(null);
+    const [services, setServices] = useState(initialServicesData?.data || null);
     const [offerNoteTranslated, setOfferNoteTranslated] = useState(Translate({ data: contactStaticData, language: language }));
     const [translatedOfferConfirmation, setTranslatedOfferConfirmation] = useState(Translate({ data: offerConfirmationStaticData, language: language }));
     const [translatedStaticData, setTranslatedStaticData] = useState({});
@@ -36,6 +37,15 @@ export default function ServiceDetailsComponent() {
     }, [language]);
 
     useEffect(() => {
+        // Пропускаме заявката при първоначално рендиране ако имаме initialServicesData
+        if (isFirstRender.current && initialServicesData) {
+            isFirstRender.current = false;
+            return;
+        }
+        
+        isFirstRender.current = false;
+
+        // Презареждаме данните при промяна на език или ако нямаме начални данни
         be.get(`${API_PATH.SERVICES}${id}`)
             .then(response => response.data)
             .then(recievedData => {
@@ -51,7 +61,7 @@ export default function ServiceDetailsComponent() {
                 setFormError(error.message);
                 router.push(`/services#${id}`);
             });
-    }, [language]);
+    }, [language, id]);
     
     const [formSubmitted, setFormSubmitted] = useState(false);
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import ProjectImageCard from "@/app/_components/projectsComponents/projectImageCard.jsx";
 import Modal from "@/app/_components/mainComponents/modal/modal";
@@ -13,16 +13,35 @@ import ComponentLoader from "@/app/_components/mainComponents/componentLoader";
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 import Translate from "@/app/_utils/Translator";
 
-export default function ProjectsClientComponent() {
+export default function ProjectsClientComponent({ initialProjectData, projectId: propProjectId }) {
 
     const { language } = useLanguageContext();
-    const { projectId } = useParams();
-    const [imgCards, setImgCards] = useState(null);
+    const params = useParams();
+    const projectId = propProjectId || params.projectId;
+    const isFirstRender = useRef(true);
+    const [imgCards, setImgCards] = useState(() => {
+        if (initialProjectData?.data?.media) {
+            return initialProjectData.data.media.map((image) => ({
+                id: image.id,
+                imageUrl: image.original_url,
+            }));
+        }
+        return null;
+    });
     const [imageSrc, setImageSrc] = useState(null);
     const [modalIsActive, setModalIsActive] = useState(false);
     const [imageId, setImageId] = useState(null);
 
     useEffect(() => {
+        // Пропускаме заявката при първоначално рендиране ако имаме initialProjectData
+        if (isFirstRender.current && initialProjectData) {
+            isFirstRender.current = false;
+            return;
+        }
+        
+        isFirstRender.current = false;
+
+        // Презареждаме данните при промяна на език или ако нямаме начални данни
         be.get(`${API_PATH.PROJECTS}${projectId}`)
             .then(response => response.data)
             .then(data => {

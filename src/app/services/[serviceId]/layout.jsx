@@ -6,13 +6,14 @@ import Link from 'next/link';
 import be from '@/app/_utils/Api';
 import useLanguageContext from '@/app/_hooks/useLanguageContext';
 import ComponentLoader from '@/app/_components/mainComponents/componentLoader';
-import Translate from '@/app/_utils/Translator';
 import { API_PATH } from '@/app/_lib/api_paths';
+import { cloneElement } from 'react';
 
 export default function ProjectLayout({ children }) {
     const { language } = useLanguageContext();
     const { serviceId } = useParams();
     const [serviceTitle, setServiceTitle] = useState(null);
+    const [servicesData, setServicesData] = useState(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -24,8 +25,10 @@ export default function ProjectLayout({ children }) {
                         const fetchedData = data.data;
                         const serviceData = Array.isArray(fetchedData) ? fetchedData[0] : fetchedData;
                         setServiceTitle(serviceData.category?.name || `${serviceId} services`);
+                        setServicesData(data);
                     } else {
                         setServiceTitle(null);
+                        setServicesData(null);
                         router.push(`/services#${serviceId}`);
                     }
                 })
@@ -52,7 +55,7 @@ export default function ProjectLayout({ children }) {
                 </div>
 
                 <div className="py-24">
-                    {children}
+                    {servicesData && cloneElement(children, { initialServicesData: servicesData, serviceId })}
                 </div>
             </section>
         ) : <ComponentLoader />
