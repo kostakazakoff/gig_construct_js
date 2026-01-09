@@ -5,7 +5,6 @@ import { API_PATH } from "@/app/_lib/api_paths.js";
 const resolveImageUrl = (url) => (url?.startsWith("http") ? url : `${API_PATH.BACKEND_URL}${url}`);
 
 export default function ProjectsCard({ project, staticData, language }) {
-    console.log("project data in card:", project.data);
     return (
         <article
             className="group max-w-xl shadow-md/20 hover:shadow-xl/20 hover:scale-105 transition duration-300 ease-in-out border-l-6 border-b-1 border-r-1 hover:border-gig-blue dark:hover:border-blue-400 rounded-lg"
@@ -33,14 +32,16 @@ export default function ProjectsCard({ project, staticData, language }) {
                             <hr className="max-md:hidden" />
                             <div className="mt-4">
                                 <div className="relative overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 group-hover:opacity-75 group-hover:grayscale-80 transition duration-400 ease-in-out:grayscale float-left max-xl:mb-4 md:mr-4">
-                                    <Image
-                                        width={256}
-                                        height={192}
-                                        alt="project image"
-                                        src={resolveImageUrl(project.image_src)}
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="w-full h-full object-cover"
-                                    />
+                                    {project.image_src &&
+                                        <Image
+                                            width={256}
+                                            height={192}
+                                            alt="project image"
+                                            src={resolveImageUrl(project.image_src)}
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    }
                                 </div>
                                 <p className="mt-1 text-sm text-justify indent-8 md:text-base hyphens-auto">
                                     {project.description}
