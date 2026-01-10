@@ -22,7 +22,8 @@ export default function ProjectsClientComponent({ initialProjectData, projectId:
         if (initialProjectData?.data?.media) {
             return initialProjectData.data.media.map((image) => ({
                 id: image.id,
-                imageUrl: image.original_url,
+                imageOriginalUrl: image.original_url,
+                imageThumbUrl: image.preview_url,
             }));
         }
         return null;
@@ -49,7 +50,8 @@ export default function ProjectsClientComponent({ initialProjectData, projectId:
                 console.log("project images:", images[0]);
                 const imgCardsData = images.map((image) => ({
                     id: image.id,
-                    imageUrl: image.original_url,
+                    imageOriginalUrl: image.original_url,
+                    imageThumbUrl: image.preview_url,
                 }));
                 setImgCards(imgCardsData);
             })
@@ -62,7 +64,7 @@ export default function ProjectsClientComponent({ initialProjectData, projectId:
         if (imageId !== null && imgCards && imgCards.length > 0) {
             const card = imgCards.find(card => card.id === imageId);
             if (card) {
-                setImageSrc(card.imageUrl);
+                setImageSrc(card.imageOriginalUrl);
             }
         }
     }, [imageId, imgCards]);
@@ -149,7 +151,7 @@ export default function ProjectsClientComponent({ initialProjectData, projectId:
                             onMouseOver={() => setImageId(card.id)}
                             className="group w-96 h-64 transition duration-300 ease-in-out hover:translate-y-1 hover:scale-105 shadow-md/30 hover:shadow-xl/40 rounded-lg relative overflow-hidden bg-slate-200 dark:bg-slate-900 text-slate-200 p-4 border border-gig-blue dark:border-slate-300 cursor-pointer"
                         >
-                            <ProjectImageCard img={card.imageUrl} id={projectId} />
+                            <ProjectImageCard img={card.imageThumbUrl} id={projectId} />
                         </li>
                     ))}
                 </ul>
