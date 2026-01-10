@@ -32,12 +32,12 @@ export default function ProjectsCard({ project, staticData, language }) {
                             <hr className="max-md:hidden" />
                             <div className="mt-4">
                                 <div className="relative overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 group-hover:opacity-75 group-hover:grayscale-80 transition duration-400 ease-in-out:grayscale float-left max-xl:mb-4 md:mr-4">
-                                    {project.image_src &&
+                                    {project.image_thumb_src &&
                                         <Image
                                             width={256}
                                             height={192}
                                             alt="project image"
-                                            src={resolveImageUrl(project.image_src)}
+                                            src={resolveImageUrl(project.image_thumb_src)}
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className="w-full h-full object-cover"
                                         />
