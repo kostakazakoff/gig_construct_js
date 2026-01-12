@@ -10,8 +10,9 @@ export const setCurrentLanguage = (language) => {
 
 const be = axios.create({
     baseURL: `http://${API_PATH.ORIGIN}/`,
+    withXSRFToken: true,
     headers: {
-        Accept: "application/json",
+        'Accept': "application/json",
         "Content-Type": "application/json",
     },
 });
