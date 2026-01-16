@@ -17,7 +17,7 @@ export default function NewsClientComponent() {
             .then(data => {
                 if (data && data.succeed) {
                     console.log("Fetched news data:", data.data);
-                    setNews(data.data);
+                    setNews(data.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
                 } else {
                     setNews(null);
                 }

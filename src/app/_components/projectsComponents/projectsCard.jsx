@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { API_PATH } from "@/app/_lib/api_paths.js";
+import { formatDate } from "@/app/_utils/DateFormatter.js";
 
 const resolveImageUrl = (url) => (url?.startsWith("http") ? url : `${API_PATH.BACKEND_URL}${url}`);
 
@@ -15,7 +16,7 @@ export default function ProjectsCard({ project, staticData, language }) {
                 passHref
             >
                 <div className="px-6 py-4 text-slate-700 font-bold font-medium rounded-t-sm bg-slate-300 dark:bg-slate-800 dark:text-slate-200 flex justify-between max-md:flex-col max-md:gap-2 max-md:items-center group-hover:bg-gig-blue dark:group-hover:bg-blue-400 group-hover:text-white transition duration-300 ease-in-out shadow-md">
-                    <p>{project.date}</p>
+                    <p>{formatDate(project.date)}</p>
                     <p>
                         {staticData.value} {project.price} {staticData.currency}
                     </p>

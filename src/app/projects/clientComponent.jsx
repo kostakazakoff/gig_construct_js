@@ -25,7 +25,7 @@ export default function ProjectsComponent() {
             .then(response => response.data)
             .then(projectsData => {
                 if (projectsData && projectsData.data && projectsData.succeed) {
-                    setTranslated(projectsData.data);
+                    setTranslated(projectsData.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
                 } else {
                     // activateErrorModal(projectsData?.message || 'An error occurred while loading projects');
                     setTranslated(null);

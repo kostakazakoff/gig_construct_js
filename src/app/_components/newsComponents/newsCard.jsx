@@ -1,5 +1,6 @@
 import { API_PATH } from "@/app/_lib/api_paths";
 import Image from "next/image";
+import { formatDate } from "@/app/_utils/DateFormatter.js";
 
 export default function NewsCard({ newsItem }) {
 
@@ -10,15 +11,6 @@ export default function NewsCard({ newsItem }) {
             return imageSrc;
         }
         return API_PATH.BACKEND_URL + imageSrc;
-    }
-
-    const formatDate = (dateString) => {
-        if (!dateString) return '';
-        const date = new Date(dateString);
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}.${month}.${year}`;
     }
 
     return (
