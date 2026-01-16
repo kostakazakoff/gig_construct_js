@@ -161,10 +161,8 @@ export default function AskOfferForm({
                     <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.phoneLabel}
-                            <span className="text-red-500"> *</span>
                         </label>
                         <input
-                            required
                             type="tel"
                             id="phone"
                             name="phone"
