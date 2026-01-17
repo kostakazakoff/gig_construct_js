@@ -199,13 +199,12 @@ export default function ContactForm() {
                         </div>
                     </div>
                     <div className="sm:col-span-2">
-                        <label htmlFor="phone-number" className="block text-sm/6 font-semibold">
-                            {contactData.phone} *
+                        <label htmlFor="phone" className="block text-sm/6 font-semibold">
+                            {contactData.phone}
                         </label>
                         <div className="mt-2.5">
                             <div className="flex rounded-md bg-white dark:bg-slate-600 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
                                 <input
-                                    required
                                     id="phone"
                                     name="phone"
                                     type="text"
