@@ -6,7 +6,7 @@ export default function NewsCard({ newsItem }) {
 
     const addImage = (imageSrc) => {
         if (!imageSrc) {
-            return "/gig_logo_blue_256.svg";
+            return "/GIG_logo_white.png";
         } else if (imageSrc.startsWith('http')) {
             return imageSrc;
         }

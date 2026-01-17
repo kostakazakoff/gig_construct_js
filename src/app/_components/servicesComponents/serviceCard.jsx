@@ -17,7 +17,7 @@ export default function ServiceCard({ service, language }) {
                     </div>
                     <Image
                         alt=""
-                        src={service.image_src ? service.image_src : "/photo.svg"}
+                        src={service.image_src ? service.image_src : "/GIG_logo_white.png"}
                         width={384}
                         height={256}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
