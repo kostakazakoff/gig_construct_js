@@ -2,9 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { API_PATH } from "@/app/_lib/api_paths.js";
 import { formatDate } from "@/app/_utils/DateFormatter.js";
-
-const resolveImageUrl = (url) => (url?.startsWith("http") ? url : `${API_PATH.BACKEND_URL}${url}`);
-
 import { useEffect, useState } from "react";
 
 export default function ProjectsCard({ project, staticData, language }) {
