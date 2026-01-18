@@ -6,15 +6,31 @@ import useLanguageContext from "../_hooks/useLanguageContext.jsx"
 import { partners } from "../_mock_data/partners.js";
 import PartnerBadge from "@/app/_components/partnerBadge.jsx";
 import Translate from "../_utils/Translator.js";
+import be from "../_utils/Api.js";
+import { API_PATH } from "../_lib/api_paths.js";
 
 export default function AboutComponent() {
     const { language } = useLanguageContext();
     const defaultLanguage = 'bg';
     const [aboutText, setAboutText] = useState(Translate({ data: aboutStaticData, language: defaultLanguage }));
+    const [clients, setClients] = useState([]);
 
     useEffect(() => {
         setAboutText(Translate({ data: aboutStaticData, language: language }));
     }, [language]);
+
+    useEffect(() => {
+        be.get(API_PATH.CLIENTS)
+            .then(response => response.data)
+            .then(data => {
+                if (data.succeed) {
+                    setClients(data.data);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching clients data:", error);
+            });
+    }, []);
 
     return (
         <section className="flex flex-col items-center justify-start align-strech px-8 w-full">
@@ -31,8 +47,8 @@ export default function AboutComponent() {
                 <div className="flex flex-col items-center justify-start py-12 px-4 max-w-5xl mx-auto">
                     <h2 className="text-2xl font-bold uppercase mb-12">{aboutText.partnersTitle}</h2>
                     <div className="flex flex-wrap justify-center gap-8">
-                        {partners.map((partner) => (
-                            <PartnerBadge key={partner.id} {...partner} />
+                        {clients && clients.map((client) => (
+                            <PartnerBadge key={client.id} {...client} />
                         ))}
                     </div>
                 </div>
