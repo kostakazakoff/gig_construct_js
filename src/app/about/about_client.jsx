@@ -9,7 +9,7 @@ import Translate from "../_utils/Translator.js";
 
 export default function AboutComponent() {
     const { language } = useLanguageContext();
-    const defaultLanguage = 'BG';
+    const defaultLanguage = 'bg';
     const [aboutText, setAboutText] = useState(Translate({ data: aboutStaticData, language: defaultLanguage }));
 
     useEffect(() => {

@@ -7,7 +7,7 @@ import '@testing-library/jest-dom'
 // Mock dependencies
 jest.mock('@/app/_hooks/useLanguageContext', () => ({
   __esModule: true,
-  default: () => ({ language: 'EN' }),
+  default: () => ({ language: 'en' }),
 }))
 
 jest.mock('@/app/_utils/Api', () => ({
@@ -108,7 +108,7 @@ describe('AskOfferForm - Server Communication', () => {
         phone: '+1234567890',
         email: 'john@example.com',
         message: 'Test inquiry message',
-        language: 'EN',
+        language: 'en',
       }))
     })
 
@@ -253,7 +253,7 @@ describe('AskOfferForm - Server Communication', () => {
         email: 'john@acme.com',
         message: 'Detailed inquiry',
         category: 'construction',
-        language: 'EN',
+        language: 'en',
       }))
     })
   })

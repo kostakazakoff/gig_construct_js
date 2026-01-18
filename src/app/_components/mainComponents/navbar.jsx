@@ -35,7 +35,7 @@ export default function Navbar() {
     const [translation, setTranslation] = useState(Translate({ data: navTranslations, language: language }));
 
     const changeLanguage = (lang) => {
-        setLanguage(lang === "BG" ? "EN" : "BG");
+        setLanguage(lang === "bg" ? "en" : "bg");
     };
 
     useEffect(() => {
@@ -134,7 +134,7 @@ export default function Navbar() {
                         >
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Change language</span>
-                            {language === "BG" ? "EN" : "BG"}
+                            {language === "bg" ? "en" : "bg"}
                         </button>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 export const electrical = {
-    BG: [
+    bg: [
         {
             id: "1",
             category_slug: "electrical",
@@ -136,7 +136,7 @@ export const electrical = {
             price_to: 500,
         },
     ],
-    EN: [
+    en: [
         {
             id: "1",
             category_slug: "electrical",
@@ -276,7 +276,7 @@ export const electrical = {
 };
 
 export const painting = {
-    BG: [
+    bg: [
         {
             id: "1",
             category_slug: "painting",
@@ -323,7 +323,7 @@ export const painting = {
             price_to: 500,
         },
     ],
-    EN: [
+    en: [
         {
             id: "1",
             category_slug: "painting",
@@ -373,7 +373,7 @@ export const painting = {
 };
 
 export const plumbing = {
-    BG: [
+    bg: [
         {
             id: "1",
             category_slug: "plumbing",
@@ -411,7 +411,7 @@ export const plumbing = {
             price_to: 500,
         },
     ],
-    EN: [
+    en: [
         {
             id: "1",
             category_slug: "plumbing",
@@ -452,7 +452,7 @@ export const plumbing = {
 };
 
 export const drywall = {
-    BG: [
+    bg: [
         {
             id: "1",
             category_slug: "drywall",
@@ -481,7 +481,7 @@ export const drywall = {
             price_to: 500,
         },
     ],
-    EN: [
+    en: [
         {
             id: "1",
             category_slug: "drywall",
@@ -516,25 +516,25 @@ export const services = [
     {
         id: 1,
         category_slug: "painting",
-        BG: painting.BG,
-        EN: painting.EN,
+        bg: painting.bg,
+        en: painting.en,
     },
     {
         id: 2,
         category_slug: "plumbing",
-        BG: plumbing.BG,
-        EN: plumbing.EN,
+        bg: plumbing.bg,
+        en: plumbing.en,
     },
     {
         id: 3,
         category_slug: "drywall",
-        BG: drywall.BG,
-        EN: drywall.EN,
+        bg: drywall.bg,
+        en: drywall.en,
     },
     {
         id: 4,
         category_slug: "electrical",
-        BG: electrical.BG,
-        EN: electrical.EN,
+        bg: electrical.bg,
+        en: electrical.en,
     },
 ];

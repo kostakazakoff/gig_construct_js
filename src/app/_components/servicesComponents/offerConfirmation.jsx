@@ -35,7 +35,7 @@ export default function OfferConfirmation({ translated, formSubmitted, closeWrap
                     {/* Close бутон */}
                     <div className="pt-4 border-t flex justify-end">
                         <SubmitButton type="button" onClick={closeModal}>
-                            {language === "BG" ? "Затвори" : "Close"}
+                            {language === "bg" ? "Затвори" : "Close"}
                         </SubmitButton>
                     </div>
                 </div>

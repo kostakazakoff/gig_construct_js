@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_PATH } from "@/app/_lib/api_paths.js";
 
 // Global variable to store language - will be updated by components
-let currentLanguage = 'BG';
+let currentLanguage = 'bg';
 
 export const setCurrentLanguage = (language) => {
     currentLanguage = language;
@@ -19,7 +19,7 @@ const be = axios.create({
 
 // Add interceptor to inject locale header on every request
 be.interceptors.request.use((config) => {
-    const locale = currentLanguage === 'BG' ? 'bg' : 'en';
+    const locale = currentLanguage === 'bg' ? 'bg' : 'en';
 
     // Ensure headers object exists and set X-Locale per request
     config.headers = {

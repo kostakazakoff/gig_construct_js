@@ -1,11 +1,11 @@
 export const servicesStaticData = {
-    BG: {
+    bg: {
         legend: "Всички цени са за положен труд. Ценообразуването на услугата, може да варира в зависимост от спецификациите на обекта и изискванията на клиента. За повече информация, моля свържете се с нас.",
         currency: "лв",
         askOfferText: "Поискай оферта",
         estimatedPrice: "Ориентировъчна цена за труд",
     },
-    EN: {
+    en: {
         legend: "All prices are for labor. Pricing for the service may vary depending on the specifications of the site and the client's requirements. For more information, please contact us.",
         currency: "BGN",
         askOfferText: "Ask for an offer",
@@ -14,18 +14,18 @@ export const servicesStaticData = {
 };
 
 export const projectsStaticData = {
-    BG: {
+    bg: {
         value: "Приблизителна стойност",
         currency: "€",
     },
-    EN: {
+    en: {
         value: "Аpproximate value",
         currency: "€",
     },
 };
 
 export const aboutStaticData = {
-    BG: {
+    bg: {
         title: "За нас",
         aboutText:
             "Добре дошли в GiG Construct!\n\n" +
@@ -34,7 +34,7 @@ export const aboutStaticData = {
             "Нашата мисия е да доставяме изключителни строителни решения, независимо дали става въпрос за ново строителство, ремонт или специализирани услуги, ние подхождаме към всеки проект с внимание към детайла, иновации и ангажираност към качеството.",
         partnersTitle: "Наши партньори и клиенти",
     },
-    EN: {
+    en: {
         title: "About Us",
         aboutText:
             "Welcome to GiG Construct!\n\n" +
@@ -46,12 +46,12 @@ export const aboutStaticData = {
 };
 
 export const buttonsStaticData = {
-    BG: {
+    bg: {
         submit: "Изпрати",
         cancel: "Откажи",
         close: "Затвори",
     },
-    EN: {
+    en: {
         submit: "Submit",
         cancel: "Cancel",
         close: "Close",
@@ -59,7 +59,7 @@ export const buttonsStaticData = {
 };
 
 export const navTranslations = {
-    BG: {
+    bg: {
         home: "Начало",
         about: "За нас",
         services: "Услуги",
@@ -68,7 +68,7 @@ export const navTranslations = {
         contact: "Контакти",
         clients_partners: "Клиенти и партньори",
     },
-    EN: {
+    en: {
         home: "Home",
         about: "About Us",
         services: "Services",
@@ -80,12 +80,12 @@ export const navTranslations = {
 };
 
 export const footerStaticData = {
-    BG: {
+    bg: {
         contactUs: "Свържете се с нас",
         followUs: "Последвайте ни",
         rightsReserved: "Всички права запазени.",
     },
-    EN: {
+    en: {
         contactUs: "Contact Us",
         followUs: "Follow Us",
         rightsReserved: "All rights reserved.",
@@ -93,7 +93,7 @@ export const footerStaticData = {
 };
 
 export const offerConfirmationStaticData = {
-    BG: {
+    bg: {
         thankYou: "Благодарим Ви за направеното запитване!",
         orderRecieved: "Поръчката ви е приета успешно!",
         weWillContactYou: "Сътрудник от нашия екип ще се свърже с вас!",
@@ -102,7 +102,7 @@ export const offerConfirmationStaticData = {
             "При необходимост от назначаване на оглед се начислява допълнително такса, за оглед и консултация!",
         close: "Затвори",
     },
-    EN: {
+    en: {
         thankYou: "Thank you for your inquiry!",
         orderRecieved: "Your order has been successfully received!",
         weWillContactYou: "A member of our team will contact you!",
@@ -114,7 +114,7 @@ export const offerConfirmationStaticData = {
 };
 
 export const servicesPricingText = {
-    BG: {
+    bg: {
         pricingBasedOn: "Ценообразуването е на база:",
         perHour: "час",
         perDay: "ден",
@@ -129,7 +129,7 @@ export const servicesPricingText = {
         perVisit: "посещение",
         contactPoint: "Контактна точка",
     },
-    EN: {
+    en: {
         pricingBasedOn: "Pricing is based on:",
         perHour: "hour",
         perDay: "day",
@@ -147,7 +147,7 @@ export const servicesPricingText = {
 };
 
 export const contactStaticData = {
-    BG: {
+    bg: {
         title: "Свържете се с нас",
         description: "Наш сътрудник ще отговори на вашето запитване във възможно най-кратък срок",
         firstName: "Име",
@@ -193,7 +193,7 @@ export const contactStaticData = {
             agree: "Отбележете, че сте съгласни с политиката за поверителност",
         },
     },
-    EN: {
+    en: {
         title: "Contact Us",
         description: "A member of our team will respond to your inquiry as soon as possible",
         firstName: "Name",
@@ -242,7 +242,7 @@ export const contactStaticData = {
 };
 
 export const privacyPolicyStaticData = {
-    BG: {
+    bg: {
         title: "ПОЛИТИКА ЗА ПОВЕРИТЕЛНОСТ",
         companyName: "ГИГ Конструкт ООД",
         lastUpdated: "Последна актуализация: 8 ноември 2025 г.",
@@ -289,7 +289,7 @@ export const privacyPolicyStaticData = {
             }
         ]
     },
-    EN: {
+    en: {
         title: "PRIVACY POLICY",
         companyName: "GIG Construct Ltd.",
         lastUpdated: "Last updated: November 8, 2025",

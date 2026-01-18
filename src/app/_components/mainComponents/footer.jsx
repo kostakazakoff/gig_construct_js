@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Footer() {
     const { language } = useLanguageContext();
-    const [translatedStaticData, setTranslatedStaticData] = useState(footerStaticData.BG);
+    const [translatedStaticData, setTranslatedStaticData] = useState(footerStaticData.bg);
 
     useEffect(() => {
         const translated = Translate({ data: footerStaticData, language });

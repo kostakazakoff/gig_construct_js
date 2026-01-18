@@ -5,14 +5,14 @@ import usePersistedState from "./usePersistedState.js";
 import { setCurrentLanguage } from "@/app/_utils/Api.js";
 
 const LanguageContext = createContext({
-    language: 'BG',
+    language: 'bg',
     setLanguage: () => { },
 });
 
 export function LanguageProvider({ children }) {
     const [language, setLanguage] = usePersistedState(
         'language',
-        'BG', {
+        'bg', {
         useCookies: true,
         cookieExpireDays: 365
     });

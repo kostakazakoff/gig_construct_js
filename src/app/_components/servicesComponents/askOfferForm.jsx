@@ -235,10 +235,10 @@ export default function AskOfferForm({
 
                     <section className="pt-4 mt-8 border-t flex justify-end gap-4">
                         <div>
-                            <CancelButton type="button" onClick={closeModal}>{language === "BG" ? "Отказ" : "Cancel"}</CancelButton>
+                            <CancelButton type="button" onClick={closeModal}>{language === "bg" ? "Отказ" : "Cancel"}</CancelButton>
                         </div>
                         <div className="">
-                            <SubmitButton type="submit">{language === "BG" ? "Изпрати" : "Send"}</SubmitButton>
+                            <SubmitButton type="submit">{language === "bg" ? "Изпрати" : "Send"}</SubmitButton>
                         </div>
                     </section>
                 </form>

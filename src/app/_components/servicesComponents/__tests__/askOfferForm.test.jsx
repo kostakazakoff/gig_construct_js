@@ -6,7 +6,7 @@ import '@testing-library/jest-dom'
 // Mock dependencies
 jest.mock('@/app/_hooks/useLanguageContext', () => ({
   __esModule: true,
-  default: () => ({ language: 'EN' }),
+  default: () => ({ language: 'en' }),
 }))
 
 jest.mock('@/app/_utils/Api', () => ({

@@ -49,7 +49,7 @@ export default function ProjectLayout({ children }) {
                             className="flex-none rounded-full bg-slate-900 dark:bg-slate-800 px-3.5 py-1 text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
                             scroll={true}
                         >
-                            <span aria-hidden="true">&larr;</span> {language === 'EN' ? 'Back to all services' : 'Назад към всички услуги'}
+                            <span aria-hidden="true">&larr;</span> {language === 'en' ? 'Back to all services' : 'Назад към всички услуги'}
                         </Link>
                     </div>
                 </div>

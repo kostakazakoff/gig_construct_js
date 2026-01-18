@@ -1,5 +1,5 @@
 export const servicesData = {
-    BG: {
+    bg: {
         1: {
             id: 1,
             name: "Боядисване",
@@ -73,7 +73,7 @@ export const servicesData = {
             src: "/images/services/cleaning.jpg",
         },
     },
-    EN: {
+    en: {
         1: {
             id: 1,
             name: "Painting",

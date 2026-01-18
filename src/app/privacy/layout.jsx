@@ -14,7 +14,7 @@ export default function ProjectLayout({ children }) {
                         onClick={() => router.back()}
                         className="rounded-full bg-slate-900 dark:bg-slate-800 px-3.5 py-1 text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
                     >
-                        <span aria-hidden="true">&larr;</span> {language === 'EN' ? 'Back' : 'Назад'}
+                        <span aria-hidden="true">&larr;</span> {language === 'en' ? 'Back' : 'Назад'}
                     </button>
             </div>
 
