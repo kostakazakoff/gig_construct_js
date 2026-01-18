@@ -8,5 +8,5 @@ export const API_PATH = {
     USERS: "users/",
     AUTH: "auth/",
     INQUIRY: "inquiry/",
-    CLIENTS: "clients/",
+    PARTNERS: "partners/",
 };

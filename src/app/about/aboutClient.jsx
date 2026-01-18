@@ -20,7 +20,7 @@ export default function AboutComponent() {
     }, [language]);
 
     useEffect(() => {
-        be.get(API_PATH.CLIENTS)
+        be.get(API_PATH.PARTNERS)
             .then(response => response.data)
             .then(data => {
                 if (data.succeed) {
