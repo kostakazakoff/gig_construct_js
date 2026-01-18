@@ -1,4 +1,4 @@
-import AboutComponent from "./about_client";
+import AboutComponent from "./aboutClient";
 
 export const metadata = {
     title: 'About Us',
