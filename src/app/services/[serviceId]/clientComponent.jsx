@@ -46,7 +46,7 @@ export default function ServiceDetailsComponent({ initialServicesData, serviceId
         isFirstRender.current = false;
 
         // Презареждаме данните при промяна на език или ако нямаме начални данни
-        be.get(`${API_PATH.SERVICES}${id}`)
+        be.get(`${API_PATH.SERVICES}/${id}`)
             .then(response => response.data)
             .then(recievedData => {
                 if (recievedData && recievedData.succeed) {

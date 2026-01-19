@@ -42,7 +42,7 @@ export default function ProjectsClientComponent({ initialProjectData, projectId:
         isFirstRender.current = false;
 
         // Презареждаме данните при промяна на език или ако нямаме начални данни
-        be.get(`${API_PATH.PROJECTS}${projectId}`)
+        be.get(`${API_PATH.PROJECTS}/${projectId}`)
             .then(response => response.data)
             .then(data => {
                 console.log("project data:", data.data);

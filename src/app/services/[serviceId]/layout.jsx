@@ -18,7 +18,7 @@ export default function ProjectLayout({ children }) {
 
     useEffect(() => {
         if (serviceId) {
-            be.get(`${API_PATH.SERVICES}${serviceId}`)
+            be.get(`${API_PATH.SERVICES}/${serviceId}`)
                 .then(response => response?.data)
                 .then(data => {
                     if (data && data.succeed && data.data && data.data.length > 0) {

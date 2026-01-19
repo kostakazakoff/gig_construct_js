@@ -17,7 +17,7 @@ export default function ProjectLayout({ children }) {
 
     useEffect(() => {
         if (projectId) {
-            be.get(`${API_PATH.PROJECTS}${projectId}`)
+            be.get(`${API_PATH.PROJECTS}/${projectId}`)
                 .then(response => response.data)
                 .then(data => {
                     const fetchedData = data.data;
