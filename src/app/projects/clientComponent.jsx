@@ -8,9 +8,8 @@ import Translate from '../_utils/Translator';
 import be from '../_utils/Api';
 import ComponentLoader from '../_components/mainComponents/componentLoader';
 import { usePathname } from 'next/navigation';
-import Modal from '../_components/mainComponents/modal/modal';
-import ErrorMessage from '../_components/mainComponents/errorMessage';
 import { useErrorModal } from '../_utils/ActivateErrorModal';
+import { API_PATH } from '../_lib/api_paths';
 
 export default function ProjectsComponent() {
 
@@ -18,10 +17,9 @@ export default function ProjectsComponent() {
     const { language } = useLanguageContext();
     const [translated, setTranslated] = useState(null);
     const [translatedStaticData, setTranslatedStaticData] = useState(Translate({ data: projectsStaticData, language: language }));
-    const { modalIsActive, setModalIsActive, formError, activateErrorModal } = useErrorModal();
 
     const getProjectsData = () => {
-        be.get('projects/')
+        be.get(API_PATH.PROJECTS)
             .then(response => response.data)
             .then(projectsData => {
                 if (projectsData && projectsData.data && projectsData.succeed) {
