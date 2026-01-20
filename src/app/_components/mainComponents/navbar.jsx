@@ -51,7 +51,7 @@ export default function Navbar() {
 
     const navigation = [
         { name: translation.about, href: "/about", current: pathname === "/about", ref: aboutRef },
-        { name: translation.services, href: "/", current: pathname === "/services", ref: servicesRef },
+        { name: translation.services, href: "/services", current: pathname === "/services", ref: servicesRef },
         { name: translation.projects, href: "/projects", current: pathname === "/projects", ref: projectsRef },
         { name: translation.news, href: "/news", current: pathname === "/news", ref: newsRef },
         { name: translation.contact, href: "/contact", current: pathname === "/contact", ref: contactRef },
