@@ -9,7 +9,8 @@ export const setCurrentLanguage = (language) => {
 };
 
 const be = axios.create({
-    baseURL: `http://${API_PATH.ORIGIN}/`,
+    // Change baseURL on production environment if needed
+    baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api` || 'http://localhost:8000/api',
     withXSRFToken: true,
     headers: {
         'Accept': "application/json",
