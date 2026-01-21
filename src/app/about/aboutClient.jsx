@@ -33,7 +33,7 @@ export default function AboutComponent() {
     }, []);
 
     return (
-        <section className="flex flex-col items-center justify-start align-strech px-8 w-full">
+        <section className="flex flex-col items-center justify-start align-strech px-8 pt-24 w-full">
             <h2 className="text-3xl font-bold uppercase">{aboutText.title}</h2>
             <div className="mt-4 max-w-3xl text-center">
                 {aboutText.aboutText.split('\n\n').map((paragraph, idx) => (

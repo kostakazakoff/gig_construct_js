@@ -58,7 +58,7 @@ export default function ProjectsComponent() {
             </Modal> */}
 
             {translated ?
-                <div className='relative'>
+                <div className='relative py-6'>
                     <section className='grid grid-cols-1 xl:grid-cols-2 gap-16 px-8 xl:px-24 2xl:px-40' lang={language.toLowerCase()}>
                         {translated.map((project) => (
                             <ProjectCard key={project.id} project={project} staticData={translatedStaticData} language={language} />
