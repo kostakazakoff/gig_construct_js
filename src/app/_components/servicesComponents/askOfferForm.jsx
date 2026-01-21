@@ -102,16 +102,16 @@ export default function AskOfferForm({
 
     return (
         <section ref={sectionRef} className={`transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
-            <div className="w-sm sm:w-96 lg:w-128 xl:w-160 p-4 text-slate-700 dark:text-slate-300">
-                <div className="flex items-center mb-8 space-x-6 border-b border-slate-900 dark:border-slate-200 py-4">
-                    <EnvelopeOpenIcon className="h-8 w-8" />
-                    <h2 className="text-2xl font-bold uppercase text-center">{translated.title}</h2>
+            <div className="w-full max-w-sm sm:max-w-md lg:max-w-2xl xl:max-w-3xl p-3 sm:p-4 lg:p-6 text-slate-700 dark:text-slate-300">
+                <div className="flex items-center mb-4 sm:mb-6 lg:mb-8 space-x-3 sm:space-x-6 border-b border-slate-900 dark:border-slate-200 py-3 sm:py-4">
+                    <EnvelopeOpenIcon className="h-6 w-6 sm:h-8 sm:w-8 flex-shrink-0" />
+                    <h2 className="text-xs sm:text-xl lg:text-2xl font-bold uppercase">{translated.title}</h2>
                 </div>
 
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                    <div className="flex flex-col md:flex-row gap-4">
+                <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <div className="flex-1">
-                            <label htmlFor="first_name" className="block text-sm font-medium dark:text-slate-300">
+                            <label htmlFor="first_name" className="block text-xs sm:text-sm font-medium dark:text-slate-300">
                                 {translated.firstName}
                                 <span className="text-red-500"> *</span>
                             </label>
@@ -124,11 +124,11 @@ export default function AskOfferForm({
                                 title={translated?.hints?.first_name}
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
-                                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                                className="mt-1 block w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xs sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                             />
                         </div>
                         <div className="flex-1">
-                            <label htmlFor="last_name" className="block text-sm font-medium dark:text-slate-300">
+                            <label htmlFor="last_name" className="block text-xs sm:text-sm font-medium dark:text-slate-300">
                                 {translated.lastName}
                                 <span className="text-red-500"> </span>
                             </label>
@@ -140,12 +140,12 @@ export default function AskOfferForm({
                                 title={translated?.hints?.last_name}
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
-                                className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                                className="mt-1 block w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xs sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                             />
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="company" className="block text-sm font-medium dark:text-slate-300">
+                        <label htmlFor="company" className="block text-xs sm:text-sm font-medium dark:text-slate-300">
                             {translated.companyLabel}
                         </label>
                         <input
@@ -155,11 +155,11 @@ export default function AskOfferForm({
                             placeholder={translated.companyPlaceholder}
                             title={translated?.hints?.company}
                             onChange={handleInputChange}
-                            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            className="mt-1 block w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xs sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
                     <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                        <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.phoneLabel}
                         </label>
                         <input
@@ -170,11 +170,11 @@ export default function AskOfferForm({
                             title={translated?.hints?.phone}
                             onChange={handleInputChange}
                             onInvalid={handleInvalid}
-                            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            className="mt-1 block w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xs sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                        <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.emailLabel}
                             <span className="text-red-500"> *</span>
                         </label>
@@ -187,11 +187,11 @@ export default function AskOfferForm({
                             title={translated?.hints?.email}
                             onChange={handleInputChange}
                             onInvalid={handleInvalid}
-                            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            className="mt-1 block w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xs sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         />
                     </div>
                     <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                        <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
                             {translated.messageLabel}
                             <span className="text-red-500"> *</span>
                         </label>
@@ -203,11 +203,11 @@ export default function AskOfferForm({
                             placeholder={translated.messagePlaceholder}
                             title={translated?.hints?.message}
                             onChange={handleInputChange}
-                            className="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
+                            className="mt-1 block w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xs sm:text-sm bg-white dark:bg-slate-700 text-slate-700 dark:text-slate-100"
                         ></textarea>
                     </div>
 
-                    <div className="flex gap-x-4">
+                    <div className="flex gap-x-2 sm:gap-x-4">
                         <div className="flex h-6 items-center">
                             <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
                                 <span className="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5" />
@@ -224,22 +224,18 @@ export default function AskOfferForm({
                                 />
                             </div>
                         </div>
-                        <label htmlFor="agree-to-policies" className="text-sm/6">
+                        <label htmlFor="agree-to-policies" className="text-xs sm:text-sm leading-5 sm:leading-6">
                             {translated.privacyPolicy}{' '}
                             <a href="/privacy" className="font-semibold whitespace-nowrap text-indigo-600">
                                 {translated.privacyPolicyLink}
                             </a>
-                            <span className="text-red-500 text-2xl"> *</span>
+                            <span className="text-red-500 text-lg sm:text-2xl"> *</span>
                         </label>
                     </div>
 
-                    <section className="pt-4 mt-8 border-t flex justify-end gap-4">
-                        <div>
-                            <CancelButton type="button" onClick={closeModal}>{language === "bg" ? "Отказ" : "Cancel"}</CancelButton>
-                        </div>
-                        <div className="">
-                            <SubmitButton type="submit">{language === "bg" ? "Изпрати" : "Send"}</SubmitButton>
-                        </div>
+                    <section className="pt-3 sm:pt-4 mt-4 sm:mt-8 border-t flex flex-col sm:flex-row justify-end sm:items-center gap-2 sm:gap-4">
+                        <CancelButton type="button" onClick={closeModal} className="w-full sm:w-auto">{language === "bg" ? "Отказ" : "Cancel"}</CancelButton>
+                        <SubmitButton type="submit" className="w-full sm:w-auto">{language === "bg" ? "Изпрати" : "Send"}</SubmitButton>
                     </section>
                 </form>
             </div>
