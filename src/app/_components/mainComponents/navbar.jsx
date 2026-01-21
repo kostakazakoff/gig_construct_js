@@ -117,7 +117,7 @@ export default function Navbar() {
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-4 text-sm">
                         <button
                             type="button"
-                            className="relative rounded-full border-2 border-slate-300 hover:border-blue-400 p-1 text-slate-400 hover:text-blue-400"
+                            className="relative rounded-full border-2 border-slate-300 hover:border-blue-400 p-1 text-slate-400 hover:text-blue-400 cursor-pointer"
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                         >
                             <span className="absolute -inset-1.5" />
@@ -129,7 +129,7 @@ export default function Navbar() {
                             )}
                         </button>
                         <button
-                            className="relative rounded-full p-1 text-slate-400 hover:text-blue-400 border-2 border-slate-300 hover:border-blue-400"
+                            className="relative rounded-full p-1 text-slate-400 hover:text-blue-400 border-2 border-slate-300 hover:border-blue-400 cursor-pointer"
                             onClick={() => changeLanguage(language)}
                         >
                             <span className="absolute -inset-1.5" />

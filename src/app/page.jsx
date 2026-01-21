@@ -105,13 +105,13 @@ export default function Home() {
                 <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10"></div>
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in text-gig-blue dark:text-slate-200">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-ping-once text-gig-blue dark:text-slate-200">
                         {t.heroTitle}
                     </h1>
-                    <p className="text-2xl md:text-3xl mb-4 font-medium">
+                    <p className="text-2xl md:text-3xl mb-4 font-medium animate-slide-in-left duration-700">
                         {t.heroSubtitle}
                     </p>
-                    <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto animate-slide-in-right duration-700">
                         {t.heroDescription}
                     </p>
 
