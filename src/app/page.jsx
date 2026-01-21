@@ -2,9 +2,15 @@
 import useLanguageContext from "@/app/_hooks/useLanguageContext";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import be from "@/app/_utils/Api";
+import { API_PATH } from "@/app/_lib/api_paths";
+import ComponentLoader from "@/app/_components/mainComponents/componentLoader";
 
 export default function Home() {
     const { language } = useLanguageContext();
+    const [services, setServices] = useState([]);
+    const [servicesLoading, setServicesLoading] = useState(true);
 
     const content = {
         bg: {
@@ -57,33 +63,68 @@ export default function Home() {
 
     const t = content[language] || content.bg;
 
+    // Fetch services from backend
+    useEffect(() => {
+        setServicesLoading(true);
+        be.get(`${API_PATH.CATEGORIES}`)
+            .then(response => response.data)
+            .then(receivedData => {
+                if (receivedData && receivedData.succeed && receivedData.data) {
+                    // Take first 3 services
+                    setServices(receivedData.data.slice(0, 3));
+                } else {
+                    setServices([]);
+                }
+                setServicesLoading(false);
+            })
+            .catch(error => {
+                console.error("Error fetching services:", error);
+                setServices([]);
+                setServicesLoading(false);
+            });
+    }, [language]);
+
     return (
         <div className="min-h-screen w-full bg-white dark:bg-slate-900">
             {/* Hero Section */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gig-blue/90 via-gig-blue/80 to-blue-900/10">
+            <section className="relative h-screen flex items-center justify-center overflow-hiddentext-slate-900 dark:text-white -mt-16">
+                {/* Background image */}
+                <div className="absolute inset-0">
+                    <Image
+                        src="/renovation.jpg"
+                        alt={language === "bg" ? "Реновация" : "Renovation"}
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover"
+                    />
+                    {/* Dark overlay for text readability */}
+                    <div className="absolute inset-0 bg-slate-300/80 dark:bg-slate-900/80" />
+                </div>
+
                 <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10"></div>
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in text-gig-blue dark:text-slate-200">
                         {t.heroTitle}
                     </h1>
-                    <p className="text-2xl md:text-3xl text-slate-200 mb-4 font-medium">
+                    <p className="text-2xl md:text-3xl mb-4 font-medium">
                         {t.heroSubtitle}
                     </p>
-                    <p className="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto">
                         {t.heroDescription}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="/services"
-                            className="px-8 py-4 bg-white text-gig-blue font-bold rounded-lg hover:bg-slate-100 transition duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                            className="px-8 py-4 bg-transparent text-slate-900 dark:text-slate-100 font-bold rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:bg-slate-200 dark:hover:bg-gig-blue transition duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                         >
                             {t.ctaServices}
                         </Link>
                         <Link
                             href="/contact"
-                            className="px-8 py-4 bg-transparent text-white font-bold rounded-lg border-2 border-white hover:bg-white hover:text-gig-blue transition duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                            className="px-8 py-4 bg-transparent text-slate-900 dark:text-slate-100 font-bold rounded-lg border-2 border-slate-900 dark:border-slate-100 hover:bg-slate-200 dark:hover:bg-gig-blue transition duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                         >
                             {t.ctaContact}
                         </Link>
@@ -91,8 +132,8 @@ export default function Home() {
                 </div>
 
                 {/* Scroll indicator */}
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce">
+                    <svg className="w-6 h-6 text-slate-800 dark:text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
                 </div>
@@ -152,7 +193,7 @@ export default function Home() {
             </section>
 
             {/* Services Preview Section */}
-            <section className="py-20 px-4 bg-white dark:bg-slate-800">
+            <section className="py-20 px-4 bg-slate-200 dark:bg-slate-900">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800 dark:text-slate-200">
@@ -164,42 +205,35 @@ export default function Home() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                        {/* Service highlights - можете да добавите конкретни услуги тук */}
-                        <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300 h-64">
-                            <div className="absolute inset-0 bg-gradient-to-br from-gig-blue/80 to-blue-900/80 group-hover:from-gig-blue/90 group-hover:to-blue-900/90 transition duration-300"></div>
-                            <div className="relative h-full flex flex-col items-center justify-center p-6 text-white">
-                                <svg className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                                </svg>
-                                <h3 className="text-2xl font-bold text-center">
-                                    {language === "bg" ? "Боядисване" : "Painting"}
-                                </h3>
+                        {servicesLoading ? (
+                            <div className="col-span-3 flex justify-center">
+                                <ComponentLoader />
                             </div>
-                        </div>
+                        ) : services.length > 0 ? (
+                            services.map((service) => (
+                                <Link
+                                    key={service.id}
+                                    href={`/services/${service.id}`}
+                                    className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300 h-64"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br from-gig-blue/80 to-blue-900/80 group-hover:from-gig-blue/90 group-hover:to-blue-900/90 transition duration-300"></div>
+                                    <div className="relative h-full flex flex-col items-center justify-center p-6 text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16 mb-4">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 1 1-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 0 1 6.336-4.486l-3.276 3.276a3.004 3.004 0 0 0 2.25 2.25л3.276-3.276c.256.565.398 1.192.398 1.852Z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008Z" />
+                                        </svg>
 
-                        <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300 h-64">
-                            <div className="absolute inset-0 bg-gradient-to-br from-gig-blue/80 to-blue-900/80 group-hover:from-gig-blue/90 group-hover:to-blue-900/90 transition duration-300"></div>
-                            <div className="relative h-full flex flex-col items-center justify-center p-6 text-white">
-                                <svg className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                                <h3 className="text-2xl font-bold text-center">
-                                    {language === "bg" ? "Електро услуги" : "Electrical Services"}
-                                </h3>
+                                        <h3 className="text-2xl font-bold text-center">
+                                            {service.name}
+                                        </h3>
+                                    </div>
+                                </Link>
+                            ))
+                        ) : (
+                            <div className="col-span-3 text-center text-slate-600 dark:text-slate-400">
+                                {language === "bg" ? "Услугите не са намерени" : "No services found"}
                             </div>
-                        </div>
-
-                        <div className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition duration-300 h-64">
-                            <div className="absolute inset-0 bg-gradient-to-br from-gig-blue/80 to-blue-900/80 group-hover:from-gig-blue/90 group-hover:to-blue-900/90 transition duration-300"></div>
-                            <div className="relative h-full flex flex-col items-center justify-center p-6 text-white">
-                                <svg className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                                <h3 className="text-2xl font-bold text-center">
-                                    {language === "bg" ? "Ремонт и строителство" : "Renovation & Construction"}
-                                </h3>
-                            </div>
-                        </div>
+                        )}
                     </div>
 
                     <div className="text-center">
@@ -214,7 +248,7 @@ export default function Home() {
             </section>
 
             {/* Projects Preview Section */}
-            <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <section className="py-20 px-4 bg-white dark:bg-slate-800">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800 dark:text-slate-200">
