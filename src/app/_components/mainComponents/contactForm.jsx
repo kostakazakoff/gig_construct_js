@@ -21,8 +21,24 @@ export default function ContactForm() {
     const [formError, setFormError] = useState(null);
     const formRef = useRef();
 
+    const [formData, setFormData] = useState({
+        gender: '',
+        first_name: '',
+        last_name: '',
+        company: '',
+        email: '',
+        phone: '',
+        message: '',
+        agree: false,
+        language: language,
+    });
+
     useEffect(() => {
         setContactData(contactStaticData[language]);
+        setFormData(prevData => ({
+            ...prevData,
+            language: language
+        }));
     }, [language]);
 
     useEffect(() => {
@@ -42,18 +58,6 @@ export default function ContactForm() {
             setModalIsActive(true);
         }
     }, [formError]);
-
-    const [formData, setFormData] = useState({
-        gender: '',
-        first_name: '',
-        last_name: '',
-        company: '',
-        email: '',
-        phone: '',
-        message: '',
-        agree: false,
-        language: language,
-    });
 
     const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -142,6 +146,7 @@ export default function ContactForm() {
                                 autoComplete="given-name"
                                 title={contactData?.hints?.first_name}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                value={formData.first_name}
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
                             />
@@ -159,6 +164,7 @@ export default function ContactForm() {
                                 autoComplete="family-name"
                                 title={contactData?.hints?.last_name}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                value={formData.last_name}
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
                             />
@@ -176,6 +182,7 @@ export default function ContactForm() {
                                 autoComplete="organization"
                                 title={contactData?.hints?.company}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                value={formData.company}
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -193,6 +200,7 @@ export default function ContactForm() {
                                 autoComplete="email"
                                 title={contactData?.hints?.email}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                                value={formData.email}
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
                             />
@@ -210,6 +218,7 @@ export default function ContactForm() {
                                     type="text"
                                     title={contactData?.hints?.phone}
                                     className="block min-w-0 grow py-2 pr-3 px-3.5 text-base placeholder:text-slate-400 focus:outline-none sm:text-sm/6"
+                                    value={formData.phone}
                                     onChange={handleInputChange}
                                     onInvalid={handleInvalid}
                                 />
@@ -228,7 +237,7 @@ export default function ContactForm() {
                                 rows={4}
                                 title={contactData?.hints?.message}
                                 className="block w-full rounded-md bg-white dark:bg-slate-600 px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-slate-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                                defaultValue={''}
+                                value={formData.message}
                                 onChange={handleInputChange}
                                 onInvalid={handleInvalid}
                             />
@@ -245,6 +254,7 @@ export default function ContactForm() {
                                     type="checkbox"
                                     aria-label="Agree to policies"
                                     className="absolute inset-0 appearance-none focus:outline-hidden"
+                                    checked={formData.agree}
                                     onChange={handleInputChange}
                                     onInvalid={handleInvalid}
                                     title={contactData?.hints?.agree}
