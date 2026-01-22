@@ -30,16 +30,7 @@ export default function ContactForm() {
         phone: '',
         message: '',
         agree: false,
-        language: language,
     });
-
-    useEffect(() => {
-        setContactData(contactStaticData[language]);
-        setFormData(prevData => ({
-            ...prevData,
-            language: language
-        }));
-    }, [language]);
 
     useEffect(() => {
         setTranslated(offerConfirmationStaticData[language]);
