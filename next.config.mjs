@@ -16,7 +16,7 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "gig-construct.s3.eu-central-1.amazonaws.com",
+                hostname: `${process.env.NEXT_PUBLIC_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_S3_REGION}.amazonaws.com`,
                 port: "",
                 pathname: "/**",
             }, 
