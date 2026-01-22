@@ -33,6 +33,7 @@ export default function ContactForm() {
     });
 
     useEffect(() => {
+        setContactData(contactStaticData[language]);
         setTranslated(offerConfirmationStaticData[language]);
     }, [language]);
 
@@ -85,7 +86,6 @@ export default function ContactForm() {
                         phone: '',
                         message: '',
                         agree: false,
-                        language: language,
                     });
                     if (formRef.current) {
                         formRef.current.reset();
