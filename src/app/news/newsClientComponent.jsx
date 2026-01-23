@@ -29,7 +29,7 @@ export default function NewsClientComponent() {
 
     return (
         news ? (
-            <div className="flex flex-col gap-16 py-12 px-6" lang={language.toLowerCase()}>
+            <div className="flex flex-col gap-16 py-12 px-6 w-full" lang={language.toLowerCase()}>
                 {news.map((item) => (
                     <NewsCard key={item.id} newsItem={item} />
                 ))}
