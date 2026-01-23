@@ -29,11 +29,11 @@ export default function AskOfferForm({
 
     useEffect(() => {
         if (formData) {
-            sendMessageToServer(formData);
+            sendInquiry(formData);
         }
     }, [formData]);
 
-    const sendMessageToServer = (data) => {
+    const sendInquiry = (data) => {
         be.post(API_PATH.INQUIRY, data)
             .then(response => {
                 if (response.data.succeed) {
@@ -71,7 +71,6 @@ export default function AskOfferForm({
         phone: "",
         email: "",
         message: "",
-        language: language,
         category: serviceId || "",
     });
 
