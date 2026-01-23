@@ -35,17 +35,17 @@ export default function ProjectsCard({ project, staticData, language }) {
                     </p>
                 </div>
                 <div
-                    className="flex flex-col items-strech md:flex-row md:justify-items-strech md:items-strech gap-8 p-8 transition duration-300 ease-in-outhover:translate-y-1 mt-4"
+                    className="flex flex-col items-strech md:flex-row md:justify-items-strech md:items-strech gap-8 p-4 md:p-8 transition duration-300 ease-in-outhover:translate-y-1 mt-4"
 
                 >
-                    <div className="min-w-0 w-80 md:w-140 xl:w-160 2xl:w-200 h-auto flex flex-col justify-between">
-                        <div className="min-w-0 mb-auto">
-                            <p className="text-3xl lg:text-4xl font-bold uppercase mb-6 text-slate-800 leading-none group-hover:text-gig-blue dark:group-hover:text-blue-400 dark:text-slate-300">
+                    <div className="min-w-0 w-full md:w-140 xl:w-160 2xl:w-200 h-auto flex flex-col justify-between">
+                        <div className="min-w-0 mb-auto w-full">
+                            <p className="hyphens-auto text-xl md:text-3xl lg:text-4xl font-bold uppercase mb-6 text-slate-800 leading-none group-hover:text-gig-blue dark:group-hover:text-blue-400 dark:text-slate-300 break-words">
                                 {project.title}
                             </p>
-                            <hr className="max-md:hidden" />
-                            <div className="mt-4">
-                                <div className="relative overflow-hidden h-48 w-64 rounded-sm shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 group-hover:opacity-75 group-hover:grayscale-80 transition duration-400 ease-in-out:grayscale float-left max-xl:mb-4 md:mr-4">
+                            <hr className="max-lg:hidden" />
+                            <div className="mt-4 flex flex-col lg:flex-row">
+                                <div className="relative overflow-hidden h-48 w-full max-w-xs rounded-sm shrink-0 shadow-md border-8 border-slate-100 dark:border-slate-700 group-hover:opacity-75 group-hover:grayscale-80 transition duration-400 ease-in-out:grayscale float-left max-xl:mb-4 md:mr-4">
                                     {img &&
                                         <Image
                                             width={256}
