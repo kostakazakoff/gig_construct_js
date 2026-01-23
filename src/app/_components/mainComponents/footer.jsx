@@ -9,7 +9,9 @@ import Image from "next/image";
 
 export default function Footer() {
     const { language } = useLanguageContext();
-    const [translatedStaticData, setTranslatedStaticData] = useState(footerStaticData.bg);
+    const [translatedStaticData, setTranslatedStaticData] = useState(() => 
+        Translate({ data: footerStaticData, language })
+    );
 
     useEffect(() => {
         const translated = Translate({ data: footerStaticData, language });
@@ -17,7 +19,7 @@ export default function Footer() {
     }, [language]);
 
     return (
-        <footer className="bg-gray-200/80 dark:bg-slate-900/90 backdrop-blur-md text-slate-700 dark:text-white py-4 mt-8 fixed bottom-0 w-full text-sm z-10">
+        <footer className="bg-gray-200/80 dark:bg-slate-900/90 backdrop-blur-md text-slate-700 dark:text-white py-4 pt-8 w-full text-sm z-10">
             <div className="container mx-auto text-center flex justify-center items-center gap-2 flex-wrap sm:divide-x-3 divide-2xl divide-slate-500">
                 <div className="pr-2">
                     &copy; {new Date().getFullYear()} GIG Construct. {translatedStaticData.rightsReserved}
