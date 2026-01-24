@@ -45,7 +45,7 @@ export default function AboutComponent() {
 
             <div className="w-screen bg-slate-300 dark:bg-slate-800 mt-12 border-t-1 pb-4">
                 <div className="flex flex-col items-center justify-start py-12 px-4 max-w-5xl mx-auto">
-                    <h2 className="text-2xl font-bold uppercase mb-12">{aboutText.partnersTitle}</h2>
+                    <h2 className="text-2xl font-bold uppercase mb-12 text-center">{aboutText.partnersTitle}</h2>
                     <div className="flex flex-wrap justify-center gap-8">
                         {clients && clients.map((client) => (
                             <PartnerBadge key={client.id} {...client} />
