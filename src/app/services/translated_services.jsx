@@ -59,13 +59,13 @@ export default function TranslatedServices() {
 
     return (
         <>
-            <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8 py-8">
-                <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 w-full">
-                    {translation.map((category) => (
-                        <ServiceCard key={category.id} service={category} language={language} />
-                    ))}
-                </section>
-            </div>
+            {/* <div className="flex flex-col xl:grid-cols-3 lg:grid-cols-2 gap-8 py-8"> */}
+            <section role="list" className="flex flex-col md:grid xl:grid-cols-3 lg:grid-cols-2 gap-8 w-full px-8 py-8">
+                {translation.map((category) => (
+                    <ServiceCard key={category.id} service={category} language={language} />
+                ))}
+            </section>
+            {/* </div> */}
             <Modal active={modalIsActive} setActive={setModalIsActive}>
                 <ErrorMessage formError={formError} closeWrapper={() => setModalIsActive(false)} />
             </Modal>
