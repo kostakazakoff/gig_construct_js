@@ -22,7 +22,7 @@ export default function NewsCard({ newsItem }) {
                 <p className="text-slate-600 dark:text-slate-400 sm:whitespace-nowrap bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-bl-xl shadow-md/20">
                     {formatDate(newsItem.created_at)}
                 </p>
-                <div className="absolute -z-20 w-full h-1 bg-slate-100 dark:bg-slate-700 shadow-md/20 w-full min-sm:hidden" />
+                <div className="absolute -z-20 w-full h-1 bg-slate-100 dark:bg-slate-700 shadow-md/20 w-full max-sm:hidden" />
             </section>
             <section className="bg-slate-100 dark:bg-slate-700 p-4 sm:p-8 md:p-12 flex flex-col sm:flex-row">
                 <div className="relative mb-2 overflow-hidden h-48 w-full max-w-xs sm:w-64 rounded-sm shrink-0 shadow-md border-2 float-left mr-4 border-slate-400">
