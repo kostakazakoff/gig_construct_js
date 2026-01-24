@@ -23,7 +23,7 @@ export default function ServiceCard({ service, language }) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="w-full h-full object-cover"
                     />
-                    <h2 className="absolute w-full h-82 p-6 flex justify-center items-center font-bold text-xl -top-1/2 group-hover:top-1/2 left-1/2 -translate-1/2 transition-translate duration-400">
+                    <h2 className="absolute w-full h-82 p-6 flex justify-center items-center font-bold text-base -top-3/4 group-hover:top-1/2 left-1/2 -translate-1/2 transition-translate duration-400">
                         {service.description}
                     </h2>
                 </div>
