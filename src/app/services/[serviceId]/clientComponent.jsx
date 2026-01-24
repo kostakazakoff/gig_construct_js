@@ -108,7 +108,7 @@ export default function ServiceDetailsComponent({ initialServicesData, serviceId
                         ))}
                     </section>
 
-                    <section className="w-96 xl:w-128 mt-12 py-4 px-8 bg-slate-300 dark:bg-slate-800/80 dark:backdrop-blur-md sticky bottom-24 sm:bottom-16 left-1/2 text-center rounded-sm shadow-lg/20 z-5 lg:-translate-x-1/2">
+                    <section className="w-96 xl:w-128 mt-12 py-4 px-8 bg-slate-300 dark:bg-slate-800/80 dark:backdrop-blur-md text-center rounded-sm shadow-lg/20 z-50 mx-auto">
                         <p className="text-xs text-slate-700 dark:text-slate-300">{translatedStaticData.legend}</p>
                     </section>
                 </div>
