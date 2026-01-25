@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
                         <header>
                             <Navbar />
                         </header>
-                        <main className="isolate min-h-screen bg-slate-200 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-sm sm:text-base flex items-start justify-center py-16 lg:py-20">
+                        <main className="isolate min-h-screen bg-slate-200 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-sm sm:text-base flex justify-center py-16 lg:py-20">
 
                             <div
                                 aria-hidden="true"

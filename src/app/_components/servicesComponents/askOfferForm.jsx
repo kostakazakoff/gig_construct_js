@@ -101,7 +101,7 @@ export default function AskOfferForm({
 
     return (
         <section ref={sectionRef} className={`transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
-            <div className="w-full max-w-sm sm:max-w-md lg:max-w-2xl xl:max-w-3xl p-3 sm:p-4 lg:p-6 text-slate-700 dark:text-slate-300">
+            <div className="w-full xl:max-w-3xl p-3 sm:p-4 lg:p-6 text-slate-700 dark:text-slate-300">
                 <div className="flex items-center mb-4 sm:mb-6 lg:mb-8 space-x-3 sm:space-x-6 border-b border-slate-900 dark:border-slate-200 py-3 sm:py-4">
                     <EnvelopeOpenIcon className="h-6 w-6 sm:h-8 sm:w-8 flex-shrink-0" />
                     <h2 className="text-xs sm:text-xl lg:text-2xl font-bold uppercase">{translated.title}</h2>

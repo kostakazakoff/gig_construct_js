@@ -72,7 +72,7 @@ export default function Navbar() {
     return (
         <Disclosure
             as="nav"
-            className="fixed top-0 right-0 left-0 bg-gig-blue dark:bg-slate-900/90 text-slate-300 text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl uppercase font-bold after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 z-50 dark:backdrop-blur-md lg:text-base border-b-1 border-slate-200"
+            className="fixed top-0 right-0 w-full bg-gig-blue dark:bg-slate-900/90 text-slate-300 text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl uppercase font-bold after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 z-50 dark:backdrop-blur-md lg:text-base border-b-1 border-slate-200"
         >
             <div className="mx-auto max-w-7xl px-2 sm:px-3 lg:px-8">
                 <div className="relative flex h-16 lg:h-20 items-center justify-between">
@@ -85,7 +85,7 @@ export default function Navbar() {
                             <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
                         </DisclosureButton>
                     </div>
-                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div className="flex flex-1 items-center justify-center items-stretch sm:justify-start">
                         <Link className="flex shrink-0 items-center relative" href="/">
                             <Image
                                 width={34}
