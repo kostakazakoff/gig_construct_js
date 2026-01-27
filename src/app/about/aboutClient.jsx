@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { aboutStaticData } from "../_lib/static_data.js"
 import useLanguageContext from "../_hooks/useLanguageContext.jsx"
-import { partners } from "../_mock_data/partners.js";
 import PartnerBadge from "@/app/_components/partnerBadge.jsx";
 import Translate from "../_utils/Translator.js";
 import be from "../_utils/Api.js";
